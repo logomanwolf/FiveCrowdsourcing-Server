@@ -7,6 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.entity.Merchant;
+import com.utils.JsonTools;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -35,6 +41,8 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setCharacterEncoding("UTF-8");
+		Merchant merchant=new Merchant();
 		String phone=request.getParameter("phone");
 		String password=request.getParameter("password");
 		System.out.println(phone+" "+password);
@@ -44,7 +52,24 @@ public class LoginServlet extends HttpServlet {
 			result="success";
 		else
 			result="false";
-		response.getWriter().append(result);
+		//封装merchant
+		merchant.setName("张哲铖");
+		merchant.setPhone("15957196907");
+		//数据转换
+		JSONObject jsonObject = new JSONObject(merchant);
+		jsonObject.put("result", result);
+		System.out.println(jsonObject);
+		
+//		jsonObject
+//		String jsonString=null;  
+//        try {
+//			jsonString = JsonTools.createJsonString("merchant",merchant);
+//			System.out.println(jsonString);
+//		} catch (JSONException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		response.getWriter().append(jsonObject.toString());
 	}
 
 }
