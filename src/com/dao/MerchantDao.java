@@ -2,54 +2,58 @@ package com.dao;
 
 import java.sql.*;
 import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.json.JSONObject;
-
 import com.dao.BaseDao;
 import com.entity.Merchant;
+import com.mysql.jdbc.Statement;
 
 
 public class MerchantDao extends BaseDao{
 	BaseDao basedao = new BaseDao();
 	
-	public String Login(String phone, String password,HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public Merchant Login(String phone, String password) throws Exception {
 		String sql = "select password from merchant where phone = '"+phone+"'";
 		Merchant merchant = null;
 		String message;
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			List list = basedao.query(sql); // 数据库查询操作
-			String result="";
+			List list = query(sql); // 数据库查询操作
 			if (list.size()>0) {
 				merchant = (Merchant)(list.get(0));
 				if (merchant.getPassword().equals(password)) {
-					result="success";
 					message = "登陆成功";
 					System.out.println(message);
-					JSONObject jsonObject = new JSONObject(merchant);
-					jsonObject.put("result", result);
-					response.getWriter().append(jsonObject.toString());
-					return result;
+					return merchant;
 				} else {
-					result="false";
 					message = "登录失败，登录密码错误";
 					System.out.println(message);
-					return result;
+					return null;
 				}
 			} else {
-				result = "false";
 				message = "该登陆账号未注册";
 				System.out.println(message);
-				return result;
+				return null;
 			}
 		} catch (SQLException e) {
 			message = "数据库查询错误";
 			System.out.println(message);
 			e.printStackTrace();
 		}
-		return "false";
+		return null;
 	}
+
+	//查询
+		@SuppressWarnings("rawtypes")
+		public List query(String querySql) throws Exception {
+			Statement stateMent = (Statement)getConnection().createStatement();
+			return (List) stateMent.executeQuery(querySql);
+		}
+		
+		//更新
+		public int update(String insertSql) throws Exception {
+			Statement stateMent = (Statement) getConnection().createStatement();
+			return stateMent.executeUpdate(insertSql);
+		}
 
 }

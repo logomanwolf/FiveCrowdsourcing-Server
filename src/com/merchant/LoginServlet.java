@@ -48,10 +48,14 @@ public class LoginServlet extends HttpServlet {
 		String phone=request.getParameter("phone");
 		String password=request.getParameter("password");
 		System.out.println(phone+" "+password);
-		String result=null;
-		
+		String result = "false";
 		try {
-			result = merchantDao.Login(phone, password, request, response);
+			merchant = merchantDao.Login(phone, password);
+			if(merchant!=null)
+				result = "true";
+			JSONObject jsonObject = new JSONObject(merchant);
+			jsonObject.put("result", result);
+			response.getWriter().append(jsonObject.toString());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

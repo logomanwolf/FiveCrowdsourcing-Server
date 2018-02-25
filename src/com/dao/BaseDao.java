@@ -25,18 +25,4 @@ public class BaseDao {
 	public Connection getConnection() throws Exception {
 		return dataSource.getConnection();
 	}
-	
-	//²éÑ¯
-	@SuppressWarnings("rawtypes")
-	public List query(String querySql) throws Exception {
-		Statement stateMent = (Statement)getConnection().createStatement();
-		return (List) stateMent.executeQuery(querySql);
-	}
-	
-	//¸üÐÂ
-	public int update(String insertSql) throws Exception {
-		Statement stateMent = (Statement) getConnection().createStatement();
-		return stateMent.executeUpdate(insertSql);
-	}
-
 }
