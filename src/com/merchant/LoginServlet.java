@@ -1,18 +1,16 @@
 package com.merchant;
 
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
-import org.json.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.json.JSONObject;
 
 import com.dao.MerchantDao;
 import com.entity.Merchant;
-import com.utils.JsonTools;
 
 /**
  * Servlet implementation class LoginServlet
@@ -20,51 +18,51 @@ import com.utils.JsonTools;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public LoginServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		MerchantDao merchantDao = new MerchantDao();
 		response.setCharacterEncoding("UTF-8");
-		Merchant merchant=new Merchant();
-		String phone=request.getParameter("phone");
-		String password=request.getParameter("password");
-		System.out.println(phone+" "+password);
-		String result=null;
-		
-		try {
-			result = merchantDao.Login(phone, password, request, response);
-		} catch (Exception e) {
-			e.printStackTrace();
+		JSONObject jsonObject = null;
+		String phone = request.getParameter("phone");
+		String password = request.getParameter("password");
+		System.out.println(phone + " " + password);
+		String result = null;
+		MerchantDao merchantDao = new MerchantDao();
+		Merchant merchant = merchantDao.checkMerchant(phone, password);
+		// 判断密码是否正确
+		if (merchant != null) {
+			result = "success";
+			// 数据转换
+			jsonObject = new JSONObject(merchant);
+			jsonObject.put("result", result);
+			System.out.println(jsonObject);
 		}
-		//System.out.println(jsonObject);
-		
-//		jsonObject
-//		String jsonString=null;  
-//        try {
-//			jsonString = JsonTools.createJsonString("merchant",merchant);
-//			System.out.println(jsonString);
-//		} catch (JSONException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		else
+			result = "false";
+		response.getWriter().append(jsonObject.toString());
 	}
+
 }

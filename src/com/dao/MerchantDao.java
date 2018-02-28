@@ -12,44 +12,36 @@ import com.dao.BaseDao;
 import com.entity.Merchant;
 
 
+
 public class MerchantDao extends BaseDao{
-	BaseDao basedao = new BaseDao();
-	
-	public String Login(String phone, String password,HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String sql = "select password from merchant where phone = '"+phone+"'";
-		Merchant merchant = null;
-		String message;
-		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			List list = basedao.query(sql); // Êý¾Ý¿â²éÑ¯²Ù×÷
-			String result="";
-			if (list.size()>0) {
-				merchant = (Merchant)(list.get(0));
-				if (merchant.getPassword().equals(password)) {
-					result="success";
-					message = "µÇÂ½³É¹¦";
-					System.out.println(message);
-					JSONObject jsonObject = new JSONObject(merchant);
-					jsonObject.put("result", result);
-					response.getWriter().append(jsonObject.toString());
-					return result;
-				} else {
-					result="false";
-					message = "µÇÂ¼Ê§°Ü£¬µÇÂ¼ÃÜÂë´íÎó";
-					System.out.println(message);
-					return result;
+	   // ¼ì²éÉÌ»§ÃÜÂë
+		public Merchant checkMerchant(String phone, String password) {
+			String sql = "SELECT * FROM fivecrowdsourcing.merchant where phone=? AND password=?;";
+			Merchant merchant = null;
+			try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+				pstmt.setString(1, phone);
+				pstmt.setString(2, password);
+				ResultSet rs = pstmt.executeQuery();
+				while (rs.next()) {	
+					merchant=new Merchant();
+					merchant.setMerchantid(rs.getLong("merchantId"));
+					merchant.setTofgid(rs.getLong("tofgId"));
+					merchant.setName(rs.getString("name"));
+					merchant.setIdcardnumber(rs.getString("idCardNumber"));
+					merchant.setAddress(rs.getString("address"));
+					merchant.setPhone(rs.getString("phone"));
+					merchant.setStorename(rs.getString("storeName"));
+					merchant.setPassword(rs.getString("password"));
+					merchant.setBuslicensephoto(rs.getString("busLicensePhoto"));
+					merchant.setFoodbuslicensephoto(rs.getString("foodBusLicensePhoto"));
+					merchant.setIdcardphoto(rs.getString("idCardPhoto"));
+					merchant.setMargin(rs.getLong("margin"));					
 				}
-			} else {
-				result = "false";
-				message = "¸ÃµÇÂ½ÕËºÅÎ´×¢²á";
-				System.out.println(message);
-				return result;
+				return merchant;
+			} catch (SQLException se) {
+				se.printStackTrace();
+				return merchant;
 			}
-		} catch (SQLException e) {
-			message = "Êý¾Ý¿â²éÑ¯´íÎó";
-			System.out.println(message);
-			e.printStackTrace();
 		}
-		return "false";
-	}
 
 }
