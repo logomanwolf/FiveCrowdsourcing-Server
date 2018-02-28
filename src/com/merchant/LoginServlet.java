@@ -45,6 +45,7 @@ public class LoginServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setCharacterEncoding("UTF-8");
+
 		JSONObject jsonObject = null;
 		String phone = request.getParameter("phone");
 		String password = request.getParameter("password");
@@ -59,8 +60,7 @@ public class LoginServlet extends HttpServlet {
 			jsonObject = new JSONObject(merchant);
 			jsonObject.put("result", result);
 			System.out.println(jsonObject);
-		}
-		else
+		} else
 			result = "false";
 		response.getWriter().append(jsonObject.toString());
 	}
