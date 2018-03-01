@@ -6,7 +6,7 @@ import com.entity.Merchant;
 public interface IMerchantDao {
     public int addMerchant(Merchant merchant);
     public List<Merchant> findMerchants();
-    public List<Merchant> findMerchants(String name);
+    public Merchant findMerchantById(String merchantId);
     public List<Merchant> findMerchantsByDept(String dept);
     public List<Merchant> findMerchantsByRole(String role);
     public int delMerchantById(int id);

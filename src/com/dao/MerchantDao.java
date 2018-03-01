@@ -2,7 +2,10 @@ package com.dao;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -98,9 +101,31 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 	 * @see com.dao.IMerchantDao#findMerchants(java.lang.String)
 	 */
 	@Override
-	public List<Merchant> findMerchants(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public Merchant findMerchantById(String merchantId) {
+		Merchant merchant = new Merchant();
+		String query = "select * from merchant where merchantId=?";
+		ArrayList<String> params = new ArrayList<>();
+		params.add(merchantId);
+		ResultSet rs = this.executeQuery(query, params);
+		try {
+			while (rs.next()) {
+				Long merchantid = (long) rs.getInt("merchantId");
+				String account = rs.getString("idCardNumber");
+				String pwd = rs.getString("password");
+				String name = rs.getString("name");
+				Long margin = (long) rs.getInt("margin");
+				String address = rs.getString("address");	
+				merchant.setIdcardnumber(account);
+				merchant.setMerchantid(merchantid);
+				merchant.setName(name);
+				merchant.setMargin(margin);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+		return merchant;
 	}
 
 	/*

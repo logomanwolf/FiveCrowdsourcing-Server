@@ -36,7 +36,7 @@ public class BaseDao {
 	}
 
 	// 以下是为了商户审查增加的方法
-	public java.sql.ResultSet executeQuery(String query, List<Object> params) {
+	public java.sql.ResultSet executeQuery(String query, List<String> params) {
 		
 		try {
 			getConnection();
@@ -45,7 +45,7 @@ public class BaseDao {
 			// 4、执行
 			if (params != null && params.size() > 0) {
 				for (int i = 0; i < params.size(); i++) {
-					pstmt.setObject(i + 1, params.get(i));
+					pstmt.setString(i + 1, params.get(i));
 				}
 			}
 			rs = pstmt.executeQuery();
@@ -56,7 +56,7 @@ public class BaseDao {
 	}
 
 	// 执行写操作方法
-	public int executeUpdate(String query, List<Object> params) {
+	public int executeUpdate(String query, List<String> params) {
 		int result = 0;
 		
 		try {
@@ -66,7 +66,7 @@ public class BaseDao {
 			// 4、执行
 			if (params != null && params.size() > 0) {
 				for (int i = 0; i < params.size(); i++) {
-					pstmt.setObject(i + 1, params.get(i));
+					pstmt.setString(i + 1, params.get(i));
 				}
 			}
 			// 5、处理结果

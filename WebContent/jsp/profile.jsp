@@ -1008,10 +1008,7 @@
 						<div class="page-header">
 							<h1>
 								User Profile Page
-								<small>
-									<i class="ace-icon fa fa-angle-double-right"></i>
-									3 styles with inline editable feature
-								</small>
+								
 							</h1>
 						</div><!-- /.page-header -->
 
@@ -1033,13 +1030,13 @@
 
 										<div class="btn-toolbar inline middle no-margin">
 											<div data-toggle="buttons" class="btn-group no-margin">
-												<label class="btn btn-sm btn-yellow active">
+												<label class="btn btn-sm btn-yellow">
 													<span class="bigger-110">1</span>
 
 													<input type="radio" value="1" />
 												</label>
 
-												<label class="btn btn-sm btn-yellow">
+												<label class="btn btn-sm btn-yellow active">
 													<span class="bigger-110">2</span>
 
 													<input type="radio" value="2" />
@@ -1057,7 +1054,7 @@
 
 								<div class="hr dotted"></div>
 
-								<div>
+								<div class="hide">
 									<div id="user-profile-1" class="user-profile row">
 										<div class="col-xs-12 col-sm-3 center">
 											<div>
@@ -1552,7 +1549,7 @@
 									</div>
 								</div>
 
-								<div class="hide">
+								<div>
 									<div id="user-profile-2" class="user-profile">
 										<div class="tabbable">
 											<ul class="nav nav-tabs padding-18">
@@ -1588,10 +1585,10 @@
 											<div class="tab-content no-border padding-24">
 												<div id="home" class="tab-pane in active">
 													<div class="row">
-														<div cla  ss="col-xs-12 col-sm-3 center">
-															<span class="profile-picture" >
-																<img class="editable img-responsive" alt="Alex's Avatar"  id="avatar2" src="../idCardPic/1.jpg" />
-															</span>
+														<div class="col-xs-12 col-sm-6 center">
+															<div class="profile-picture" >
+																<img class="editable img-responsive" alt="Alex's Avatar" width="500px" id="avatar2" src="../idCardPic/1.jpg" />
+															</div>
 
 															<div class="space space-4"></div>
 
@@ -1606,9 +1603,9 @@
 															</a>
 														</div><!-- /.col -->
 
-														<div class="col-xs-12 col-sm-9">
+														<div class="col-xs-12 col-sm-6">
 															<h4 class="blue">
-																<span class="middle">Alex M. Doe</span>
+																<span class="middle"> ${merchant.merchantid} </span>
 
 																<span class="label label-purple arrowed-in-right">
 																	<i class="ace-icon fa fa-circle smaller-80 align-middle"></i>
@@ -1618,20 +1615,18 @@
 
 															<div class="profile-user-info">
 																<div class="profile-info-row">
-																	<div class="profile-info-name"> Username </div>
+																	<div class="profile-info-name"> 商户姓名 </div>
 
 																	<div class="profile-info-value">
-																		<span>alexdoe</span>
+																		<span>${merchant.name}</span>
 																	</div>
 																</div>
 
 																<div class="profile-info-row">
-																	<div class="profile-info-name"> Location </div>
+																	<div class="profile-info-name"> 身份证号码 </div>
 
 																	<div class="profile-info-value">
-																		<i class="fa fa-map-marker light-orange bigger-110"></i>
-																		<span>Netherlands</span>
-																		<span>Amsterdam</span>
+																		<span>${merchant.name}</span>
 																	</div>
 																</div>
 
