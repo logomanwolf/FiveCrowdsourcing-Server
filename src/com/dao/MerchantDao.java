@@ -14,6 +14,7 @@ import org.json.JSONObject;
 
 import com.dao.*;
 import com.entity.Merchant;
+import com.entity.Typeofgoods;
 import com.mysql.jdbc.Statement;
 
 public class MerchantDao extends BaseDao implements IMerchantDao {
@@ -74,17 +75,22 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 		ResultSet rs = this.executeQuery(query, null);
 		try {
 			while (rs.next()) {
-				Long merchantid = (long) rs.getInt("merchantId");
-				String account = rs.getString("idCardNumber");
-				String pwd = rs.getString("password");
-				String name = rs.getString("name");
-				Long margin = (long) rs.getInt("margin");
-				String address = rs.getString("address");
+
 				Merchant merchant = new Merchant();
-				merchant.setIdcardnumber(account);
-				merchant.setMerchantid(merchantid);
-				merchant.setName(name);
-				merchant.setMargin(margin);
+				merchant = new Merchant();
+				merchant.setMerchantid(rs.getLong("merchantId"));
+				merchant.setTofgid(rs.getLong("tofgId"));
+				merchant.setName(rs.getString("name"));
+				merchant.setIdcardnumber(rs.getString("idCardNumber"));
+				merchant.setAddress(rs.getString("address"));
+				merchant.setPhone(rs.getString("phone"));
+				merchant.setStorename(rs.getString("storeName"));
+				merchant.setPassword(rs.getString("password"));
+				merchant.setBuslicensephoto(rs.getString("busLicensePhoto"));
+				merchant.setFoodbuslicensephoto(rs
+						.getString("foodBusLicensePhoto"));
+				merchant.setIdcardphoto(rs.getString("idCardPhoto"));
+				merchant.setMargin(rs.getLong("margin"));
 				result.add(merchant);
 			}
 		} catch (SQLException e) {
@@ -109,16 +115,19 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 		ResultSet rs = this.executeQuery(query, params);
 		try {
 			while (rs.next()) {
-				Long merchantid = (long) rs.getInt("merchantId");
-				String account = rs.getString("idCardNumber");
-				String pwd = rs.getString("password");
-				String name = rs.getString("name");
-				Long margin = (long) rs.getInt("margin");
-				String address = rs.getString("address");	
-				merchant.setIdcardnumber(account);
-				merchant.setMerchantid(merchantid);
-				merchant.setName(name);
-				merchant.setMargin(margin);
+				merchant = new Merchant();
+				merchant.setMerchantid(rs.getLong("merchantId"));
+				merchant.setTofgid(rs.getLong("tofgId"));
+				merchant.setName(rs.getString("name"));
+				merchant.setIdcardnumber(rs.getString("idCardNumber"));
+				merchant.setAddress(rs.getString("address"));
+				merchant.setPhone(rs.getString("phone"));
+				merchant.setStorename(rs.getString("storeName"));
+				merchant.setPassword(rs.getString("password"));
+				merchant.setBuslicensephoto(rs.getString("busLicensePhoto"));
+				merchant.setFoodbuslicensephoto(rs.getString("foodBusLicensePhoto"));
+				merchant.setIdcardphoto(rs.getString("idCardPhoto"));
+				merchant.setMargin(rs.getLong("margin"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -181,5 +190,29 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 	public boolean checkMerchant(String name) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public Typeofgoods findTypeOfGoodsNameById(Long tofgId) {
+		// TODO Auto-generated method stub
+		Typeofgoods typeofgoods = new Typeofgoods();
+		String query = "select * from typeofgoods where tofgId=?";
+		ArrayList<String> params = new ArrayList<>();
+		params.add(tofgId.toString());
+		ResultSet rs = this.executeQuery(query, params);
+		try {
+			while (rs.next()) {
+				String name = rs.getString("name");
+				Long delMethodId = (long) rs.getInt("delMethodId");
+				typeofgoods.setTofgid(tofgId);
+				typeofgoods.setName(name);
+				typeofgoods.setDelmethodid(delMethodId);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+		return typeofgoods;
 	}
 }
