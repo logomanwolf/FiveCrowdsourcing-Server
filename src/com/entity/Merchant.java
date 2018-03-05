@@ -13,6 +13,8 @@ public class Merchant {
   private String buslicensephoto;//工商营业执照存储地址
   private String foodbuslicensephoto;//食品经营许可证存储地址
   private Long margin;//保证金提交状态：1：提交；2：未提交
+  private double longitude;//经度
+  private double latitude;//纬度
 
   public Long getMerchantid() {
     return merchantid;
