@@ -1288,9 +1288,9 @@
 																<div class="profile-info-name">配送物件种类</div>
 																<%
 																	MerchantDao merchantDao = new MerchantDao();
-																																																																																							Merchant merchant = (Merchant) session.getAttribute("merchant");
-																																																																																							String typeOfGoodsName = merchantDao.findTypeOfGoodsNameById(
-																																																																																									merchant.getTofgid()).getName();
+																	Merchant merchant = (Merchant) session.getAttribute("merchant");
+																	String typeOfGoodsName = merchantDao.findTypeOfGoodsNameById(
+																    merchant.getTofgid()).getName();
 																%>
 																<div class="profile-info-value">
 																	<span><%=typeOfGoodsName%></span>
