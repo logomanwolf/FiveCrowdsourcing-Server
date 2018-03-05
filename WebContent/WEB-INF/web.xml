@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.0"
-    xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
   <servlet>
     <description>This is the description of my J2EE component</description>
     <display-name>This is the display name of my J2EE component</display-name>
@@ -15,8 +12,6 @@
     <servlet-name>insertIntoValidatedList</servlet-name>
     <servlet-class>com.validate.insertIntoValidatedList</servlet-class>
   </servlet>
-
-
   <servlet-mapping>
     <servlet-name>validateAMerchantServlet</servlet-name>
     <url-pattern>/merchant_profile.do</url-pattern>
@@ -25,15 +20,14 @@
     <servlet-name>insertIntoValidatedList</servlet-name>
     <url-pattern>/addvalidated.do</url-pattern>
   </servlet-mapping>
-<resource-env-ref>
-  <description>DataSource
+  <resource-env-ref>
+    <description>DataSource
   </description>
-  <resource-env-ref-name>
+    <resource-env-ref-name>
     jdbc/jdbc/fivecrowdsourcing
   </resource-env-ref-name>
-  <resource-env-ref-type>
+    <resource-env-ref-type>
     javax.sql.DataSource
   </resource-env-ref-type>
-</resource-env-ref>
-
+  </resource-env-ref>
 </web-app>
