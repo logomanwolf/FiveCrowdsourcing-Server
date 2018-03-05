@@ -334,7 +334,7 @@
 
 			<div class="sidebar-shortcuts" id="sidebar-shortcuts">
 				<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-					<button class="btn btn-success">
+					<button class="btn btn-success" onclick="window.location='#'">
 						<i class="ace-icon fa fa-signal"></i>
 					</button>
 
@@ -1227,24 +1227,23 @@
 
 														<div class="space space-4"></div>
 														<%
-															Merchant merchant = (Merchant)session.getAttribute("Merchant");
+															Merchant merchant = (Merchant)session.getAttribute("merchant");
 															if(session.getAttribute("validatedMerchants")!=null){
 															ArrayList<Merchant> validatedMerchants=(ArrayList<Merchant>)session.getAttribute("validatedMerchants");
 															if(validatedMerchants.contains(merchant)){
 														%>
-														<a href="#" class="btn btn-sm btn-block btn-success">
-															<i class="ace-icon fa fa-plus-circle bigger-120"></i><span
-															class="bigger-110">重新审核</span> <%
- 	}
- %>
+														<a href="#" class="btn btn-sm btn-block btn-fail">
+															<i class="ace-icon fa fa-cross-circle bigger-120"></i><span
+															class="bigger-110">重新审核</span> 
 
-														</a> <a href="/FiveCrowdsourcing-Server/addValidated.do"
+														</a> <%}else{%>
+														<a href="/FiveCrowdsourcing-Server/addValidated.do"
 															class="btn btn-sm btn-block btn-success"> <i
 															class="ace-icon fa fa-plus-circle bigger-120"></i><span
 															class="bigger-110">审核通过</span>
 														</a>
 														<%
-															}else{
+															}}else{
 														%>
 
 														<a href="/FiveCrowdsourcing-Server/addValidated.do"
@@ -1288,9 +1287,8 @@
 																<div class="profile-info-name">配送物件种类</div>
 																<%
 																	MerchantDao merchantDao = new MerchantDao();
-																																																																																							Merchant merchant = (Merchant) session.getAttribute("merchant");
-																																																																																							String typeOfGoodsName = merchantDao.findTypeOfGoodsNameById(
-																																																																																									merchant.getTofgid()).getName();
+																	String typeOfGoodsName=merchantDao.findTypeOfGoodsNameById(merchant.getTofgid()).getName();																																																																						
+																																																																																							
 																%>
 																<div class="profile-info-value">
 																	<span><%=typeOfGoodsName%></span>

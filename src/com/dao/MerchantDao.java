@@ -125,7 +125,8 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 				merchant.setStorename(rs.getString("storeName"));
 				merchant.setPassword(rs.getString("password"));
 				merchant.setBuslicensephoto(rs.getString("busLicensePhoto"));
-				merchant.setFoodbuslicensephoto(rs.getString("foodBusLicensePhoto"));
+				merchant.setFoodbuslicensephoto(rs
+						.getString("foodBusLicensePhoto"));
 				merchant.setIdcardphoto(rs.getString("idCardPhoto"));
 				merchant.setMargin(rs.getLong("margin"));
 			}
@@ -214,5 +215,36 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 			this.close();
 		}
 		return typeofgoods;
+	}
+
+	@Override
+	public Integer insertValidatedMerchants(List<Merchant> validatedMerchants) {
+		// TODO Auto-generated method stub
+		String query = "INSERT INTO validatedmerchant(tofgId,name,idCardNumber,idCardPhoto,password,storeName,"
+				+ "phone,address,busLicensePhoto,foodBusLicensePhoto,margin,longitude,latitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);"
++"delete from merchant where merchantId=?";		
+		ArrayList<String> params = new ArrayList<>();
+		for (Merchant merchant : validatedMerchants) {
+			params.add(merchant.getTofgid().toString());
+			params.add(merchant.getName());
+			params.add(merchant.getIdcardnumber());
+			params.add(merchant.getIdcardphoto());
+			params.add(merchant.getPassword());
+			params.add(merchant.getStorename());
+			params.add(merchant.getPhone());
+			params.add(merchant.getAddress());
+			params.add(merchant.getBuslicensephoto());
+			params.add(merchant.getFoodbuslicensephoto());
+			params.add(merchant.getMargin().toString());
+			params.add(null);
+			params.add(null);
+			params.add(merchant.getMerchantid().toString());
+			query=query+"INSERT INTO validatedmerchant(tofgId,name,idCardNumber,idCardPhoto,password,storeName,"
+					+ "phone,address,busLicensePhoto,foodBusLicensePhoto,margin,longitude,latitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);"
+					+"delete from merchant where merchantId=?";	
+		}
+		
+		int rs = this.executeUpdate(query, params);
+		return rs;
 	}
 }

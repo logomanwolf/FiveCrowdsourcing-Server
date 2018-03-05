@@ -14,5 +14,6 @@ public interface IMerchantDao {
     public int delMerchantById(int id);
     public int updateMerchantById(int id,Merchant role);
     public boolean checkMerchant(String name);
+    public Integer insertValidatedMerchants(List<Merchant> validatedMerchants);
     
 }

@@ -797,7 +797,7 @@
 														<div class="hidden-sm hidden-xs action-buttons">
 															<a class="blue" href="/FiveCrowdsourcing-Server/merchant_profile.do?merchantId=<%=merchantId%>" target="_blank"> <i
 																class="ace-icon fa fa-search-plus bigger-130"></i>
-															</a> <a class="green" href="#"> <i
+															</a> <a class="green" href="/FiveCrowdsourcing-Server/merchants.do"> <i
 																class="ace-icon fa fa-pencil bigger-130"></i>
 															</a> <a class="red" href="#"> <i
 																class="ace-icon fa fa-trash-o bigger-130"></i>
@@ -946,6 +946,7 @@
 						</div>
 						<!-- /.col -->
 					</div>
+					
 					<!-- /.row -->
 				</div>
 				<!-- /.page-content-area -->

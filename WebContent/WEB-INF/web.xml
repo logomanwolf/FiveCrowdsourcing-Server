@@ -15,6 +15,20 @@
     <servlet-name>insertIntoValidatedList</servlet-name>
     <servlet-class>com.validate.insertIntoValidatedList</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>WeatherServlet</servlet-name>
+    <servlet-class>com.calculate.WeatherServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>insertValidatedMerchants</servlet-name>
+    <servlet-class>com.validate.insertValidatedMerchants</servlet-class>
+  </servlet>
+
+
 
 
   <servlet-mapping>
@@ -23,7 +37,15 @@
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>insertIntoValidatedList</servlet-name>
-    <url-pattern>/addvalidated.do</url-pattern>
+    <url-pattern>/addValidated.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>WeatherServlet</servlet-name>
+    <url-pattern>/weather.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>insertValidatedMerchants</servlet-name>
+    <url-pattern>/merchants.do</url-pattern>
   </servlet-mapping>
 <resource-env-ref>
   <description>DataSource
