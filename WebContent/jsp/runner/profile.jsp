@@ -1227,10 +1227,10 @@
 
 														<div class="space space-4"></div>
 														<%
-															Merchant merchant = (Merchant)session.getAttribute("merchant");
-															if(session.getAttribute("validatedMerchants")!=null){
-															ArrayList<Merchant> validatedMerchants=(ArrayList<Merchant>)session.getAttribute("validatedMerchants");
-															if(validatedMerchants.contains(merchant)){
+															Runner runner = (Runner)session.getAttribute("runner");
+															if(session.getAttribute("validatedRunners")!=null){
+															ArrayList<Runner> validatedRunners=(ArrayList<Runner>)session.getAttribute("validatedRunners");
+															if(validatedRunners.contains(runner)){
 														%>
 														<a href="#" class="btn btn-sm btn-block btn-fail">
 															<i class="ace-icon fa fa-cross-circle bigger-120"></i><span
@@ -1259,7 +1259,7 @@
 
 													<div class="col-xs-12 col-sm-6">
 														<h4 class="blue">
-															<span class="middle"> ${merchant.merchantid} </span> <span
+															<span class="middle"> ${runner.runnerid} </span> <span
 																class="label label-purple arrowed-in-right"> <i
 																class="ace-icon fa fa-circle smaller-80 align-middle"></i>
 																online
@@ -1268,10 +1268,10 @@
 
 														<div class="profile-user-info">
 															<div class="profile-info-row">
-																<div class="profile-info-name">商户姓名</div>
+																<div class="profile-info-name">跑腿人姓名</div>
 
 																<div class="profile-info-value">
-																	<span>${merchant.name}</span>
+																	<span>${runner.name}</span>
 																</div>
 															</div>
 
@@ -1279,27 +1279,17 @@
 																<div class="profile-info-name">身份证号码</div>
 
 																<div class="profile-info-value">
-																	<span>${merchant.idcardnumber}</span>
+																	<span>${runner.idcardnumber}</span>
 																</div>
 															</div>
 
-															<div class="profile-info-row">
-																<div class="profile-info-name">配送物件种类</div>
-																<%
-																	MerchantDao merchantDao = new MerchantDao();
-																	String typeOfGoodsName=merchantDao.findTypeOfGoodsNameById(merchant.getTofgid()).getName();																																																																						
-																																																																																							
-																%>
-																<div class="profile-info-value">
-																	<span><%=typeOfGoodsName%></span>
-																</div>
-															</div>
+															
 
 															<div class="profile-info-row">
 																<div class="profile-info-name">密码</div>
 
 																<div class="profile-info-value">
-																	<span>${merchant.password }</span>
+																	<span>${runner.password }</span>
 																</div>
 															</div>
 
@@ -1307,25 +1297,25 @@
 																<div class="profile-info-name">店铺名</div>
 
 																<div class="profile-info-value">
-																	<span>${merchant.storename}</span>
+																	<span>${runner.storename}</span>
 																</div>
 															</div>
 															<div class="profile-info-row">
 																<div class="profile-info-name">电话</div>
 																<div class="profile-info-value">
-																	<span>${merchant.phone}</span>
+																	<span>${runner.phone}</span>
 																</div>
 															</div>
 															<div class="profile-info-row">
 																<div class="profile-info-name">地址</div>
 																<div class="profile-info-value">
-																	<span>${merchant.address}</span>
+																	<span>${runner.address}</span>
 																</div>
 															</div>
 															<div class="profile-info-row">
 																<div class="profile-info-name">保证金提交情况(0表示无)</div>
 																<div class="profile-info-value">
-																	<span>${merchant.margin}</span>
+																	<span>${runner.margin}</span>
 																</div>
 															</div>
 														</div>

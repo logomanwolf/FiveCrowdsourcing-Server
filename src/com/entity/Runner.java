@@ -4,6 +4,7 @@ public class Runner {
   private Long runnerid;//跑腿人id
   private String phone;//电话
   private String name;//姓名
+  private String password;//密码
   private String idcardnumber;//身份证号
   private String photoofidcartinhand;//手持身份证照存储地址
   private String photoofidcardoppo;//身份证反面照存储地址
@@ -82,4 +83,12 @@ public class Runner {
   public void setMargin(Long margin) {
     this.margin = margin;
   }
+
+public String getPassword() {
+	return password;
+}
+
+public void setPassword(String password) {
+	this.password = password;
+}
 }

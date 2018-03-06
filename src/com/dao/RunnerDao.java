@@ -22,6 +22,7 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 				runner = new Runner();
 				runner.setRunnerid(rs.getLong("runnerId"));
 				runner.setName(rs.getString("name"));
+				runner.setPassword(rs.getString("password"));
 				runner.setIdcardnumber(rs.getString("idCardNumber"));
 				runner.setPhone(rs.getString("phone"));
 				runner.setPhotoofidcartinhand(rs.getString("photoofidcartinhand"));
@@ -48,6 +49,7 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 				for (Runner runner : validatedRunners) {
 					params.add(runner.getPhone());
 					params.add(runner.getName());
+					params.add(runner.getPassword());
 					params.add(runner.getIdcardnumber());
 					params.add(runner.getPhotoofidcartinhand());
 					params.add(runner.getPhotoofidcardoppo());
@@ -55,7 +57,7 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 					params.add(runner.getMargin().toString());
 					params.add(runner.getPhotoofhealcert());
 					query = query
-							+ " INSERT INTO validatedrunner(phone,name,idCardNumber,photoOfIdCartInhand,photoOfIdCardOppo,photoOfIdCardPosi,photoOfHealCert,margin) VALUES(?,?,?,?,?,?,?,?);";
+							+ " INSERT INTO validatedrunner(phone,name,idCardNumber,photoOfIdCartInhand,photoOfIdCardOppo,photoOfIdCardPosi,photoOfHealCert,margin) VALUES(?,?,?,?,?,?,?,?,?);";
 					// +" delete from runner where runnerId=?;";
 				}
 
