@@ -770,7 +770,7 @@
 																				  String idCardNumber;
 																					String runnerName;
 																					String phone;
-																					String money="已";
+																					String money="已提交";
 																					while(it.hasNext()){
 																								Runner runner=(Runner)it.next();
 																								phone=runner.getPhone();
@@ -792,13 +792,13 @@
 													<td><%=phone %></td>
 
 													<td class="hidden-480"><span
-														class="label label-sm label-warning"><%=address %></span></td>
+														class="label label-sm label-warning"><%=money %></span></td>
 
 													<td>
 														<div class="hidden-sm hidden-xs action-buttons">
-															<a class="blue" href="/FiveCrowdsourcing-Server/runner_profile.do?runnerId=<%=runnerId%>" target="_blank"> <i
+															<a class="blue" href="/FiveCrowdsourcing-Server/runner/runner_profile.do?runnerId=<%=runnerId%>" target="_blank"> <i
 																class="ace-icon fa fa-search-plus bigger-130"></i>
-															</a> <a class="green" href="/FiveCrowdsourcing-Server/runners.do"> <i
+															</a> <a class="green" href="/FiveCrowdsourcing-Server/runner/runner.do"> <i
 																class="ace-icon fa fa-pencil bigger-130"></i>
 															</a> <a class="red" href="#"> <i
 																class="ace-icon fa fa-trash-o bigger-130"></i>
