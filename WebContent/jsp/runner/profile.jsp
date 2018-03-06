@@ -1198,7 +1198,7 @@
 										<ul class="nav nav-tabs padding-18">
 											<li class="active"><a data-toggle="tab" href="#home">
 													<i class="green ace-icon fa fa-user bigger-120"></i>
-													Profile
+													基本资料
 											</a></li>
 
 											<li><a data-toggle="tab" href="#feed"> <i
@@ -1212,7 +1212,7 @@
 
 											<li><a data-toggle="tab" href="#pictures"> <i
 													class="pink ace-icon fa fa-picture-o bigger-120"></i>
-													Pictures
+													其他证明
 											</a></li>
 										</ul>
 

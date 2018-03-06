@@ -2,6 +2,7 @@ package com.dao;
 import java.util.List;
 
 import com.entity.Merchant;
+import com.entity.Runner;
 import com.entity.Typeofgoods;
 
 public interface IMerchantDao {
@@ -15,5 +16,6 @@ public interface IMerchantDao {
     public int updateMerchantById(int id,Merchant role);
     public boolean checkMerchant(String name);
     public Integer insertValidatedMerchants(List<Merchant> validatedMerchants);
+    public Integer deleteMerchantsfromTemp(List<Merchant> validatedMerchants);
     
 }

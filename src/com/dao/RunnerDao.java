@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.entity.Runner;
-import com.entity.Runner;
 
 public class RunnerDao extends BaseDao implements IRunnerDao {
 
@@ -19,21 +18,16 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 		ResultSet rs = this.executeQuery(query, null);
 		try {
 			while (rs.next()) {
-
 				Runner runner = new Runner();
 				runner = new Runner();
 				runner.setRunnerid(rs.getLong("runnerId"));
-				runner.setTofgid(rs.getLong("tofgId"));
 				runner.setName(rs.getString("name"));
 				runner.setIdcardnumber(rs.getString("idCardNumber"));
-				runner.setAddress(rs.getString("address"));
 				runner.setPhone(rs.getString("phone"));
-				runner.setStorename(rs.getString("storeName"));
-				runner.setPassword(rs.getString("password"));
-				runner.setBuslicensephoto(rs.getString("busLicensePhoto"));
-				runner.setFoodbuslicensephoto(rs
-						.getString("foodBusLicensePhoto"));
-				runner.setIdcardphoto(rs.getString("idCardPhoto"));
+				runner.setPhotoofidcartinhand(rs.getString("photoofidcartinhand"));
+				runner.setPhotoofidcardposi(rs.getString("photoofidcardposi"));
+				runner.setPhotoofidcardoppo(rs.getString("photoofidcardoppo"));
+				runner.setPhotoofhealcert(rs.getString("photoofhealcert"));
 				runner.setMargin(rs.getLong("margin"));
 				result.add(runner);
 			}
@@ -52,23 +46,16 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 				String query = "";
 				ArrayList<String> params = new ArrayList<>();
 				for (Runner runner : validatedRunners) {
-					params.add(runner.getTofgid().toString());
+					params.add(runner.getPhone());
 					params.add(runner.getName());
 					params.add(runner.getIdcardnumber());
-					params.add(runner.getIdcardphoto());
-					params.add(runner.getPassword());
-					params.add(runner.getStorename());
-					params.add(runner.getPhone());
-					params.add(runner.getAddress());
-					params.add(runner.getBuslicensephoto());
-					params.add(runner.getFoodbuslicensephoto());
+					params.add(runner.getPhotoofidcartinhand());
+					params.add(runner.getPhotoofidcardoppo());
+					params.add(runner.getPhotoofidcardposi());
 					params.add(runner.getMargin().toString());
-					params.add(null);
-					params.add(null);
-					// params.add(runner.getRunnerid().toString());
+					params.add(runner.getPhotoofhealcert());
 					query = query
-							+ " INSERT INTO validatedrunner(tofgId,name,idCardNumber,idCardPhoto,password,storeName,"
-							+ " phone,address,busLicensePhoto,foodBusLicensePhoto,margin,longitude,latitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
+							+ " INSERT INTO validatedrunner(phone,name,idCardNumber,photoOfIdCartInhand,photoOfIdCardOppo,photoOfIdCardPosi,photoOfHealCert,margin) VALUES(?,?,?,?,?,?,?,?);";
 					// +" delete from runner where runnerId=?;";
 				}
 
@@ -92,4 +79,4 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 			}
 	}
 
-}
+

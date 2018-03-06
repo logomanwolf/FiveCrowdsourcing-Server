@@ -9,7 +9,7 @@ public class Runner {
   private String photoofidcardoppo;//身份证反面照存储地址
   private String photoofidcardposi;//身份证正面照存储地址
   private String photoofhealcert;//健康证照片存储地址
-  private int margin;//保证金提交状态：1：提交；2：未提交
+  private Long margin;//保证金提交状态：1：提交；2：未提交
 
   public Long getRunnerid() {
     return runnerid;
@@ -75,11 +75,11 @@ public class Runner {
     this.photoofhealcert = photoofhealcert;
   }
 
-  public int getMargin() {
+  public Long getMargin() {
     return margin;
   }
 
-  public void setMargin(int margin) {
+  public void setMargin(Long margin) {
     this.margin = margin;
   }
 }

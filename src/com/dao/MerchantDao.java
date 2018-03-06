@@ -14,6 +14,7 @@ import org.json.JSONObject;
 
 import com.dao.*;
 import com.entity.Merchant;
+import com.entity.Runner;
 import com.entity.Typeofgoods;
 import com.mysql.jdbc.Statement;
 
@@ -75,7 +76,6 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 		ResultSet rs = this.executeQuery(query, null);
 		try {
 			while (rs.next()) {
-
 				Merchant merchant = new Merchant();
 				merchant = new Merchant();
 				merchant.setMerchantid(rs.getLong("merchantId"));
@@ -220,9 +220,7 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 	@Override
 	public Integer insertValidatedMerchants(List<Merchant> validatedMerchants) {
 		// TODO Auto-generated method stub
-		String query = "INSERT INTO validatedmerchant(tofgId,name,idCardNumber,idCardPhoto,password,storeName,"
-				+ "phone,address,busLicensePhoto,foodBusLicensePhoto,margin,longitude,latitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?);"
-+"delete from merchant where merchantId=?";		
+		String query = "";
 		ArrayList<String> params = new ArrayList<>();
 		for (Merchant merchant : validatedMerchants) {
 			params.add(merchant.getTofgid().toString());
@@ -238,13 +236,27 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 			params.add(merchant.getMargin().toString());
 			params.add(null);
 			params.add(null);
-			params.add(merchant.getMerchantid().toString());
-			query=query+"INSERT INTO validatedmerchant(tofgId,name,idCardNumber,idCardPhoto,password,storeName,"
-					+ "phone,address,busLicensePhoto,foodBusLicensePhoto,margin,longitude,latitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);"
-					+"delete from merchant where merchantId=?";	
+			query = query
+					+ " INSERT INTO validatedmerchant(tofgId,name,idCardNumber,idCardPhoto,password,storeName,"
+					+ " phone,address,busLicensePhoto,foodBusLicensePhoto,margin,longitude,latitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
 		}
-		
+
 		int rs = this.executeUpdate(query, params);
 		return rs;
 	}
+
+	@Override
+	public Integer deleteMerchantsfromTemp(List<Merchant> validatedMerchants) {
+		// TODO Auto-generated method stub
+		String query = "";
+		ArrayList<String> params = new ArrayList<>();
+		for (Merchant merchant : validatedMerchants) {
+			params.add(merchant.getMerchantid().toString());
+			query = query + "  delete from merchant where merchantId=?;";
+		}
+
+		int rs = this.executeUpdate(query, params);
+		return rs;
+	}
+		
 }

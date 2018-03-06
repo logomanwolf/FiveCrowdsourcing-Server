@@ -734,7 +734,7 @@
 
 							<div class="row">
 								<div class="col-xs-12">
-									<h3 class="header smaller lighter blue">待审核商户</h3>
+									<h3 class="header smaller lighter blue">待审核跑腿人</h3>
 									<div class="table-header">Results for "Latest Registered
 										Domains"</div>
 
@@ -749,14 +749,14 @@
 													<th class="center"><label class="position-relative">
 															<input type="checkbox" class="ace" /> <span class="lbl"></span>
 													</label></th>
-													<th>商户id</th>
-													<th>商户名称</th>
+													<th>跑腿人id</th>
+													<th>跑腿人名称</th>
 													<th class="hidden-480">身份证号</th>
 
 													<th><i
 														class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
 														电话</th>
-													<th class="hidden-480">地址</th>
+													<th class="hidden-480">保证经提交状态</th>
 
 													<th></th>
 												</tr>
@@ -764,20 +764,21 @@
 
 											<tbody>
 												<%
-													List<Merchant> merchants=(List<Merchant>)session.getAttribute("merchants");
-																																									Iterator it=merchants.iterator();
-																					long merchantId;
+													List<Runner> runners=(List<Runner>)session.getAttribute("runners");
+																																									Iterator it=runners.iterator();
+																					long runnerId;
 																				  String idCardNumber;
-																					String merchantName;
+																					String runnerName;
 																					String phone;
-																					String address;
+																					String money="已";
 																					while(it.hasNext()){
-																								Merchant merchant=(Merchant)it.next();
-																								phone=merchant.getPhone();
-																								address=merchant.getAddress();
-																								merchantName=merchant.getName();
-																								idCardNumber=merchant.getIdcardnumber();
-																								merchantId=merchant.getMerchantid();
+																								Runner runner=(Runner)it.next();
+																								phone=runner.getPhone();
+																								runnerName=runner.getName();
+																								idCardNumber=runner.getIdcardnumber();
+																								runnerId=runner.getRunnerid();
+																								if(runner.getMargin().equals(0))
+																									money="未提交";
 												%>
 
 												<tr>
@@ -785,8 +786,8 @@
 															<input type="checkbox" class="ace" /> <span class="lbl"></span>
 													</label></td>
 
-													<td><a href="#"><%=merchantId %></a></td>
-													<td><%=merchantName %></td>
+													<td><a href="#"><%=runnerId %></a></td>
+													<td><%=runnerName %></td>
 													<td class="hidden-480"><%=idCardNumber %></td>
 													<td><%=phone %></td>
 
@@ -795,9 +796,9 @@
 
 													<td>
 														<div class="hidden-sm hidden-xs action-buttons">
-															<a class="blue" href="/FiveCrowdsourcing-Server/merchant_profile.do?merchantId=<%=merchantId%>" target="_blank"> <i
+															<a class="blue" href="/FiveCrowdsourcing-Server/runner_profile.do?runnerId=<%=runnerId%>" target="_blank"> <i
 																class="ace-icon fa fa-search-plus bigger-130"></i>
-															</a> <a class="green" href="/FiveCrowdsourcing-Server/merchants.do"> <i
+															</a> <a class="green" href="/FiveCrowdsourcing-Server/runners.do"> <i
 																class="ace-icon fa fa-pencil bigger-130"></i>
 															</a> <a class="red" href="#"> <i
 																class="ace-icon fa fa-trash-o bigger-130"></i>
