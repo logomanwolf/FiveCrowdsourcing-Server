@@ -14,6 +14,11 @@ public class Deliveryorder {
   private Double trueweight;//真实质量
   private int creditpoints;//信用分
   private int integral;//积分
+  private String cusName;//客户名
+  private String cusPhone;//客户电话
+  private String cusAddress;//客户地址
+  private String things;//内容
+  private int status;//状态：1：新建；2：待抢单；3：待取单；4：配送中；5：配送完成
 
   public Long getDelorderid() {
     return delorderid;
@@ -117,5 +122,45 @@ public class Deliveryorder {
 
   public void setIntegral(int integral) {
     this.integral = integral;
+  }
+
+  public String getCusName() {
+	  return cusName;
+  }
+
+  public void setCusName(String cusName) {
+  	  this.cusName = cusName;
+  }
+
+  public String getCusPhone() {
+	  return cusPhone;
+  }
+
+  public void setCusPhone(String cusPhone) {
+	  this.cusPhone = cusPhone;
+  }
+
+  public String getCusAddress() {
+	  return cusAddress;
+  }
+
+  public void setCusAddress(String cusAddress) {
+	  this.cusAddress = cusAddress;
+  }
+
+  public String getThings() {
+	  return things;
+  }
+
+  public void setThings(String things) {
+	  this.things = things;
+  }
+
+  public int getStatus() {
+	  return status;
+  }
+
+  public void setStatus(int status) {
+	  this.status = status;
   }
 }
