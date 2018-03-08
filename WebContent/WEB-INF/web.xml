@@ -48,6 +48,34 @@
     <servlet-name>insertValidatedMerchants</servlet-name>
     <servlet-class>com.validate.insertValidatedMerchants</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>taskAccount</servlet-name>
+    <servlet-class>com.pay.taskAccount</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Comment</servlet-name>
+    <servlet-class>com.pay.Comment</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>PayBills</servlet-name>
+    <servlet-class>com.pay.PayBills</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>FinishedTasks</servlet-name>
+    <servlet-class>com.pay.FinishedTasks</servlet-class>
+  </servlet>
+
+
+
+
   <servlet-mapping>
     <servlet-name>validateAMerchantServlet</servlet-name>
     <url-pattern>/merchant_profile.do</url-pattern>
@@ -83,6 +111,22 @@
   <servlet-mapping>
     <servlet-name>insertValidatedRunner</servlet-name>
     <url-pattern>/runner/runner.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>taskAccount</servlet-name>
+    <url-pattern>/taskaccount.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Comment</servlet-name>
+    <url-pattern>/comment.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>PayBills</servlet-name>
+    <url-pattern>/pay.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FinishedTasks</servlet-name>
+    <url-pattern>/finished.do</url-pattern>
   </servlet-mapping>
   <resource-env-ref>
     <description>DataSource
