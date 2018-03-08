@@ -1293,25 +1293,14 @@
 																</div>
 															</div>
 
-															<div class="profile-info-row">
-																<div class="profile-info-name">店铺名</div>
-
-																<div class="profile-info-value">
-																	<span>${runner.storename}</span>
-																</div>
-															</div>
+															
 															<div class="profile-info-row">
 																<div class="profile-info-name">电话</div>
 																<div class="profile-info-value">
 																	<span>${runner.phone}</span>
 																</div>
 															</div>
-															<div class="profile-info-row">
-																<div class="profile-info-name">地址</div>
-																<div class="profile-info-value">
-																	<span>${runner.address}</span>
-																</div>
-															</div>
+															
 															<div class="profile-info-row">
 																<div class="profile-info-name">保证金提交情况(0表示无)</div>
 																<div class="profile-info-value">

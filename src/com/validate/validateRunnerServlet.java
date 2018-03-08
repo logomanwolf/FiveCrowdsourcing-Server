@@ -34,7 +34,7 @@ public class validateRunnerServlet extends HttpServlet {
 		List<Runner> runners=runnerDao.findRunners();
 		session.setAttribute("runners", runners);
 		System.out.println(runners.isEmpty());
-		String url="jsp/runner/validatelist.jsp";
+		String url="/FiveCrowdsourcing-Server/jsp/runner/validatelist.jsp";
 		response.sendRedirect(url);
 	}
 
