@@ -60,7 +60,29 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 
 	public int addMerchant(Merchant merchant) {
 		// TODO Auto-generated method stub
-		return 0;
+		String query = " INSERT INTO merchant(tofgId,name,idCardNumber,idCardPhoto,password,storeName,"
+				+ " phone,address,busLicensePhoto,foodBusLicensePhoto,margin,longitude,latitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
+		ArrayList<String> params = new ArrayList<>();
+		params.add(merchant.getTofgid().toString());
+		params.add(merchant.getName());
+		params.add(merchant.getIdcardnumber());
+		params.add(merchant.getIdcardphoto());
+		params.add(merchant.getPassword());
+		params.add(merchant.getStorename());
+		params.add(merchant.getPhone());
+		params.add(merchant.getAddress());
+		params.add(merchant.getBuslicensephoto());
+		params.add(merchant.getFoodbuslicensephoto());
+		if(merchant.getMargin()==null)
+			params.add(null);
+		else
+		params.add(merchant.getMargin().toString());
+		params.add(merchant.getLongitude().toString());
+		params.add(merchant.getLatitude().toString());
+
+		int rs = this.executeUpdate(query, params);
+		return rs;
+
 	}
 
 	/*
@@ -258,5 +280,5 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 		int rs = this.executeUpdate(query, params);
 		return rs;
 	}
-		
+
 }

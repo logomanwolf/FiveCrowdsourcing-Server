@@ -1,6 +1,8 @@
 package com.entity;
 
-public class Merchant {
+import java.io.Serializable;
+
+public class Merchant implements Serializable{
   private Long merchantid;//商户id
   private Long tofgid;//待配送物件种类id
   private String name;//联系人姓名
@@ -13,8 +15,8 @@ public class Merchant {
   private String buslicensephoto;//工商营业执照存储地址
   private String foodbuslicensephoto;//食品经营许可证存储地址
   private Long margin;//保证金提交状态：1：提交；2：未提交
-  private double longitude;//经度
-  private double latitude;//纬度
+  private Double longitude;//经度
+  private Double latitude;//纬度
 
   public Long getMerchantid() {
     return merchantid;
@@ -112,19 +114,19 @@ public class Merchant {
     this.margin = margin;
   }
 
-public double getLongitude() {
+public Double getLongitude() {
 	return longitude;
 }
 
-public void setLongitude(double longitude) {
+public void setLongitude(Double longitude) {
 	this.longitude = longitude;
 }
 
-public double getLatitude() {
+public Double getLatitude() {
 	return latitude;
 }
 
-public void setLatitude(double latitude) {
+public void setLatitude(Double latitude) {
 	this.latitude = latitude;
 }
   
