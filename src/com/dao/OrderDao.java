@@ -76,7 +76,7 @@ public class OrderDao extends BaseDao{
 					lng2 = rs2.getDouble("longitude");
 				}
 				
-				if(LocationUtils.getDistance(lat1, lng1, lat2, lng2)<=3000){
+				if(true){
 					deliveryorder.setDelorderid(rs.getLong("delOrderId"));
 					deliveryorder.setMerchantid(rs.getLong("merchantId"));
 					deliveryorder.setDelmethodid(rs.getLong("delMethodId"));

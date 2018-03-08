@@ -13,7 +13,7 @@ import com.entity.Deliveryorder;
 /**
  * Servlet implementation class EditOrder
  */
-@WebServlet(description = "利用商家的任务单生成发送给跑腿人的任务单", urlPatterns = { "/AddDelOrderServlet" })
+@WebServlet(description = "新建任务单", urlPatterns = { "/AddDelOrderServlet" })
 public class AddDelOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
