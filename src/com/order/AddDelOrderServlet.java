@@ -8,12 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
+import com.ToolsClass.EstimateUtils;
 import com.dao.OrderDao;
 import com.entity.Deliveryorder;
 /**
  * Servlet implementation class EditOrder
  */
-@WebServlet(description = "新建任务单", urlPatterns = { "/AddDelOrderServlet" })
+@WebServlet(description = "新建任务单，返回预估时间和价格", urlPatterns = { "/AddDelOrderServlet" })
 public class AddDelOrderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -43,25 +44,46 @@ public class AddDelOrderServlet extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		OrderDao orderdao = new OrderDao();
 		//模拟APP发送过来的订单JSON数据
-		Deliveryorder deliveryorderV = new Deliveryorder();
-		deliveryorderV.setMerchantid((long) 1);
-		deliveryorderV.setDelmethodid((long) 1);
-		deliveryorderV.setEstimatedtime((long) 35);
-		deliveryorderV.setEstimatedtotalprice((double) 23.3);
-		deliveryorderV.setOrdertime("2015-02-12");
-		JSONObject jsonObject = null;
-		jsonObject = new JSONObject(deliveryorderV);
+		Long merchantid = (long) 1;
+		String cusname = "haha";
+		String cusphone = "15248572865";
+		String cusaddress = "浙工大东十四";
+		double cuslat = 30.228719;
+		double cuslng = 119.713279;
+		String things = "apple * 2, orange * 3";
+		String ordertime = "2018-01-12 12:12:12";
+		Deliveryorder deliveryorder = new Deliveryorder();
+		
+		//获得预估时间和价格
+		int extraTime = 15;//预估缓冲时间
+		Double[] location = orderdao.getMerchantLocation(merchantid);//获得商户经纬度
+		String url = "http://api.map.baidu.com/routematrix/v2/riding";//骑行接口
+		//接口参数
+		String param = "output=json&origins="+cuslat+","+cuslng+"&destinations="+location[0]+","+location[1]+"&ak=Gsj9D1Ih7RV00jypSLk8osnircS4NRPA";
+		Long estimatedtime = (long) (Math.ceil(EstimateUtils.getEstimatedTime(url, param)/60)+extraTime);//单位：分钟
+		int estimateddistance = EstimateUtils.getEstimatedDistance(url, param);
+		double estimatedtotalprice = EstimateUtils.getEstimatedPrice(estimateddistance,ordertime,orderdao.getDelmethodid(merchantid));
 		
 		//转换成配送单对象并保存到数据库
 		Deliveryorder deliveryorderNew = new Deliveryorder();
-		deliveryorderNew.setMerchantid(jsonObject.getLong("merchantid"));
-		deliveryorderNew.setDelmethodid(jsonObject.getLong("delmethodid"));
-		deliveryorderNew.setEstimatedtime(jsonObject.getLong("estimatedtime"));
-		deliveryorderNew.setEstimatedtotalprice(jsonObject.getDouble("estimatedtotalprice"));
-		deliveryorderNew.setOrdertime(jsonObject.getString("ordertime"));
+		deliveryorderNew.setMerchantid(merchantid);
+		deliveryorderNew.setDelmethodid(orderdao.getDelmethodid(merchantid));
+		deliveryorderNew.setCusName(cusname);
+		deliveryorderNew.setCusAddress(cusaddress);
+		deliveryorderNew.setCusPhone(cusphone);
+		deliveryorderNew.setThings(things);
+		deliveryorderNew.setEstimatedtime(estimatedtime);
+		deliveryorderNew.setEstimatedtotalprice(estimatedtotalprice);
+		deliveryorderNew.setOrdertime(ordertime);
+		deliveryorderNew.setStatus(1);
 		
 		orderdao.insertDeliveryorder(deliveryorderNew);
 		
+		//将预估时间和价格发给APP
+		String timeAndPriceJSONStr = "{\"estimatedtime\":"+estimatedtime+",\"estimatedtotalprice\":"+estimatedtotalprice+"}";
+		System.out.println(timeAndPriceJSONStr);
+		JSONObject timeAndPriceJSON = new JSONObject(timeAndPriceJSONStr);
+		response.getWriter().append(timeAndPriceJSON.toString());
 		/*//获得派送单编号
 		long delorderid = orderdao.getDeliveryorderId(deliveryorderNew);
 		

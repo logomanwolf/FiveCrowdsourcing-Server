@@ -13,20 +13,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
-import com.ToolsClass.LocationUtils;
+import com.ToolsClass.EstimateUtils;
 import com.dao.BaseDao;
 import com.mysql.jdbc.Statement;
 
 public class OrderDao extends BaseDao{
 	public int insertDeliveryorder(Deliveryorder deliveryorder){
-		String sql = "insert into fivecrowdsourcing.deliveryorder(merchantId,delMethodId,estimatedTime,estimatedTotalPrice,orderTime)"
-				+ "values (?,?,?,?,?);";
+		String sql = "insert into fivecrowdsourcing.deliveryorder(merchantId,delMethodId,estimatedTime,estimatedTotalPrice,orderTime,"
+				+ "cusName,cusPhone,cusAddress,things,status) values (?,?,?,?,?,?,?,?,?,?);";
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setLong(1, deliveryorder.getMerchantid());
 			pstmt.setLong(2, deliveryorder.getDelmethodid());
 			pstmt.setLong(3, deliveryorder.getEstimatedtime());
 			pstmt.setDouble(4, deliveryorder.getEstimatedtotalprice());
 			pstmt.setString(5, deliveryorder.getOrdertime());
+			pstmt.setString(6, deliveryorder.getCusName());
+			pstmt.setString(7, deliveryorder.getCusPhone());
+			pstmt.setString(8, deliveryorder.getCusAddress());
+			pstmt.setString(9, deliveryorder.getThings());
+			pstmt.setInt(10, deliveryorder.getStatus());
 			int rs = pstmt.executeUpdate();
 
 			return rs;
@@ -87,6 +92,39 @@ public class OrderDao extends BaseDao{
 				}
 			}
 			return list;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			return null;
+		}
+	}
+	
+	public Long getDelmethodid(Long merchantid){
+		String sql = "select delMethodId from fivecrowdsourcing.typeofgoods where tofgId = "
+				+ "(select tofgId from fivecrowdsourcing.merchant where merchantId = " + merchantid + ")";
+		long result = 0;
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				result = rs.getLong("delMethodId");
+			}
+			return result;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			return (long) -1;
+		}
+	}
+	
+	@SuppressWarnings("null")
+	public Double[] getMerchantLocation(Long merchantid){
+		String sql = "select * from fivecrowdsourcing.merchant where merchantId = " + merchantid;
+		Double[] location = new Double[2];
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()){
+				location[0] = rs.getDouble("latitude");
+				location[1] = rs.getDouble("longitude");
+			}
+			return location;
 		} catch (SQLException se) {
 			se.printStackTrace();
 			return null;
