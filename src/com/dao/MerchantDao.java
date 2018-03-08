@@ -57,31 +57,26 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 	 * 
 	 * @see com.dao.IMerchantDao#addMerchant(com.entity.Merchant)
 	 */
-
-	public int addMerchant(Merchant merchant) {
+	public boolean updateMerchant(Merchant merchant) {
 		// TODO Auto-generated method stub
-		String query = " INSERT INTO merchant(tofgId,name,idCardNumber,idCardPhoto,password,storeName,"
-				+ " phone,address,busLicensePhoto,foodBusLicensePhoto,margin,longitude,latitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
-		ArrayList<String> params = new ArrayList<>();
-		params.add(merchant.getTofgid().toString());
-		params.add(merchant.getName());
-		params.add(merchant.getIdcardnumber());
-		params.add(merchant.getIdcardphoto());
-		params.add(merchant.getPassword());
-		params.add(merchant.getStorename());
-		params.add(merchant.getPhone());
-		params.add(merchant.getAddress());
-		params.add(merchant.getBuslicensephoto());
-		params.add(merchant.getFoodbuslicensephoto());
-		if(merchant.getMargin()==null)
-			params.add(null);
-		else
-		params.add(merchant.getMargin().toString());
-		params.add(merchant.getLongitude().toString());
-		params.add(merchant.getLatitude().toString());
-
-		int rs = this.executeUpdate(query, params);
-		return rs;
+		String sql = "UPDATE `fivecrowdsourcing`.`merchant` SET `tofgId`=?, `storeName`=?,"
+				+ " `phone`=?, `address`=?,  `longitude`=?, `latitude`=? WHERE `merchantId`=?;";
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setLong(1, merchant.getTofgid());
+			pstmt.setString(2, merchant.getStorename());
+			pstmt.setString(3, merchant.getPhone());
+			pstmt.setString(4,merchant.getAddress());
+			pstmt.setDouble(5, merchant.getLongitude());
+			pstmt.setDouble(6, merchant.getLatitude());
+			pstmt.setLong(7, merchant.getMerchantid());
+			pstmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 
 	}
 

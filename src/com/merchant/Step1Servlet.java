@@ -62,16 +62,12 @@ public class Step1Servlet extends HttpServlet {
         while((line=reader.readLine())!=null){
             sb.append(line);
         }
-       // String MerchantJson=sb.toString();
-        String MerchantJson="{'address':'杭州市-西湖区-乌溪江路','latitude':30.230722,'longitude':120.044097,'merchantid':2,'phone':'1','storename':'hanbao','tofgid':1}";
+       String MerchantJson=sb.toString();       
         System.out.println(MerchantJson);//其中sb为json数据包含了merchantid,address,latitude,longitude,phone,storename,tofgid
         Merchant merchant=JSON.parseObject(MerchantJson, Merchant.class);
-
+    	MerchantDao merchantDao=new MerchantDao();
         String result ="failed";
-        if(merchant!=null){
-        	MerchantDao merchantDao=new MerchantDao();
-        	int size=merchantDao.addMerchant(merchant);
-        	if(size>0)
+        if(merchantDao.updateMerchant(merchant)){               
         		result="success";
         }
         	
