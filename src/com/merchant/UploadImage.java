@@ -53,7 +53,7 @@ public class UploadImage extends HttpServlet {
 		// Set overall request size constraint 4194304
 		this.upload.setSizeMax(this.MAXSize);
 		// File file = new File(pathname);
-		filedir = config.getServletContext().getRealPath("images");
+		filedir = config.getServletContext().getRealPath("merchantImages");
 		File file = new File(filedir);
 		if (!file.exists()) {
 			// 创建临时目录
