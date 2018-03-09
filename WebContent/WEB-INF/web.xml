@@ -72,10 +72,6 @@
     <servlet-name>FinishedTasks</servlet-name>
     <servlet-class>com.pay.FinishedTasks</servlet-class>
   </servlet>
-
-
-
-
   <servlet-mapping>
     <servlet-name>validateAMerchantServlet</servlet-name>
     <url-pattern>/merchant_profile.do</url-pattern>

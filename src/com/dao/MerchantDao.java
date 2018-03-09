@@ -59,17 +59,25 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 	 */
 	public boolean updateMerchant(Merchant merchant) {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE `fivecrowdsourcing`.`merchant` SET `tofgId`=?, `storeName`=?,"
-				+ " `phone`=?, `address`=?,  `longitude`=?, `latitude`=? WHERE `merchantId`=?;";
+		String sql = "UPDATE `fivecrowdsourcing`.`merchant` SET `tofgId`=?, "
+				+ "`name`=?, `idCardNumber`=?, `idCardPhoto`=?, "
+				+ "`storeName`=?, `phone`=?, `address`=?, "
+				+ "`busLicensePhoto`=?, `foodBusLicensePhoto`=?, `longitude`=?, "
+				+ "`latitude`=? WHERE `merchantId`=?;";
 		try (Connection conn = dataSource.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setLong(1, merchant.getTofgid());
-			pstmt.setString(2, merchant.getStorename());
-			pstmt.setString(3, merchant.getPhone());
-			pstmt.setString(4,merchant.getAddress());
-			pstmt.setDouble(5, merchant.getLongitude());
-			pstmt.setDouble(6, merchant.getLatitude());
-			pstmt.setLong(7, merchant.getMerchantid());
+			pstmt.setString(2, merchant.getName());
+			pstmt.setString(3, merchant.getIdcardnumber());
+			pstmt.setString(4,merchant.getIdcardphoto());
+			pstmt.setString(5, merchant.getStorename());
+			pstmt.setString(6, merchant.getPhone());
+			pstmt.setString(7, merchant.getAddress());
+			pstmt.setString(8, merchant.getBuslicensephoto());
+			pstmt.setString(9, merchant.getFoodbuslicensephoto());
+			pstmt.setDouble(11, merchant.getLatitude());
+			pstmt.setDouble(10, merchant.getLongitude());
+			pstmt.setLong(12, merchant.getMerchantid());
 			pstmt.executeUpdate();
 			return true;
 		} catch (SQLException e) {
