@@ -68,6 +68,9 @@ public class OrderDao extends BaseDao{
 		String sql2 = "select * from fivecrowdsourcing.merchant where merchantId = ?;";
 		double lat2 = 0,lng2 = 0;
 
+		String url = "http://api.map.baidu.com/routematrix/v2/riding";//骑行接口
+		
+		
 		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
 		Deliveryorder deliveryorder = new Deliveryorder();
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -80,14 +83,19 @@ public class OrderDao extends BaseDao{
 					lat2 = rs2.getDouble("latitude");
 					lng2 = rs2.getDouble("longitude");
 				}
-				
-				if(true){
+				//接口参数
+				String param = "output=json&origins="+lat1+","+lng1+"&destinations="+lat2+","+lng2+"&ak=Gsj9D1Ih7RV00jypSLk8osnircS4NRPA";
+				if(EstimateUtils.getEstimatedDistance(url, param)<=3000){
 					deliveryorder.setDelorderid(rs.getLong("delOrderId"));
 					deliveryorder.setMerchantid(rs.getLong("merchantId"));
 					deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
 					deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
 					deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedTotalPrice"));
 					deliveryorder.setOrdertime(rs.getString("orderTime"));
+					deliveryorder.setCusName(rs.getString("cusname"));
+					deliveryorder.setCusPhone(rs.getString("cusphone"));
+					deliveryorder.setCusAddress(rs.getString("cusaddress"));
+					deliveryorder.setThings(rs.getString("things"));
 					list.add(deliveryorder);
 				}
 			}
