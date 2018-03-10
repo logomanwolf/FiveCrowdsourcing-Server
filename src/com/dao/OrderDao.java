@@ -223,4 +223,13 @@ public class OrderDao extends BaseDao{
 		int rs = this.executeUpdate(query, params);
 		return rs;
 	}
+	
+	//用于更新订单信息(商家确认订单后时)
+		public Integer updateOrderStatus(Long delorderid){
+			String query = "UPDATE deliveryorder SET deliveryorder.status=2 WHERE deliveryorder.delOrderId =?";
+			ArrayList<String> params = new ArrayList<>();
+			params.add(delorderid.toString());
+			int rs = this.executeUpdate(query, params);
+			return rs;
+		}
 }
