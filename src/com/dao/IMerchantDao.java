@@ -6,7 +6,7 @@ import com.entity.Runner;
 import com.entity.Typeofgoods;
 
 public interface IMerchantDao {
-    public int addMerchant(Merchant merchant);
+    public boolean updateMerchant(Merchant merchant);
     public List<Merchant> findMerchants();
     public Merchant findMerchantById(String merchantId);
     public List<Merchant> findMerchantsByDept(String dept);

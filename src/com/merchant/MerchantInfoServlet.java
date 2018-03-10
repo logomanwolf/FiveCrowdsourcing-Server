@@ -17,17 +17,17 @@ import com.alibaba.fastjson.JSON;
 import com.dao.MerchantDao;
 import com.entity.Merchant;
 
-/**主要用于将商户入住的信息存储到数据库
- * Servlet implementation class Step1Servlet
+/**
+ * Servlet implementation class MerchantInfoServlet
  */
-@WebServlet("/Step1Servlet")
-public class Step1Servlet extends HttpServlet {
+@WebServlet("/MerchantInfoServlet")
+public class MerchantInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Step1Servlet() {
+    public MerchantInfoServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,7 +38,6 @@ public class Step1Servlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		doPost(request, response);
 	}
 
 	/**
@@ -62,25 +61,20 @@ public class Step1Servlet extends HttpServlet {
         while((line=reader.readLine())!=null){
             sb.append(line);
         }
-       // String MerchantJson=sb.toString();
-        String MerchantJson="{'address':'杭州市-西湖区-乌溪江路','latitude':30.230722,'longitude':120.044097,'merchantid':2,'phone':'1','storename':'hanbao','tofgid':1}";
+        String result;
+        System.out.println(sb.toString());
+       String MerchantJson=sb.toString();       
         System.out.println(MerchantJson);//其中sb为json数据包含了merchantid,address,latitude,longitude,phone,storename,tofgid
         Merchant merchant=JSON.parseObject(MerchantJson, Merchant.class);
-
-        String result ="failed";
-        if(merchant!=null){
-        	MerchantDao merchantDao=new MerchantDao();
-        	int size=merchantDao.addMerchant(merchant);
-        	if(size>0)
-        		result="success";
+        MerchantDao merchantdao=new MerchantDao();
+        boolean message=merchantdao.updateMerchant(merchant);
+        if(message) {
+            result ="success";
         }
-        	
-        /**
-         * 将address,latitude,longitude,phone,storename,tofgid存入数据库中（待实现），成功后返回一条成功信息
-         */
+        else result="false";
         JSONObject jsonObject=new JSONObject();
         jsonObject.put("result", result);
-        response.getWriter().append(jsonObject.toString());       
+        response.getWriter().append(jsonObject.toString());  
 	}
 
 }

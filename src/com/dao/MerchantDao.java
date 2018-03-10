@@ -57,31 +57,34 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 	 * 
 	 * @see com.dao.IMerchantDao#addMerchant(com.entity.Merchant)
 	 */
-
-	public int addMerchant(Merchant merchant) {
+	public boolean updateMerchant(Merchant merchant) {
 		// TODO Auto-generated method stub
-		String query = " INSERT INTO merchant(tofgId,name,idCardNumber,idCardPhoto,password,storeName,"
-				+ " phone,address,busLicensePhoto,foodBusLicensePhoto,margin,longitude,latitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
-		ArrayList<String> params = new ArrayList<>();
-		params.add(merchant.getTofgid().toString());
-		params.add(merchant.getName());
-		params.add(merchant.getIdcardnumber());
-		params.add(merchant.getIdcardphoto());
-		params.add(merchant.getPassword());
-		params.add(merchant.getStorename());
-		params.add(merchant.getPhone());
-		params.add(merchant.getAddress());
-		params.add(merchant.getBuslicensephoto());
-		params.add(merchant.getFoodbuslicensephoto());
-		if(merchant.getMargin()==null)
-			params.add(null);
-		else
-		params.add(merchant.getMargin().toString());
-		params.add(merchant.getLongitude().toString());
-		params.add(merchant.getLatitude().toString());
-
-		int rs = this.executeUpdate(query, params);
-		return rs;
+		String sql = "UPDATE `fivecrowdsourcing`.`merchant` SET `tofgId`=?, "
+				+ "`name`=?, `idCardNumber`=?, `idCardPhoto`=?, "
+				+ "`storeName`=?, `phone`=?, `address`=?, "
+				+ "`busLicensePhoto`=?, `foodBusLicensePhoto`=?, `longitude`=?, "
+				+ "`latitude`=? WHERE `merchantId`=?;";
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setLong(1, merchant.getTofgid());
+			pstmt.setString(2, merchant.getName());
+			pstmt.setString(3, merchant.getIdcardnumber());
+			pstmt.setString(4,merchant.getIdcardphoto());
+			pstmt.setString(5, merchant.getStorename());
+			pstmt.setString(6, merchant.getPhone());
+			pstmt.setString(7, merchant.getAddress());
+			pstmt.setString(8, merchant.getBuslicensephoto());
+			pstmt.setString(9, merchant.getFoodbuslicensephoto());
+			pstmt.setDouble(11, merchant.getLatitude());
+			pstmt.setDouble(10, merchant.getLongitude());
+			pstmt.setLong(12, merchant.getMerchantid());
+			pstmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 
 	}
 
