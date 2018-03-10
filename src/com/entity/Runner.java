@@ -10,6 +10,8 @@ public class Runner {
   private String photoofidcardoppo;//身份证反面照存储地址
   private String photoofidcardposi;//身份证正面照存储地址
   private String photoofhealcert;//健康证照片存储地址
+  private Double balance;//余额
+  private int integral;//积分
   private Long margin;//保证金提交状态：1：提交；2：未提交
 
   public Long getRunnerid() {
@@ -76,7 +78,23 @@ public class Runner {
     this.photoofhealcert = photoofhealcert;
   }
 
-  public Long getMargin() {
+  public Double getBalance() {
+	return balance;
+}
+
+public void setBalance(Double balance) {
+	this.balance = balance;
+}
+
+public int getIntegral() {
+	return integral;
+}
+
+public void setIntegral(int integral) {
+	this.integral = integral;
+}
+
+public Long getMargin() {
     return margin;
   }
 

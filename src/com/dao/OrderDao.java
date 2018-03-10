@@ -19,19 +19,20 @@ import com.mysql.jdbc.Statement;
 
 public class OrderDao extends BaseDao{
 	public int insertDeliveryorder(Deliveryorder deliveryorder){
-		String sql = "insert into fivecrowdsourcing.deliveryorder(merchantId,delMethodId,estimatedTime,estimatedTotalPrice,orderTime,"
-				+ "cusName,cusPhone,cusAddress,things,status) values (?,?,?,?,?,?,?,?,?,?);";
+		String sql = "insert into fivecrowdsourcing.deliveryorder(merchantId,delMethodId,estimatedTime,estimatedTotalPrice,distance,orderTime,"
+				+ "cusName,cusPhone,cusAddress,things,status) values (?,?,?,?,?,?,?,?,?,?,?);";
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setLong(1, deliveryorder.getMerchantid());
 			pstmt.setLong(2, deliveryorder.getDelmethodid());
 			pstmt.setLong(3, deliveryorder.getEstimatedtime());
 			pstmt.setDouble(4, deliveryorder.getEstimatedtotalprice());
-			pstmt.setString(5, deliveryorder.getOrdertime());
-			pstmt.setString(6, deliveryorder.getCusName());
-			pstmt.setString(7, deliveryorder.getCusPhone());
-			pstmt.setString(8, deliveryorder.getCusAddress());
-			pstmt.setString(9, deliveryorder.getThings());
-			pstmt.setInt(10, deliveryorder.getStatus());
+			pstmt.setInt(5, deliveryorder.getDistance());
+			pstmt.setString(6, deliveryorder.getOrdertime());
+			pstmt.setString(7, deliveryorder.getCusName());
+			pstmt.setString(8, deliveryorder.getCusPhone());
+			pstmt.setString(9, deliveryorder.getCusAddress());
+			pstmt.setString(10, deliveryorder.getThings());
+			pstmt.setInt(11, deliveryorder.getStatus());
 			int rs = pstmt.executeUpdate();
 
 			return rs;
@@ -232,12 +233,22 @@ public class OrderDao extends BaseDao{
 		return rs;
 	}
 	
-	//用于更新订单信息(商家确认订单后时)
-		public Integer updateOrderStatus(Long delorderid){
-			String query = "UPDATE deliveryorder SET deliveryorder.status=2 WHERE deliveryorder.delOrderId =?";
-			ArrayList<String> params = new ArrayList<>();
-			params.add(delorderid.toString());
-			int rs = this.executeUpdate(query, params);
-			return rs;
-		}
+	//用于更新订单信息(商家确认订单后)
+	public Integer updateOrderStatus(Long delorderid){
+		String query = "UPDATE deliveryorder SET deliveryorder.status=2 WHERE deliveryorder.delOrderId =?";
+		ArrayList<String> params = new ArrayList<>();
+		params.add(delorderid.toString());
+		int rs = this.executeUpdate(query, params);
+		return rs;
+	}
+	
+	//用于更新订单信息(跑腿人抢单后)
+	public Integer updateOrderAfterOrderGrabbed(Long delorderid, Long runnerid){
+		String query = "UPDATE deliveryorder SET deliveryorder.status=3, deliveryorder.runnerid = ? WHERE deliveryorder.delOrderId =?";
+		ArrayList<String> params = new ArrayList<>();
+		params.add(runnerid.toString());
+		params.add(delorderid.toString());
+		int rs = this.executeUpdate(query, params);
+		return rs;
+	}
 }

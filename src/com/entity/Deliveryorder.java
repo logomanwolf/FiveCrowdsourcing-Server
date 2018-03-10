@@ -6,6 +6,7 @@ public class Deliveryorder {
   private Long delmethodid;//配送方式id
   private Long estimatedtime;//预估时间
   private Double estimatedtotalprice;//预估总价格
+  private int distance;//距离
   private String ordertime;//下单时间
   private Long runnerid;//跑腿人id
   private String intime;//接单时间
@@ -60,7 +61,15 @@ public class Deliveryorder {
     this.estimatedtotalprice = estimatedtotalprice;
   }
 
-  public String getOrdertime() {
+  public int getDistance() {
+	return distance;
+}
+
+public void setDistance(int distance) {
+	this.distance = distance;
+}
+
+public String getOrdertime() {
     return ordertime;
   }
 

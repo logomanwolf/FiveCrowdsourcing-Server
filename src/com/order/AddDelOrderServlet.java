@@ -74,6 +74,7 @@ public class AddDelOrderServlet extends HttpServlet {
 		deliveryorderNew.setThings(things);
 		deliveryorderNew.setEstimatedtime(estimatedtime);
 		deliveryorderNew.setEstimatedtotalprice(estimatedtotalprice);
+		deliveryorderNew.setDistance(estimateddistance);
 		deliveryorderNew.setOrdertime(ordertime);
 		deliveryorderNew.setStatus(1);
 		
