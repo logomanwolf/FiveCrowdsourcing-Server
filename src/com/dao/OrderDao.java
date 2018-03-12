@@ -244,11 +244,28 @@ public class OrderDao extends BaseDao{
 	
 	//用于更新订单信息(跑腿人抢单后)
 	public Integer updateOrderAfterOrderGrabbed(Long delorderid, Long runnerid){
-		String query = "UPDATE deliveryorder SET deliveryorder.status=3, deliveryorder.runnerid = ? WHERE deliveryorder.delOrderId =?";
-		ArrayList<String> params = new ArrayList<>();
-		params.add(runnerid.toString());
-		params.add(delorderid.toString());
-		int rs = this.executeUpdate(query, params);
-		return rs;
+		String sql = "select * from fivecrowdsourcing.deliveryorder where delOrderId = ? ;";
+		ArrayList<String> params1 = new ArrayList<>();
+		params1.add(delorderid.toString());
+		ResultSet rs = this.executeQuery(sql, params1);
+		try {
+			while(rs.next()){
+				int status = rs.getInt("status");
+				if(status == 3)
+					return -1;//该单已被抢走
+				else{
+					String query = "UPDATE deliveryorder SET deliveryorder.status=3, deliveryorder.runnerid = ? WHERE deliveryorder.delOrderId =?";
+					ArrayList<String> params = new ArrayList<>();
+					params.add(runnerid.toString());
+					params.add(delorderid.toString());
+					int result = this.executeUpdate(query, params);
+					return result;
+				}
+			}
+		} catch (SQLException e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
+		return 0;
 	}
 }

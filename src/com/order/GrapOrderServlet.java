@@ -39,15 +39,18 @@ public class GrapOrderServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("text/html;charset=utf-8");
 		Long delorderid = (long) 6;
 		Long runnerid = (long) 1;
 		OrderDao orderdao = new OrderDao();
 		int ans = orderdao.updateOrderAfterOrderGrabbed(delorderid, runnerid);
 		String result = "";
-		if(ans!=0)
-			result = "success";
+		if(ans==-1)
+			result="单子已经被抢走了！";
+		else if(ans!=0)
+			result = "抢单成功！";
 		else
-			result = "failed";
+			result = "抢单失败~";
 		
 		JSONObject json = new JSONObject();
 		json.append("result", result);
