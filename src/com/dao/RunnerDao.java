@@ -69,16 +69,42 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 	public Integer deleteRunnersfromTemp(List<Runner> validatedRunners) {
 		// TODO Auto-generated method stub
 		// TODO 从暂时的列表里删除runner信息
-				String query = "";
-				ArrayList<String> params = new ArrayList<>();
-				for (Runner runner : validatedRunners) {
-					params.add(runner.getRunnerid().toString());
-					query = query + "  delete from runner where runnerId=?;";
-				}
+		String query = "";
+		ArrayList<String> params = new ArrayList<>();
+		for (Runner runner : validatedRunners) {
+			params.add(runner.getRunnerid().toString());
+			query = query + "  delete from runner where runnerId=?;";
+		}
 
-				int rs = this.executeUpdate(query, params);
-				return rs;
-			}
+		int rs = this.executeUpdate(query, params);
+		return rs;
 	}
+	
+	public Runner getRunnerById(Long runnerid) {
+		String query = "select * from runner where runnerId = "+runnerid;
+		ResultSet rs = this.executeQuery(query, null);
+		Runner runner = new Runner();
+		try {
+			while (rs.next()) {
+				runner = new Runner();
+				runner.setRunnerid(rs.getLong("runnerId"));
+				runner.setName(rs.getString("name"));
+				runner.setPassword(rs.getString("password"));
+				runner.setIdcardnumber(rs.getString("idCardNumber"));
+				runner.setPhone(rs.getString("phone"));
+				runner.setPhotoofidcartinhand(rs.getString("photoofidcartinhand"));
+				runner.setPhotoofidcardposi(rs.getString("photoofidcardposi"));
+				runner.setPhotoofidcardoppo(rs.getString("photoofidcardoppo"));
+				runner.setPhotoofhealcert(rs.getString("photoofhealcert"));
+				runner.setMargin(rs.getLong("margin"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			this.close();
+		}
+		return runner;
+	}
+}
 
 
