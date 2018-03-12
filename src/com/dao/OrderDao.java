@@ -185,7 +185,7 @@ public class OrderDao extends BaseDao{
 		return rs;
 	}
 	
-	//查询已完成的订单
+	//查询相应状态的订单
 	public List<Deliveryorder> getOrdersByStatus(Integer status,Long merchantid) {
 		String query = "SELECT * FROM fivecrowdsourcing.deliveryorder where merchantId=? and status=?;";
 		ArrayList<String> params = new ArrayList<>();
@@ -206,6 +206,7 @@ public class OrderDao extends BaseDao{
 				deliveryorder.setCusAddress(rs.getString("cusAddress"));
 				deliveryorder.setCusPhone(rs.getString("cusPhone"));
 				deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedtotalprice"));
+				deliveryorder.setDistance(rs.getInt("distance"));
 				deliveryorder.setStatus(rs.getInt("status"));
 				deliveryorder.setIntegral(rs.getInt("integral"));
 				deliveryorder.setThings(rs.getString("things"));
