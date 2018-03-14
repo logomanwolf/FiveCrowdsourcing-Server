@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta charset="utf-8" />
-<title>Tables - Ace Admin</title>
+<title>商户审核</title>
 
 <meta name="description" content="Static &amp; Dynamic Tables" />
 <meta name="viewport"
@@ -72,7 +72,7 @@
 			<div class="navbar-header pull-left">
 				<!-- #section:basics/navbar.layout.brand -->
 				<a href="#" class="navbar-brand"> <small> <i
-						class="fa fa-leaf"></i> Ace Admin
+						class="fa fa-coffee"></i> &nbsp;众包同城跑腿配送服务平台
 				</small>
 				</a>
 
@@ -585,38 +585,7 @@
 		<!-- 在这里进行了更改 -->
 		<!-- /section:basics/sidebar -->
 		<div class="main-content">
-			<!-- #section:basics/content.breadcrumbs -->
-			<div class="breadcrumbs" id="breadcrumbs">
-				<script type="text/javascript">
-					try {
-						ace.settings.check('breadcrumbs', 'fixed')
-					} catch (e) {
-					}
-				</script>
 
-				<ul class="breadcrumb">
-					<li><i class="ace-icon fa fa-home home-icon"></i> <a href="#">Home</a>
-					</li>
-
-					<li><a href="#">Tables</a></li>
-					<li class="active">Simple &amp; Dynamic</li>
-				</ul>
-				<!-- /.breadcrumb -->
-
-				<!-- #section:basics/content.searchbox -->
-				<div class="nav-search" id="nav-search">
-					<form class="form-search">
-						<span class="input-icon"> <input type="text"
-							placeholder="Search ..." class="nav-search-input"
-							id="nav-search-input" autocomplete="off" /> <i
-							class="ace-icon fa fa-search nav-search-icon"></i>
-						</span>
-					</form>
-				</div>
-				<!-- /.nav-search -->
-
-				<!-- /section:basics/content.searchbox -->
-			</div>
 
 			<!-- /section:basics/content.breadcrumbs -->
 			<div class="page-content">
@@ -735,8 +704,7 @@
 							<div class="row">
 								<div class="col-xs-12">
 									<h3 class="header smaller lighter blue">待审核商户</h3>
-									<div class="table-header">Results for "Latest Registered
-										Domains"</div>
+
 
 									<!-- <div class="table-responsive"> -->
 
@@ -765,43 +733,44 @@
 											<tbody>
 												<%
 													List<Merchant> merchants=(List<Merchant>)session.getAttribute("merchants");
-																																									Iterator it=merchants.iterator();
-																					long merchantId;
-																				  String idCardNumber;
-																					String merchantName;
-																					String phone;
-																					String address;
-																					while(it.hasNext()){
-																								Merchant merchant=(Merchant)it.next();
-																								phone=merchant.getPhone();
-																								address=merchant.getAddress();
-																								merchantName=merchant.getName();
-																								idCardNumber=merchant.getIdcardnumber();
-																								merchantId=merchant.getMerchantid();
+																																																			Iterator it=merchants.iterator();
+																															long merchantId;
+																														  String idCardNumber;
+																															String merchantName;
+																															String phone;
+																															String address;
+																															while(it.hasNext()){
+																																		Merchant merchant=(Merchant)it.next();
+																																		phone=merchant.getPhone();
+																																		address=merchant.getAddress();
+																																		merchantName=merchant.getName();
+																																		idCardNumber=merchant.getIdcardnumber();
+																																		merchantId=merchant.getMerchantid();
 												%>
 
 												<tr>
 													<td class="center"><label class="position-relative">
-															<input type="checkbox" class="ace" /> <span class="lbl"></span>
+													<input type="checkbox" class="ace" /> <span class="lbl"></span>
 													</label></td>
 
-													<td><a href="#"><%=merchantId %></a></td>
-													<td><%=merchantName %></td>
-													<td class="hidden-480"><%=idCardNumber %></td>
-													<td><%=phone %></td>
+													<td><a href="#"><%=merchantId%></a></td>
+													<td><%=merchantName%></td>
+													<td class="hidden-480"><%=idCardNumber%></td>
+													<td><%=phone%></td>
 
 													<td class="hidden-480"><span
-														class="label label-sm label-warning"><%=address %></span></td>
+														class="label label-sm label-warning"><%=address%></span></td>
 
 													<td>
 														<div class="hidden-sm hidden-xs action-buttons">
-															<a class="blue" href="/FiveCrowdsourcing-Server/merchant_profile.do?merchantId=<%=merchantId%>" target="_blank"> <i
-																class="ace-icon fa fa-search-plus bigger-130"></i>
-															</a> <a class="green" href="/FiveCrowdsourcing-Server/merchants.do"> <i
+															<a class="blue"
+																href="/FiveCrowdsourcing-Server/merchant_profile.do?merchantId=<%=merchantId%>"
+																target="_blank">&nbsp; <i
+																class="ace-icon fa fa-search-plus bigger-130"></i> &nbsp;详细信息
+															</a> <a class="green"
+																href="/FiveCrowdsourcing-Server/merchants.do"> <i
 																class="ace-icon fa fa-pencil bigger-130"></i>
-															</a> <a class="red" href="#"> <i
-																class="ace-icon fa fa-trash-o bigger-130"></i>
-															</a>
+															</a> 
 														</div>
 
 														<div class="hidden-md hidden-lg">
@@ -843,7 +812,7 @@
 												<%
 													}
 												%>
-								</tbody>
+											</tbody>
 										</table>
 									</div>
 								</div>
@@ -946,7 +915,7 @@
 						</div>
 						<!-- /.col -->
 					</div>
-					
+
 					<!-- /.row -->
 				</div>
 				<!-- /.page-content-area -->
@@ -955,25 +924,7 @@
 		</div>
 		<!-- /.main-content -->
 
-		<div class="footer">
-			<div class="footer-inner">
-				<!-- #section:basics/footer -->
-				<div class="footer-content">
-					<span class="bigger-120"> <span class="blue bolder">Ace</span>
-						Application &copy; 2013-2014
-					</span> &nbsp; &nbsp; <span class="action-buttons"> <a href="#">
-							<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-					</a> <a href="#"> <i
-							class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-					</a> <a href="#"> <i
-							class="ace-icon fa fa-rss-square orange bigger-150"></i>
-					</a>
-					</span>
-				</div>
 
-				<!-- /section:basics/footer -->
-			</div>
-		</div>
 
 		<a href="#" id="btn-scroll-up"
 			class="btn-scroll-up btn btn-sm btn-inverse"> <i

@@ -13198,7 +13198,9 @@ ul.attachment-list > li {
 }
 .dataTables_info {
   font-size: 14px;
+  color: white;
 }
+
 .dataTables_paginate {
   text-align: right;
 }

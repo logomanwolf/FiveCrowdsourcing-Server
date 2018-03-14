@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta charset="utf-8" />
-<title>User Profile Page - Ace Admin</title>
+<title>跑腿人审核详细信息</title>
 
 <meta name="description" content="3 styles with inline editable feature" />
 <meta name="viewport"
@@ -77,7 +77,7 @@
 			<div class="navbar-header pull-left">
 				<!-- #section:basics/navbar.layout.brand -->
 				<a href="#" class="navbar-brand"> <small> <i
-						class="fa fa-leaf"></i> Ace Admin
+						class="fa fa-coffee"></i>&nbsp;众包同城跑腿配送服务平台
 				</small>
 				</a>
 
@@ -590,40 +590,7 @@
 
 		<!-- /section:basics/sidebar -->
 		<div class="main-content">
-			<!-- #section:basics/content.breadcrumbs -->
-			<div class="breadcrumbs" id="breadcrumbs">
-				<script type="text/javascript">
-					try {
-						ace.settings.check('breadcrumbs', 'fixed')
-					} catch (e) {
-					}
-				</script>
 
-				<ul class="breadcrumb">
-					<li><i class="ace-icon fa fa-home home-icon"></i> <a href="#">Home</a>
-					</li>
-
-					<li><a href="#">More Pages</a></li>
-					<li class="active">User Profile</li>
-				</ul>
-				<!-- /.breadcrumb -->
-
-				<!-- #section:basics/content.searchbox -->
-				<div class="nav-search" id="nav-search">
-					<form class="form-search">
-						<span class="input-icon"> <input type="text"
-							placeholder="Search ..." class="nav-search-input"
-							id="nav-search-input" autocomplete="off" /> <i
-							class="ace-icon fa fa-search nav-search-icon"></i>
-						</span>
-					</form>
-				</div>
-				<!-- /.nav-search -->
-
-				<!-- /section:basics/content.searchbox -->
-			</div>
-
-			<!-- /section:basics/content.breadcrumbs -->
 			<div class="page-content">
 				<!-- #section:settings.box -->
 				<div class="ace-settings-container" id="ace-settings-container">
@@ -2485,25 +2452,6 @@
 		</div>
 		<!-- /.main-content -->
 
-		<div class="footer">
-			<div class="footer-inner">
-				<!-- #section:basics/footer -->
-				<div class="footer-content">
-					<span class="bigger-120"> <span class="blue bolder">Ace</span>
-						Application &copy; 2013-2014
-					</span> &nbsp; &nbsp; <span class="action-buttons"> <a href="#">
-							<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-					</a> <a href="#"> <i
-							class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-					</a> <a href="#"> <i
-							class="ace-icon fa fa-rss-square orange bigger-150"></i>
-					</a>
-					</span>
-				</div>
-
-				<!-- /section:basics/footer -->
-			</div>
-		</div>
 
 		<a href="#" id="btn-scroll-up"
 			class="btn-scroll-up btn btn-sm btn-inverse"> <i
