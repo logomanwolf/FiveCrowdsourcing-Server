@@ -298,212 +298,70 @@
 			<!-- /.sidebar-shortcuts -->
 
 			<ul class="nav nav-list">
-				<li class=""><a href="index.html"> <i
-						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-							Dashboard </span>
-				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="#" class="dropdown-toggle"> <i
+
+				<li class="active open"><a href="#" class="dropdown-toggle"> <i
 						class="menu-icon fa fa-desktop"></i> <span class="menu-text">
-							UI &amp; Elements </span> <b class="arrow fa fa-angle-down"></b>
+							人工审核 </span> <b class="arrow fa fa-angle-down"></b>
 				</a> <b class="arrow"></b>
 
 					<ul class="submenu">
-						<li class=""><a href="#" class="dropdown-toggle"> <i
-								class="menu-icon fa fa-caret-right"></i> Layouts <b
-								class="arrow fa fa-angle-down"></b>
-						</a> <b class="arrow"></b>
 
-							<ul class="submenu">
-								<li class=""><a href="top-menu.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Top Menu
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="mobile-menu-1.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Default Mobile Menu
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="mobile-menu-2.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Mobile Menu 2
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="mobile-menu-3.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Mobile Menu 3
-								</a> <b class="arrow"></b></li>
-							</ul></li>
 
 						<li class=""><a href="typography.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Typography
+								class="menu-icon fa fa-caret-right"></i> 商户审核
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="elements.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Elements
+								class="menu-icon fa fa-caret-right"></i> 跑腿人审核
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="buttons.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Buttons &amp; Icons
+								class="menu-icon fa fa-caret-right"></i> 个体审核
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="treeview.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Treeview
-						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="jquery-ui.html"> <i
-								class="menu-icon fa fa-caret-right"></i> jQuery UI
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="nestable-list.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Nestable Lists
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="#" class="dropdown-toggle"> <i
-								class="menu-icon fa fa-caret-right"></i> Three Level Menu <b
-								class="arrow fa fa-angle-down"></b>
-						</a> <b class="arrow"></b>
-
-							<ul class="submenu">
-								<li class=""><a href="#"> <i
-										class="menu-icon fa fa-leaf green"></i> Item #1
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="#" class="dropdown-toggle"> <i
-										class="menu-icon fa fa-pencil orange"></i> 4th level <b
-										class="arrow fa fa-angle-down"></b>
-								</a> <b class="arrow"></b>
-
-									<ul class="submenu">
-										<li class=""><a href="#"> <i
-												class="menu-icon fa fa-plus purple"></i> Add Product
-										</a> <b class="arrow"></b></li>
-
-										<li class=""><a href="#"> <i
-												class="menu-icon fa fa-eye pink"></i> View Products
-										</a> <b class="arrow"></b></li>
-									</ul></li>
-							</ul></li>
 					</ul></li>
 
-				<li class="active open"><a href="#" class="dropdown-toggle">
+				<li class=""><a href="#" class="dropdown-toggle">
 						<i class="menu-icon fa fa-list"></i> <span class="menu-text">
-							Tables </span> <b class="arrow fa fa-angle-down"></b>
+							账户管理</span> <b class="arrow fa fa-angle-down"></b>
 				</a> <b class="arrow"></b>
 
 					<ul class="submenu">
-						<li class="active"><a href="tables.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Simple &amp; Dynamic
+						<li class=""><a href="tables.html"> <i
+								class="menu-icon fa fa-caret-right"></i> 商户管理
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="jqgrid.html"> <i
-								class="menu-icon fa fa-caret-right"></i> jqGrid plugin
+								class="menu-icon fa fa-caret-right"></i> 跑腿人管理
 						</a> <b class="arrow"></b></li>
 					</ul></li>
 
 				<li class=""><a href="#" class="dropdown-toggle"> <i
 						class="menu-icon fa fa-pencil-square-o"></i> <span
-						class="menu-text"> Forms </span> <b class="arrow fa fa-angle-down"></b>
+						class="menu-text">帮助 </span> <b class="arrow fa fa-angle-down"></b>
 				</a> <b class="arrow"></b>
 
 					<ul class="submenu">
 						<li class=""><a href="form-elements.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Form Elements
+								class="menu-icon fa fa-caret-right"></i> 加价表查询
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="form-wizard.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Wizard &amp; Validation
+								class="menu-icon fa fa-caret-right"></i> 天气查询
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="wysiwyg.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Wysiwyg &amp; Markdown
+								class="menu-icon fa fa-caret-right"></i> 信用分奖励
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="dropzone.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Dropzone File Upload
-						</a> <b class="arrow"></b></li>
 					</ul></li>
 
 				<li class=""><a href="widgets.html"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
-							Widgets </span>
+							关于 </span>
 				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="calendar.html"> <i
-						class="menu-icon fa fa-calendar"></i> <span class="menu-text">
-							Calendar <!-- #section:basics/sidebar.layout.badge --> <span
-							class="badge badge-transparent tooltip-error"
-							title="2 Important Events"> <i
-								class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-						</span> <!-- /section:basics/sidebar.layout.badge -->
-					</span>
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="gallery.html"> <i
-						class="menu-icon fa fa-picture-o"></i> <span class="menu-text">
-							Gallery </span>
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="#" class="dropdown-toggle"> <i
-						class="menu-icon fa fa-tag"></i> <span class="menu-text">
-							More Pages </span> <b class="arrow fa fa-angle-down"></b>
-				</a> <b class="arrow"></b>
-
-					<ul class="submenu">
-						<li class=""><a href="profile.html"> <i
-								class="menu-icon fa fa-caret-right"></i> User Profile
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="inbox.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Inbox
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="pricing.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Pricing Tables
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="invoice.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Invoice
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="timeline.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Timeline
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="email.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Email Templates
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="login.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Login &amp; Register
-						</a> <b class="arrow"></b></li>
-					</ul></li>
-
-				<li class=""><a href="#" class="dropdown-toggle"> <i
-						class="menu-icon fa fa-file-o"></i> <span class="menu-text">
-							Other Pages <!-- #section:basics/sidebar.layout.badge --> <span
-							class="badge badge-primary">5</span> <!-- /section:basics/sidebar.layout.badge -->
-					</span> <b class="arrow fa fa-angle-down"></b>
-				</a> <b class="arrow"></b>
-
-					<ul class="submenu">
-						<li class=""><a href="faq.html"> <i
-								class="menu-icon fa fa-caret-right"></i> FAQ
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="error-404.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Error 404
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="error-500.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Error 500
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="grid.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Grid
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="blank.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Blank Page
-						</a> <b class="arrow"></b></li>
-					</ul></li>
 			</ul>
 			<!-- /.nav-list -->
 
@@ -548,44 +406,23 @@
 										<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
 									</select>
 								</div>
-								<span>&nbsp; Choose Skin</span>
+								<span>&nbsp; 选择皮肤</span>
 							</div>
 
 							<!-- /section:settings.skins -->
 
-							<!-- #section:settings.navbar -->
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2"
-									id="ace-settings-navbar" /> <label class="lbl"
-									for="ace-settings-navbar"> Fixed Navbar</label>
-							</div>
-
-							<!-- /section:settings.navbar -->
-
-							<!-- #section:settings.sidebar -->
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2"
-									id="ace-settings-sidebar" /> <label class="lbl"
-									for="ace-settings-sidebar"> Fixed Sidebar</label>
-							</div>
-
-							<!-- /section:settings.sidebar -->
 
 							<!-- #section:settings.breadcrumbs -->
 							<div class="ace-settings-item">
 								<input type="checkbox" class="ace ace-checkbox-2"
 									id="ace-settings-breadcrumbs" /> <label class="lbl"
-									for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+									for="ace-settings-breadcrumbs"> 固定导航条</label>
 							</div>
 
 							<!-- /section:settings.breadcrumbs -->
 
 							<!-- #section:settings.rtl -->
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2"
-									id="ace-settings-rtl" /> <label class="lbl"
-									for="ace-settings-rtl"> Right To Left (rtl)</label>
-							</div>
+
 
 							<!-- /section:settings.rtl -->
 
@@ -593,8 +430,7 @@
 							<div class="ace-settings-item">
 								<input type="checkbox" class="ace ace-checkbox-2"
 									id="ace-settings-add-container" /> <label class="lbl"
-									for="ace-settings-add-container"> Inside <b>.container</b>
-								</label>
+									for="ace-settings-add-container"> 缩略图 </label>
 							</div>
 
 							<!-- /section:settings.container -->
@@ -606,19 +442,19 @@
 							<div class="ace-settings-item">
 								<input type="checkbox" class="ace ace-checkbox-2"
 									id="ace-settings-hover" /> <label class="lbl"
-									for="ace-settings-hover"> Submenu on Hover</label>
+									for="ace-settings-hover"> 子菜单悬浮</label>
 							</div>
 
 							<div class="ace-settings-item">
 								<input type="checkbox" class="ace ace-checkbox-2"
 									id="ace-settings-compact" /> <label class="lbl"
-									for="ace-settings-compact"> Compact Sidebar</label>
+									for="ace-settings-compact"> 边缘导航</label>
 							</div>
 
 							<div class="ace-settings-item">
 								<input type="checkbox" class="ace ace-checkbox-2"
 									id="ace-settings-highlight" /> <label class="lbl"
-									for="ace-settings-highlight"> Alt. Active Item</label>
+									for="ace-settings-highlight"> 选中样式</label>
 							</div>
 
 							<!-- /section:basics/sidebar.options -->
@@ -673,19 +509,19 @@
 										<tbody>
 											<%
 												List<Merchant> merchants=(List<Merchant>)session.getAttribute("merchants");
-																																																												Iterator it=merchants.iterator();
-																																								long merchantId;
-																																							  String idCardNumber;
-																																								String merchantName;
-																																								String phone;
-																																								String address;
-																																								while(it.hasNext()){
-																																											Merchant merchant=(Merchant)it.next();
-																																											phone=merchant.getPhone();
-																																											address=merchant.getAddress();
-																																											merchantName=merchant.getName();
-																																											idCardNumber=merchant.getIdcardnumber();
-																																											merchantId=merchant.getMerchantid();
+																																																																					Iterator it=merchants.iterator();
+																																																	long merchantId;
+																																																  String idCardNumber;
+																																																	String merchantName;
+																																																	String phone;
+																																																	String address;
+																																																	while(it.hasNext()){
+																																																				Merchant merchant=(Merchant)it.next();
+																																																				phone=merchant.getPhone();
+																																																				address=merchant.getAddress();
+																																																				merchantName=merchant.getName();
+																																																				idCardNumber=merchant.getIdcardnumber();
+																																																				merchantId=merchant.getMerchantid();
 											%>
 
 											<tr>
@@ -708,7 +544,7 @@
 															target="_blank">&nbsp; <i
 															class="ace-icon fa fa-search-plus bigger-130"></i>
 															&nbsp;详细信息
-														</a> 
+														</a>
 													</div>
 												</td>
 											</tr>
@@ -719,7 +555,8 @@
 
 									</table>
 									<p style="padding-top:10px; ">
-										<button class="btn btn-info" id="bootbox-confirm" onclick="window.location.href='/FiveCrowdsourcing-Server/merchants.do'">保存</button>
+										<button class="btn btn-info" id="bootbox-confirm"
+											onclick="window.location.href='/FiveCrowdsourcing-Server/merchants.do'">保存</button>
 									</p>
 								</div>
 							</div>

@@ -363,212 +363,70 @@
 			<!-- /.sidebar-shortcuts -->
 
 			<ul class="nav nav-list">
-				<li class=""><a href="index.html"> <i
-						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-							Dashboard </span>
-				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="#" class="dropdown-toggle"> <i
+
+				<li class="active open"><a href="#" class="dropdown-toggle"> <i
 						class="menu-icon fa fa-desktop"></i> <span class="menu-text">
-							UI &amp; Elements </span> <b class="arrow fa fa-angle-down"></b>
+							人工审核 </span> <b class="arrow fa fa-angle-down"></b>
 				</a> <b class="arrow"></b>
 
 					<ul class="submenu">
-						<li class=""><a href="#" class="dropdown-toggle"> <i
-								class="menu-icon fa fa-caret-right"></i> Layouts <b
-								class="arrow fa fa-angle-down"></b>
-						</a> <b class="arrow"></b>
 
-							<ul class="submenu">
-								<li class=""><a href="top-menu.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Top Menu
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="mobile-menu-1.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Default Mobile Menu
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="mobile-menu-2.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Mobile Menu 2
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="mobile-menu-3.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Mobile Menu 3
-								</a> <b class="arrow"></b></li>
-							</ul></li>
 
 						<li class=""><a href="typography.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Typography
+								class="menu-icon fa fa-caret-right"></i> 商户审核
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="elements.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Elements
+								class="menu-icon fa fa-caret-right"></i> 跑腿人审核
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="buttons.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Buttons &amp; Icons
+								class="menu-icon fa fa-caret-right"></i> 个体审核
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="treeview.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Treeview
-						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="jquery-ui.html"> <i
-								class="menu-icon fa fa-caret-right"></i> jQuery UI
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="nestable-list.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Nestable Lists
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="#" class="dropdown-toggle"> <i
-								class="menu-icon fa fa-caret-right"></i> Three Level Menu <b
-								class="arrow fa fa-angle-down"></b>
-						</a> <b class="arrow"></b>
-
-							<ul class="submenu">
-								<li class=""><a href="#"> <i
-										class="menu-icon fa fa-leaf green"></i> Item #1
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="#" class="dropdown-toggle"> <i
-										class="menu-icon fa fa-pencil orange"></i> 4th level <b
-										class="arrow fa fa-angle-down"></b>
-								</a> <b class="arrow"></b>
-
-									<ul class="submenu">
-										<li class=""><a href="#"> <i
-												class="menu-icon fa fa-plus purple"></i> Add Product
-										</a> <b class="arrow"></b></li>
-
-										<li class=""><a href="#"> <i
-												class="menu-icon fa fa-eye pink"></i> View Products
-										</a> <b class="arrow"></b></li>
-									</ul></li>
-							</ul></li>
 					</ul></li>
 
-				<li class=""><a href="#" class="dropdown-toggle"> <i
-						class="menu-icon fa fa-list"></i> <span class="menu-text">
-							Tables </span> <b class="arrow fa fa-angle-down"></b>
+				<li class=""><a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-list"></i> <span class="menu-text">
+							账户管理</span> <b class="arrow fa fa-angle-down"></b>
 				</a> <b class="arrow"></b>
 
 					<ul class="submenu">
 						<li class=""><a href="tables.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Simple &amp; Dynamic
+								class="menu-icon fa fa-caret-right"></i> 商户管理
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="jqgrid.html"> <i
-								class="menu-icon fa fa-caret-right"></i> jqGrid plugin
+								class="menu-icon fa fa-caret-right"></i> 跑腿人管理
 						</a> <b class="arrow"></b></li>
 					</ul></li>
 
 				<li class=""><a href="#" class="dropdown-toggle"> <i
 						class="menu-icon fa fa-pencil-square-o"></i> <span
-						class="menu-text"> Forms </span> <b class="arrow fa fa-angle-down"></b>
+						class="menu-text">帮助 </span> <b class="arrow fa fa-angle-down"></b>
 				</a> <b class="arrow"></b>
 
 					<ul class="submenu">
 						<li class=""><a href="form-elements.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Form Elements
+								class="menu-icon fa fa-caret-right"></i> 加价表查询
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="form-wizard.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Wizard &amp; Validation
+								class="menu-icon fa fa-caret-right"></i> 天气查询
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="wysiwyg.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Wysiwyg &amp; Markdown
+								class="menu-icon fa fa-caret-right"></i> 信用分奖励
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="dropzone.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Dropzone File Upload
-						</a> <b class="arrow"></b></li>
 					</ul></li>
 
 				<li class=""><a href="widgets.html"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
-							Widgets </span>
+							关于 </span>
 				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="calendar.html"> <i
-						class="menu-icon fa fa-calendar"></i> <span class="menu-text">
-							Calendar <!-- #section:basics/sidebar.layout.badge --> <span
-							class="badge badge-transparent tooltip-error"
-							title="2 Important Events"> <i
-								class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-						</span> <!-- /section:basics/sidebar.layout.badge -->
-					</span>
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="gallery.html"> <i
-						class="menu-icon fa fa-picture-o"></i> <span class="menu-text">
-							Gallery </span>
-				</a> <b class="arrow"></b></li>
-
-				<li class="active open"><a href="#" class="dropdown-toggle">
-						<i class="menu-icon fa fa-tag"></i> <span class="menu-text">
-							More Pages </span> <b class="arrow fa fa-angle-down"></b>
-				</a> <b class="arrow"></b>
-
-					<ul class="submenu">
-						<li class="active"><a href="profile.html"> <i
-								class="menu-icon fa fa-caret-right"></i> User Profile
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="inbox.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Inbox
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="pricing.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Pricing Tables
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="invoice.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Invoice
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="timeline.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Timeline
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="email.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Email Templates
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="login.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Login &amp; Register
-						</a> <b class="arrow"></b></li>
-					</ul></li>
-
-				<li class=""><a href="#" class="dropdown-toggle"> <i
-						class="menu-icon fa fa-file-o"></i> <span class="menu-text">
-							Other Pages <!-- #section:basics/sidebar.layout.badge --> <span
-							class="badge badge-primary">5</span> <!-- /section:basics/sidebar.layout.badge -->
-					</span> <b class="arrow fa fa-angle-down"></b>
-				</a> <b class="arrow"></b>
-
-					<ul class="submenu">
-						<li class=""><a href="faq.html"> <i
-								class="menu-icon fa fa-caret-right"></i> FAQ
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="error-404.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Error 404
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="error-500.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Error 500
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="grid.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Grid
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="blank.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Blank Page
-						</a> <b class="arrow"></b></li>
-					</ul></li>
 			</ul>
 			<!-- /.nav-list -->
 
@@ -613,44 +471,23 @@
 										<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
 									</select>
 								</div>
-								<span>&nbsp; Choose Skin</span>
+								<span>&nbsp; 选择皮肤</span>
 							</div>
 
 							<!-- /section:settings.skins -->
 
-							<!-- #section:settings.navbar -->
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2"
-									id="ace-settings-navbar" /> <label class="lbl"
-									for="ace-settings-navbar"> Fixed Navbar</label>
-							</div>
-
-							<!-- /section:settings.navbar -->
-
-							<!-- #section:settings.sidebar -->
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2"
-									id="ace-settings-sidebar" /> <label class="lbl"
-									for="ace-settings-sidebar"> Fixed Sidebar</label>
-							</div>
-
-							<!-- /section:settings.sidebar -->
 
 							<!-- #section:settings.breadcrumbs -->
 							<div class="ace-settings-item">
 								<input type="checkbox" class="ace ace-checkbox-2"
 									id="ace-settings-breadcrumbs" /> <label class="lbl"
-									for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+									for="ace-settings-breadcrumbs"> 固定导航条</label>
 							</div>
 
 							<!-- /section:settings.breadcrumbs -->
 
 							<!-- #section:settings.rtl -->
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2"
-									id="ace-settings-rtl" /> <label class="lbl"
-									for="ace-settings-rtl"> Right To Left (rtl)</label>
-							</div>
+
 
 							<!-- /section:settings.rtl -->
 
@@ -658,8 +495,7 @@
 							<div class="ace-settings-item">
 								<input type="checkbox" class="ace ace-checkbox-2"
 									id="ace-settings-add-container" /> <label class="lbl"
-									for="ace-settings-add-container"> Inside <b>.container</b>
-								</label>
+									for="ace-settings-add-container"> 缩略图 </label>
 							</div>
 
 							<!-- /section:settings.container -->
@@ -671,19 +507,19 @@
 							<div class="ace-settings-item">
 								<input type="checkbox" class="ace ace-checkbox-2"
 									id="ace-settings-hover" /> <label class="lbl"
-									for="ace-settings-hover"> Submenu on Hover</label>
+									for="ace-settings-hover"> 子菜单悬浮</label>
 							</div>
 
 							<div class="ace-settings-item">
 								<input type="checkbox" class="ace ace-checkbox-2"
 									id="ace-settings-compact" /> <label class="lbl"
-									for="ace-settings-compact"> Compact Sidebar</label>
+									for="ace-settings-compact"> 边缘导航</label>
 							</div>
 
 							<div class="ace-settings-item">
 								<input type="checkbox" class="ace ace-checkbox-2"
 									id="ace-settings-highlight" /> <label class="lbl"
-									for="ace-settings-highlight"> Alt. Active Item</label>
+									for="ace-settings-highlight"> 选中样式</label>
 							</div>
 
 							<!-- /section:basics/sidebar.options -->
@@ -697,469 +533,18 @@
 				<!-- /section:settings.box -->
 				<div class="page-content-area">
 					<div class="page-header">
-						<h1>User Profile Page</h1>
+						<h1>商户个人信息</h1>
 					</div>
 					<!-- /.page-header -->
 
 					<div class="row">
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
-							<div class="clearfix">
-								<div class="pull-left alert alert-success no-margin">
-									<button type="button" class="close" data-dismiss="alert">
-										<i class="ace-icon fa fa-times"></i>
-									</button>
 
-									<i class="ace-icon fa fa-umbrella bigger-120 blue"></i> Click
-									on the image below or on profile fields to edit them ...
-								</div>
-
-								<div class="pull-right">
-									<span class="green middle bolder">Choose profile: &nbsp;</span>
-
-									<div class="btn-toolbar inline middle no-margin">
-										<div data-toggle="buttons" class="btn-group no-margin">
-											<label class="btn btn-sm btn-yellow"> <span
-												class="bigger-110">1</span> <input type="radio" value="1" />
-											</label> <label class="btn btn-sm btn-yellow active"> <span
-												class="bigger-110">2</span> <input type="radio" value="2" />
-											</label> <label class="btn btn-sm btn-yellow"> <span
-												class="bigger-110">3</span> <input type="radio" value="3" />
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
 
 							<div class="hr dotted"></div>
 
-							<div class="hide">
-								<div id="user-profile-1" class="user-profile row">
-									<div class="col-xs-12 col-sm-3 center">
-										<div>
-											<!-- #section:pages/profile.picture -->
-											<span class="profile-picture"> <img id="avatar"
-												class="editable img-responsive" alt="Alex's Avatar"
-												src="../idCardPic/1.jpg" />
-											</span>
 
-											<!-- /section:pages/profile.picture -->
-											<div class="space-4"></div>
-
-											<div
-												class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
-												<div class="inline position-relative">
-													<a href="#" class="user-title-label dropdown-toggle"
-														data-toggle="dropdown"> <i
-														class="ace-icon fa fa-circle light-green"></i> &nbsp; <span
-														class="white">Alex M. Doe</span>
-													</a>
-
-													<ul
-														class="align-left dropdown-menu dropdown-caret dropdown-lighter">
-														<li class="dropdown-header">Change Status</li>
-
-														<li><a href="#"> <i
-																class="ace-icon fa fa-circle green"></i> &nbsp; <span
-																class="green">Available</span>
-														</a></li>
-
-														<li><a href="#"> <i
-																class="ace-icon fa fa-circle red"></i> &nbsp; <span
-																class="red">Busy</span>
-														</a></li>
-
-														<li><a href="#"> <i
-																class="ace-icon fa fa-circle grey"></i> &nbsp; <span
-																class="grey">Invisible</span>
-														</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-
-										<div class="space-6"></div>
-
-										<!-- #section:pages/profile.contact -->
-										<div class="profile-contact-info">
-											<div class="profile-contact-links align-left">
-												<a href="#" class="btn btn-link"> <i
-													class="ace-icon fa fa-plus-circle bigger-120 green"></i>
-													Add as a friend
-												</a> <a href="#" class="btn btn-link"> <i
-													class="ace-icon fa fa-envelope bigger-120 pink"></i> Send a
-													message
-												</a> <a href="#" class="btn btn-link"> <i
-													class="ace-icon fa fa-globe bigger-125 blue"></i>
-													www.alexdoe.com
-												</a>
-											</div>
-
-											<div class="space-6"></div>
-
-											<div class="profile-social-links align-center">
-												<a href="#" class="tooltip-info" title=""
-													data-original-title="Visit my Facebook"> <i
-													class="middle ace-icon fa fa-facebook-square fa-2x blue"></i>
-												</a> <a href="#" class="tooltip-info" title=""
-													data-original-title="Visit my Twitter"> <i
-													class="middle ace-icon fa fa-twitter-square fa-2x light-blue"></i>
-												</a> <a href="#" class="tooltip-error" title=""
-													data-original-title="Visit my Pinterest"> <i
-													class="middle ace-icon fa fa-pinterest-square fa-2x red"></i>
-												</a>
-											</div>
-										</div>
-
-										<!-- /section:pages/profile.contact -->
-										<div class="hr hr12 dotted"></div>
-
-										<!-- #section:custom/extra.grid -->
-										<div class="clearfix">
-											<div class="grid2">
-												<span class="bigger-175 blue">25</span> <br /> Followers
-											</div>
-
-											<div class="grid2">
-												<span class="bigger-175 blue">12</span> <br /> Following
-											</div>
-										</div>
-
-										<!-- /section:custom/extra.grid -->
-										<div class="hr hr16 dotted"></div>
-									</div>
-
-									<div class="col-xs-12 col-sm-9">
-										<div class="center">
-											<span class="btn btn-app btn-sm btn-light no-hover"> <span
-												class="line-height-1 bigger-170 blue"> 1,411 </span> <br />
-												<span class="line-height-1 smaller-90"> Views </span>
-											</span> <span class="btn btn-app btn-sm btn-yellow no-hover">
-												<span class="line-height-1 bigger-170"> 32 </span> <br /> <span
-												class="line-height-1 smaller-90"> Followers </span>
-											</span> <span class="btn btn-app btn-sm btn-pink no-hover"> <span
-												class="line-height-1 bigger-170"> 4 </span> <br /> <span
-												class="line-height-1 smaller-90"> Projects </span>
-											</span> <span class="btn btn-app btn-sm btn-grey no-hover"> <span
-												class="line-height-1 bigger-170"> 23 </span> <br /> <span
-												class="line-height-1 smaller-90"> Reviews </span>
-											</span> <span class="btn btn-app btn-sm btn-success no-hover">
-												<span class="line-height-1 bigger-170"> 7 </span> <br /> <span
-												class="line-height-1 smaller-90"> Albums </span>
-											</span> <span class="btn btn-app btn-sm btn-primary no-hover">
-												<span class="line-height-1 bigger-170"> 55 </span> <br /> <span
-												class="line-height-1 smaller-90"> Contacts </span>
-											</span>
-										</div>
-
-										<div class="space-12"></div>
-
-										<!-- #section:pages/profile.info -->
-										<div class="profile-user-info profile-user-info-striped">
-											<div class="profile-info-row">
-												<div class="profile-info-name">Username</div>
-
-												<div class="profile-info-value">
-													<span class="editable" id="username">alexdoe</span>
-												</div>
-											</div>
-
-											<div class="profile-info-row">
-												<div class="profile-info-name">Location</div>
-
-												<div class="profile-info-value">
-													<i class="fa fa-map-marker light-orange bigger-110"></i> <span
-														class="editable" id="country">Netherlands</span> <span
-														class="editable" id="city">Amsterdam</span>
-												</div>
-											</div>
-
-											<div class="profile-info-row">
-												<div class="profile-info-name">Age</div>
-
-												<div class="profile-info-value">
-													<span class="editable" id="age">38</span>
-												</div>
-											</div>
-
-											<div class="profile-info-row">
-												<div class="profile-info-name">Joined</div>
-
-												<div class="profile-info-value">
-													<span class="editable" id="signup">2010/06/20</span>
-												</div>
-											</div>
-
-											<div class="profile-info-row">
-												<div class="profile-info-name">Last Online</div>
-
-												<div class="profile-info-value">
-													<span class="editable" id="login">3 hours ago</span>
-												</div>
-											</div>
-
-											<div class="profile-info-row">
-												<div class="profile-info-name">About Me</div>
-
-												<div class="profile-info-value">
-													<span class="editable" id="about">Editable as
-														WYSIWYG</span>
-												</div>
-											</div>
-										</div>
-
-										<!-- /section:pages/profile.info -->
-										<div class="space-20"></div>
-
-										<div class="widget-box transparent">
-											<div class="widget-header widget-header-small">
-												<h4 class="widget-title blue smaller">
-													<i class="ace-icon fa fa-rss orange"></i> Recent Activities
-												</h4>
-
-												<div class="widget-toolbar action-buttons">
-													<a href="#" data-action="reload"> <i
-														class="ace-icon fa fa-refresh blue"></i>
-													</a> &nbsp; <a href="#" class="pink"> <i
-														class="ace-icon fa fa-trash-o"></i>
-													</a>
-												</div>
-											</div>
-
-											<div class="widget-body">
-												<div class="widget-main padding-8">
-													<!-- #section:pages/profile.feed -->
-													<div id="profile-feed-1" class="profile-feed">
-														<div class="profile-activity clearfix">
-															<div>
-																<img class="pull-left" alt="Alex Doe's avatar"
-																	src="../assets/avatars/avatar5.png" /> <a class="user"
-																	href="#"> Alex Doe </a> changed his profile photo. <a
-																	href="#">Take a look</a>
-
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o bigger-110"></i> an
-																	hour ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue"> <i
-																	class="ace-icon fa fa-pencil bigger-125"></i>
-																</a> <a href="#" class="red"> <i
-																	class="ace-icon fa fa-times bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<img class="pull-left" alt="Susan Smith's avatar"
-																	src="../assets/avatars/avatar1.png" /> <a class="user"
-																	href="#"> Susan Smith </a> is now friends with Alex
-																Doe.
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o bigger-110"></i> 2
-																	hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue"> <i
-																	class="ace-icon fa fa-pencil bigger-125"></i>
-																</a> <a href="#" class="red"> <i
-																	class="ace-icon fa fa-times bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<i
-																	class="pull-left thumbicon fa fa-check btn-success no-hover"></i>
-																<a class="user" href="#"> Alex Doe </a> joined <a
-																	href="#">Country Music</a> group.
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o bigger-110"></i> 5
-																	hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue"> <i
-																	class="ace-icon fa fa-pencil bigger-125"></i>
-																</a> <a href="#" class="red"> <i
-																	class="ace-icon fa fa-times bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<i
-																	class="pull-left thumbicon fa fa-picture-o btn-info no-hover"></i>
-																<a class="user" href="#"> Alex Doe </a> uploaded a new
-																photo. <a href="#">Take a look</a>
-
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o bigger-110"></i> 5
-																	hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue"> <i
-																	class="ace-icon fa fa-pencil bigger-125"></i>
-																</a> <a href="#" class="red"> <i
-																	class="ace-icon fa fa-times bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<img class="pull-left" alt="David Palms's avatar"
-																	src="../assets/avatars/avatar4.png" /> <a class="user"
-																	href="#"> David Palms </a> left a comment on Alex's
-																wall.
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o bigger-110"></i> 8
-																	hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue"> <i
-																	class="ace-icon fa fa-pencil bigger-125"></i>
-																</a> <a href="#" class="red"> <i
-																	class="ace-icon fa fa-times bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<i
-																	class="pull-left thumbicon fa fa-pencil-square-o btn-pink no-hover"></i>
-																<a class="user" href="#"> Alex Doe </a> published a new
-																blog post. <a href="#">Read now</a>
-
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o bigger-110"></i> 11
-																	hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue"> <i
-																	class="ace-icon fa fa-pencil bigger-125"></i>
-																</a> <a href="#" class="red"> <i
-																	class="ace-icon fa fa-times bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<img class="pull-left" alt="Alex Doe's avatar"
-																	src="../assets/avatars/avatar5.png" /> <a class="user"
-																	href="#"> Alex Doe </a> upgraded his skills.
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o bigger-110"></i> 12
-																	hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue"> <i
-																	class="ace-icon fa fa-pencil bigger-125"></i>
-																</a> <a href="#" class="red"> <i
-																	class="ace-icon fa fa-times bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<i
-																	class="pull-left thumbicon fa fa-key btn-info no-hover"></i>
-																<a class="user" href="#"> Alex Doe </a> logged in.
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o bigger-110"></i> 12
-																	hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue"> <i
-																	class="ace-icon fa fa-pencil bigger-125"></i>
-																</a> <a href="#" class="red"> <i
-																	class="ace-icon fa fa-times bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<i
-																	class="pull-left thumbicon fa fa-power-off btn-inverse no-hover"></i>
-																<a class="user" href="#"> Alex Doe </a> logged out.
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o bigger-110"></i> 16
-																	hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue"> <i
-																	class="ace-icon fa fa-pencil bigger-125"></i>
-																</a> <a href="#" class="red"> <i
-																	class="ace-icon fa fa-times bigger-125"></i>
-																</a>
-															</div>
-														</div>
-
-														<div class="profile-activity clearfix">
-															<div>
-																<i
-																	class="pull-left thumbicon fa fa-key btn-info no-hover"></i>
-																<a class="user" href="#"> Alex Doe </a> logged in.
-																<div class="time">
-																	<i class="ace-icon fa fa-clock-o bigger-110"></i> 16
-																	hours ago
-																</div>
-															</div>
-
-															<div class="tools action-buttons">
-																<a href="#" class="blue"> <i
-																	class="ace-icon fa fa-pencil bigger-125"></i>
-																</a> <a href="#" class="red"> <i
-																	class="ace-icon fa fa-times bigger-125"></i>
-																</a>
-															</div>
-														</div>
-													</div>
-
-													<!-- /section:pages/profile.feed -->
-												</div>
-											</div>
-										</div>
-
-										<div class="hr hr2 hr-double"></div>
-
-										<div class="space-6"></div>
-
-										<div class="center">
-											<button type="button"
-												class="btn btn-sm btn-primary btn-white btn-round">
-												<i class="ace-icon fa fa-rss bigger-150 middle orange2"></i>
-												<span class="bigger-110">View more activities</span> <i
-													class="icon-on-right ace-icon fa fa-arrow-right"></i>
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
 
 							<div>
 								<div id="user-profile-2" class="user-profile">
