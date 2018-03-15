@@ -1,10 +1,13 @@
 package com.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.entity.Merchant;
 import com.entity.Runner;
 
 public class RunnerDao extends BaseDao implements IRunnerDao {
@@ -104,6 +107,23 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 			this.close();
 		}
 		return runner;
+	}
+	public boolean updateRunner(Runner runner) {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE `fivecrowdsourcing`.`validatedrunner` SET `balance`=?, "
+				+ "`integral`=? WHERE `runnerId`=?;";
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setDouble(1, runner.getBalance());
+			pstmt.setInt(2, runner.getIntegral());
+			pstmt.setLong(3, runner.getRunnerid());
+			pstmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
 	}
 }
 

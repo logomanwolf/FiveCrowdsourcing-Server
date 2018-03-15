@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.dao.OrderDao;
+import com.dao.RunnerDao;
 import com.entity.Deliveryorder;
+import com.entity.Runner;
 
 public class taskAccount extends HttpServlet {
 
@@ -63,6 +65,7 @@ public class taskAccount extends HttpServlet {
 			deliveryorder = orderDao.getOrderById(Long.parseLong(result));
 			success = true;
 		}
+		//重量加价，时间加价，基础价
 		Double weightPrice = calWeightPrice(deliveryorder);
 		Double timePrice = calTimePrice(deliveryorder);
 		Double basePrice = calBasePrice(deliveryorder);
@@ -72,7 +75,15 @@ public class taskAccount extends HttpServlet {
 				.setExtraprice(deliveryorder.getExtraprice() + weightPrice);
 		deliveryorder.setStatus(5);
 		OrderDao orderDao = new OrderDao();
-		if (orderDao.updateOrder(deliveryorder) == 0)
+		RunnerDao runnerDao=new RunnerDao();
+		Runner runner=runnerDao.getRunnerById(deliveryorder.getRunnerid());
+		//实际这单的定价
+		Double realPay=deliveryorder.getExtraprice()+weightPrice;
+		//余额增加，信用分加10
+		runner.setBalance(runner.getBalance()+realPay);
+		runner.setIntegral(runner.getIntegral()+10);
+		//在这里讲相应order的状态变为5，并且将runner的相应的余额和积分改变
+		if (orderDao.updateOrder(deliveryorder) == 0  || runnerDao.updateRunner(runner) )
 			success = false;
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("success", success);

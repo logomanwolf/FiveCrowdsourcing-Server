@@ -1,5 +1,5 @@
 /*! DataTables 1.10.0
- * ©2008-2014 SpryMedia Ltd - datatables.net/license
+ * 漏2008-2014 SpryMedia Ltd - datatables.net/license
  */
 
 /**
@@ -112,7 +112,7 @@
 	
 	// U+2009 is thin space and U+202F is narrow no-break space, both used in many
 	// standards as thousands separators
-	var _re_formatted_numeric = /[',$£€¥%\u2009\u202F]/g;
+	var _re_formatted_numeric = /[',$拢鈧�\u2009\u202F]/g;
 	
 	
 	var _empty = function ( d ) {
@@ -10694,7 +10694,7 @@
 			 * * `\_PAGES\_` - Total number of pages of data in the table
 			 *
 			 *  @type string
-			 *  @default Showing _START_ to _END_ of _TOTAL_ entries
+			 *  @default ddd _START_ to _END_ of _TOTAL_ entries
 			 *
 			 *  @dtopt Language
 			 *  @name DataTable.defaults.language.info
@@ -10708,7 +10708,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "展示了第 _START_ 条到第 _END_ 条共 _TOTAL_ 条记录",
 	
 	
 			/**
@@ -10729,7 +10729,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfoEmpty": "Showing 0 to 0 of 0 entries",
+			"sInfoEmpty": " 0 to 0 of 0 entries",
 	
 	
 			/**

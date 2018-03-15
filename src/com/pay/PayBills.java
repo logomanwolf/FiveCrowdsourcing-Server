@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
+import com.dao.MerchantDao;
 import com.dao.OrderDao;
 import com.entity.Deliveryorder;
+import com.entity.Merchant;
 
 public class PayBills extends HttpServlet {
 
@@ -49,10 +51,16 @@ public class PayBills extends HttpServlet {
         String delorderid = request.getParameter("delorderid");
         boolean success = false;
 		Deliveryorder deliveryorder = new Deliveryorder();
+		//将相应的deliveryOrder的状态设置为6（已经完成支付）
 		deliveryorder.setStatus(6);
 		deliveryorder.setDelorderid(Long.parseLong(delorderid));
+		
 		OrderDao orderDao=new OrderDao();
-		if(orderDao.updateOrderAfterPay(deliveryorder)==0)
+		MerchantDao merchantDao=new MerchantDao();
+		Merchant merchant=merchantDao.findValidatedMerchantById(deliveryorder.getMerchantid());
+		/**这里有错误，需要进行修改**/		
+		merchant.setBalance(merchant.getBalance()+deliveryorder.getEstimatedtotalprice());
+		if(orderDao.updateOrderAfterPay(deliveryorder)==0 || !merchantDao.updateMerchantBalance(merchant))
 			success=false;
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("success", success);

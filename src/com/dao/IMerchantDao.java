@@ -9,7 +9,8 @@ public interface IMerchantDao {
     public boolean updateMerchant(Merchant merchant);
     public List<Merchant> findMerchants();
     public Merchant findMerchantById(String merchantId);
-    public List<Merchant> findMerchantsByDept(String dept);
+    //”√”⁄≤È’“validatedmerchant
+    public Merchant findValidatedMerchantById(Long merchantId);
     public List<Merchant> findMerchantsByRole(String role);
     public Typeofgoods findTypeOfGoodsNameById(Long tofgId);
     public int delMerchantById(int id);

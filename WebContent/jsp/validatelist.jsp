@@ -87,67 +87,7 @@
 			<div class="navbar-buttons navbar-header pull-right"
 				role="navigation">
 				<ul class="nav ace-nav">
-					<li class="grey"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#"> <i
-							class="ace-icon fa fa-tasks"></i> <span class="badge badge-grey">4</span>
-					</a>
 
-						<ul
-							class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-							<li class="dropdown-header"><i class="ace-icon fa fa-check"></i>
-								4 Tasks to complete</li>
-
-							<li><a href="#">
-									<div class="clearfix">
-										<span class="pull-left">Software Update</span> <span
-											class="pull-right">65%</span>
-									</div>
-
-									<div class="progress progress-mini">
-										<div style="width:65%" class="progress-bar"></div>
-									</div>
-							</a></li>
-
-							<li><a href="#">
-									<div class="clearfix">
-										<span class="pull-left">Hardware Upgrade</span> <span
-											class="pull-right">35%</span>
-									</div>
-
-									<div class="progress progress-mini">
-										<div style="width:35%"
-											class="progress-bar progress-bar-danger"></div>
-									</div>
-							</a></li>
-
-							<li><a href="#">
-									<div class="clearfix">
-										<span class="pull-left">Unit Testing</span> <span
-											class="pull-right">15%</span>
-									</div>
-
-									<div class="progress progress-mini">
-										<div style="width:15%"
-											class="progress-bar progress-bar-warning"></div>
-									</div>
-							</a></li>
-
-							<li><a href="#">
-									<div class="clearfix">
-										<span class="pull-left">Bug Fixes</span> <span
-											class="pull-right">90%</span>
-									</div>
-
-									<div class="progress progress-mini progress-striped active">
-										<div style="width:90%"
-											class="progress-bar progress-bar-success"></div>
-									</div>
-							</a></li>
-
-							<li class="dropdown-footer"><a href="#"> See tasks with
-									details <i class="ace-icon fa fa-arrow-right"></i>
-							</a></li>
-						</ul></li>
 
 					<li class="purple"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#"> <i
@@ -709,112 +649,78 @@
 									<!-- <div class="table-responsive"> -->
 
 									<!-- <div class="dataTables_borderWrap"> -->
-									<div>
-										<table id="sample-table-2"
-											class="table table-striped table-bordered table-hover">
-											<thead>
-												<tr>
-													<th class="center"><label class="position-relative">
-															<input type="checkbox" class="ace" /> <span class="lbl"></span>
-													</label></th>
-													<th>商户id</th>
-													<th>商户名称</th>
-													<th class="hidden-480">身份证号</th>
 
-													<th><i
-														class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-														电话</th>
-													<th class="hidden-480">地址</th>
+									<table id="sample-table-2"
+										class="table table-striped table-bordered table-hover">
+										<thead>
+											<tr>
+												<th class="center"><label class="position-relative">
+														<input type="checkbox" class="ace" /> <span class="lbl"></span>
+												</label></th>
+												<th>商户id</th>
+												<th>商户名称</th>
+												<th class="hidden-480">身份证号</th>
 
-													<th></th>
-												</tr>
-											</thead>
+												<th><i
+													class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
+													电话</th>
+												<th class="hidden-480">地址</th>
 
-											<tbody>
-												<%
-													List<Merchant> merchants=(List<Merchant>)session.getAttribute("merchants");
-																																																			Iterator it=merchants.iterator();
-																															long merchantId;
-																														  String idCardNumber;
-																															String merchantName;
-																															String phone;
-																															String address;
-																															while(it.hasNext()){
-																																		Merchant merchant=(Merchant)it.next();
-																																		phone=merchant.getPhone();
-																																		address=merchant.getAddress();
-																																		merchantName=merchant.getName();
-																																		idCardNumber=merchant.getIdcardnumber();
-																																		merchantId=merchant.getMerchantid();
-												%>
+												<th></th>
+											</tr>
+										</thead>
 
-												<tr>
-													<td class="center"><label class="position-relative">
-													<input type="checkbox" class="ace" /> <span class="lbl"></span>
-													</label></td>
+										<tbody>
+											<%
+												List<Merchant> merchants=(List<Merchant>)session.getAttribute("merchants");
+																																																												Iterator it=merchants.iterator();
+																																								long merchantId;
+																																							  String idCardNumber;
+																																								String merchantName;
+																																								String phone;
+																																								String address;
+																																								while(it.hasNext()){
+																																											Merchant merchant=(Merchant)it.next();
+																																											phone=merchant.getPhone();
+																																											address=merchant.getAddress();
+																																											merchantName=merchant.getName();
+																																											idCardNumber=merchant.getIdcardnumber();
+																																											merchantId=merchant.getMerchantid();
+											%>
 
-													<td><a href="#"><%=merchantId%></a></td>
-													<td><%=merchantName%></td>
-													<td class="hidden-480"><%=idCardNumber%></td>
-													<td><%=phone%></td>
+											<tr>
+												<td class="center"><label class="position-relative">
+														<input type="checkbox" class="ace" /> <span class="lbl"></span>
+												</label></td>
 
-													<td class="hidden-480"><span
-														class="label label-sm label-warning"><%=address%></span></td>
+												<td><a href="#"><%=merchantId%></a></td>
+												<td><%=merchantName%></td>
+												<td class="hidden-480"><%=idCardNumber%></td>
+												<td><%=phone%></td>
 
-													<td>
-														<div class="hidden-sm hidden-xs action-buttons">
-															<a class="blue"
-																href="/FiveCrowdsourcing-Server/merchant_profile.do?merchantId=<%=merchantId%>"
-																target="_blank">&nbsp; <i
-																class="ace-icon fa fa-search-plus bigger-130"></i> &nbsp;详细信息
-															</a> <a class="green"
-																href="/FiveCrowdsourcing-Server/merchants.do"> <i
-																class="ace-icon fa fa-pencil bigger-130"></i>
-															</a> 
-														</div>
+												<td class="hidden-480"><span
+													class="label label-sm label-warning"><%=address%></span></td>
 
-														<div class="hidden-md hidden-lg">
-															<div class="inline position-relative">
-																<button
-																	class="btn btn-minier btn-yellow dropdown-toggle"
-																	data-toggle="dropdown" data-position="auto">
-																	<i
-																		class="ace-icon fa fa-caret-down icon-only bigger-120"></i>
-																</button>
+												<td>
+													<div class="hidden-sm hidden-xs action-buttons">
+														<a class="blue"
+															href="/FiveCrowdsourcing-Server/merchant_profile.do?merchantId=<%=merchantId%>"
+															target="_blank">&nbsp; <i
+															class="ace-icon fa fa-search-plus bigger-130"></i>
+															&nbsp;详细信息
+														</a> 
+													</div>
+												</td>
+											</tr>
+											<%
+												}
+											%>
+										</tbody>
 
-																<ul
-																	class="dropdown-menu dropdown-only-icon dropdown-yellow dropdown-menu-right dropdown-caret dropdown-close">
-																	<li><a href="#" class="tooltip-info"
-																		data-rel="tooltip" title="View"> <span
-																			class="blue"> <i
-																				class="ace-icon fa fa-search-plus bigger-120"></i>
-																		</span>
-																	</a></li>
-
-																	<li><a href="#" class="tooltip-success"
-																		data-rel="tooltip" title="Edit"> <span
-																			class="green"> <i
-																				class="ace-icon fa fa-pencil-square-o bigger-120"></i>
-																		</span>
-																	</a></li>
-
-																	<li><a href="#" class="tooltip-error"
-																		data-rel="tooltip" title="Delete"> <span
-																			class="red"> <i
-																				class="ace-icon fa fa-trash-o bigger-120"></i>
-																		</span>
-																	</a></li>
-																</ul>
-															</div>
-														</div>
-													</td>
-												</tr>
-												<%
-													}
-												%>
-											</tbody>
-										</table>
-									</div>
+									</table>
+									<p style="padding-top:10px; ">
+										<button class="btn btn-info" id="bootbox-confirm" onclick="window.location.href='/FiveCrowdsourcing-Server/merchants.do'">保存</button>
+									</p>
 								</div>
 							</div>
 
@@ -1043,7 +949,17 @@
 	<!-- the following scripts are used in demo only for onpage help and you don't need them -->
 	<link rel="stylesheet" href="../assets/css/ace.onpage-help.css" />
 	<link rel="stylesheet" href="../docs/assets/js/themes/sunburst.css" />
-
+	<script type="text/javascript">
+		jQuery(function($) {
+			$("#bootbox-confirm").on(ace.click_event, function() {
+				bootbox.confirm("Are you sure?", function(result) {
+					if (result) {
+						//
+					}
+				});
+			});
+		});
+	</script>
 	<script type="text/javascript">
 		ace.vars['base'] = '..';
 	</script>

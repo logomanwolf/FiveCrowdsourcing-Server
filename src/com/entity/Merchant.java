@@ -17,7 +17,7 @@ public class Merchant implements Serializable{
   private Long margin;//保证金提交状态：1：提交；2：未提交
   private Double longitude;//经度
   private Double latitude;//纬度
-
+  private Double balance;//余额
   public Long getMerchantid() {
     return merchantid;
   }
@@ -128,6 +128,14 @@ public Double getLatitude() {
 
 public void setLatitude(Double latitude) {
 	this.latitude = latitude;
+}
+
+public Double getBalance() {
+	return balance;
+}
+
+public void setBalance(Double balance) {
+	this.balance = balance;
 }
   
 }

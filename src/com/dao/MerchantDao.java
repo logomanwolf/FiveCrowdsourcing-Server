@@ -69,7 +69,7 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 			pstmt.setLong(1, merchant.getTofgid());
 			pstmt.setString(2, merchant.getName());
 			pstmt.setString(3, merchant.getIdcardnumber());
-			pstmt.setString(4,merchant.getIdcardphoto());
+			pstmt.setString(4, merchant.getIdcardphoto());
 			pstmt.setString(5, merchant.getStorename());
 			pstmt.setString(6, merchant.getPhone());
 			pstmt.setString(7, merchant.getAddress());
@@ -78,6 +78,25 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 			pstmt.setDouble(11, merchant.getLatitude());
 			pstmt.setDouble(10, merchant.getLongitude());
 			pstmt.setLong(12, merchant.getMerchantid());
+			pstmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
+	// 用于支付后更新商户的余额值
+	public boolean updateMerchantBalance(Merchant merchant) {
+		// TODO Auto-generated method stub
+		String sql = "UPDATE `fivecrowdsourcing`.`validatedmerchant` SET `balance`=?, "
+				+ "WHERE `merchantId`=?;";
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setDouble(1, merchant.getBalance());
+			pstmt.setLong(2, merchant.getMerchantid());
 			pstmt.executeUpdate();
 			return true;
 		} catch (SQLException e) {
@@ -169,9 +188,35 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 	 * @see com.dao.IMerchantDao#findMerchantsByDept(java.lang.String)
 	 */
 	@Override
-	public List<Merchant> findMerchantsByDept(String dept) {
+	public Merchant findValidatedMerchantById(Long merchantId) {
 		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT * FROM fivecrowdsourcing.validatedmerchant where merchantId=?;";
+		Merchant merchant = null;
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setLong(1, merchantId);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				merchant = new Merchant();
+				merchant.setMerchantid(rs.getLong("merchantId"));
+				merchant.setTofgid(rs.getLong("tofgId"));
+				merchant.setName(rs.getString("name"));
+				merchant.setIdcardnumber(rs.getString("idCardNumber"));
+				merchant.setAddress(rs.getString("address"));
+				merchant.setPhone(rs.getString("phone"));
+				merchant.setStorename(rs.getString("storeName"));
+				merchant.setPassword(rs.getString("password"));
+				merchant.setBuslicensephoto(rs.getString("busLicensePhoto"));
+				merchant.setFoodbuslicensephoto(rs.getString("foodBusLicensePhoto"));
+				merchant.setIdcardphoto(rs.getString("idCardPhoto"));
+				merchant.setMargin(rs.getLong("margin"));
+				merchant.setBalance(rs.getDouble("balance"));
+			}
+			return merchant;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			return null;
+		}
 	}
 
 	/*
