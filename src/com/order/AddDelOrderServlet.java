@@ -1,6 +1,11 @@
 package com.order;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,8 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.json.JSONObject;
 
 import com.ToolsClass.EstimateUtils;
+import com.alibaba.fastjson.JSON;
 import com.dao.OrderDao;
 import com.entity.Deliveryorder;
+import com.entity.Merchant;
 /**
  * Servlet implementation class EditOrder
  */
@@ -41,19 +48,41 @@ public class AddDelOrderServlet extends HttpServlet {
 	@SuppressWarnings("null")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setCharacterEncoding("UTF-8");
-		OrderDao orderdao = new OrderDao();
-		//模拟APP发送过来的订单JSON数据
-		Long merchantid = (long) 1;
-		String cusname = "haha";
-		String cusphone = "15248572865";
-		String cusaddress = "浙工大东十四";
-		double cuslat = 30.228719;
-		double cuslng = 119.713279;
-		String things = "apple * 2, orange * 3";
-		String ordertime = "2018-01-12 12:12:12";
-		Deliveryorder deliveryorder = new Deliveryorder();
+		 /**
+         * 防止乱码
+         */
+        response.setContentType("text/html;charset=utf-8");
+        response. setCharacterEncoding("UTF-8");
+        request. setCharacterEncoding("UTF-8");
+        /**
+         * 把请求的json数据读取出来。
+         */
+        InputStream is=request.getInputStream();
+        BufferedReader reader=new BufferedReader(new InputStreamReader(is, "utf-8"));
+        String line=null;
+        StringBuffer sb=new StringBuffer();
+        while((line=reader.readLine())!=null){
+            sb.append(line);
+        }
+        String result;
+        System.out.println(sb.toString());
+       String DeliveryorderJson=sb.toString();       
+        System.out.println(DeliveryorderJson);//其中sb为json数据包含了merchantid,address,latitude,longitude,phone,storename,tofgid
+        Deliveryorder order=JSON.parseObject(DeliveryorderJson, Deliveryorder.class);
+        System.out.println(order.getMerchantid());
 		
+		//模拟APP发送过来的订单JSON数据
+		Long merchantid = order.getMerchantid();
+		String cusname = order.getCusName();
+		String cusphone = order.getCusPhone();
+		String cusaddress = order.getCusAddress();
+		double cuslat = order.getCuslat();
+		double cuslng = order.getCuslog();
+		String things = order.getThings();
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 	
+		String ordertime = df.format(System.currentTimeMillis());
+		//Deliveryorder deliveryorder = new Deliveryorder();
+		OrderDao orderdao = new OrderDao();
 		//获得预估时间和价格
 		int extraTime = 15;//预估缓冲时间
 		Double[] location = orderdao.getMerchantLocation(merchantid);//获得商户经纬度
@@ -68,6 +97,7 @@ public class AddDelOrderServlet extends HttpServlet {
 		Deliveryorder deliveryorderNew = new Deliveryorder();
 		deliveryorderNew.setMerchantid(merchantid);
 		deliveryorderNew.setDelmethodid(orderdao.getDelmethodid(merchantid));
+		System.out.println(orderdao.getDelmethodid(merchantid));
 		deliveryorderNew.setCusName(cusname);
 		deliveryorderNew.setCusAddress(cusaddress);
 		deliveryorderNew.setCusPhone(cusphone);
@@ -77,11 +107,17 @@ public class AddDelOrderServlet extends HttpServlet {
 		deliveryorderNew.setDistance(estimateddistance);
 		deliveryorderNew.setOrdertime(ordertime);
 		deliveryorderNew.setStatus(1);
-		
-		orderdao.insertDeliveryorder(deliveryorderNew);
+		String message=null;
+		try {
+//			orderdao.insertDeliveryorder(deliveryorderNew);
+			result="success";
+		}catch(Exception e) {
+			result="failed";
+		}		
 		
 		//将预估时间和价格发给APP
-		String timeAndPriceJSONStr = "{\"estimatedtime\":"+estimatedtime+",\"estimatedtotalprice\":"+estimatedtotalprice+"}";
+		String timeAndPriceJSONStr = "{\"estimatedtime\":"+estimatedtime+",\"estimatedtotalprice\":"+
+		+estimatedtotalprice+",\"result\":"+result+"}";
 		System.out.println(timeAndPriceJSONStr);
 		JSONObject timeAndPriceJSON = new JSONObject(timeAndPriceJSONStr);
 		response.getWriter().append(timeAndPriceJSON.toString());

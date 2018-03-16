@@ -52,16 +52,29 @@ public class LoginServlet extends HttpServlet {
 		System.out.println(phone + " " + password);
 		String result = null;
 		MerchantDao merchantDao = new MerchantDao();
-		Merchant merchant = merchantDao.checkMerchant(phone, password);
-		// 判断密码是否正确
-		if (merchant != null) {
-			result = "success";
+		try {
+			Merchant merchant = merchantDao.checkMerchant(phone, password);
+			// 判断密码是否正确
+			if (merchant != null) {
+				result = "success";
+				// 数据转换
+				jsonObject = new JSONObject(merchant);
+				jsonObject.put("result", result);
+				System.out.println(jsonObject);
+			} else {
+				// 数据转换
+				result = "false";
+				jsonObject = new JSONObject();
+				jsonObject.put("result", result);
+				
+			}
+		}catch(Exception e) {
 			// 数据转换
-			jsonObject = new JSONObject(merchant);
-			jsonObject.put("result", result);
-			System.out.println(jsonObject);
-		} else
-			result = "false";
+			result="false";
+			jsonObject = new JSONObject();
+			jsonObject.put("result", result);		
+		}
+		
 		response.getWriter().append(jsonObject.toString());
 	}
 

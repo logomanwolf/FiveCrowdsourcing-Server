@@ -115,6 +115,7 @@ public class OrderDao extends BaseDao{
 			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()){
 				result = rs.getLong("delMethodId");
+				System.out.println(result);
 			}
 			return result;
 		} catch (SQLException se) {
