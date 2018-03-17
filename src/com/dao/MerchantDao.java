@@ -329,4 +329,21 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 		return rs;
 	}
 
+	@Override
+	public Integer insertAMerchant(Merchant merchant) {
+		// TODO Auto-generated method stub
+	   String sql="insert into merchant(phone,password) values(?,?);";
+	   
+	   try (Connection conn = dataSource.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, merchant.getPassword());
+			pstmt.setString(2, merchant.getPassword());
+			Integer rs = pstmt.executeUpdate();
+			return rs;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			return 0;
+		}
+	}
+
 }

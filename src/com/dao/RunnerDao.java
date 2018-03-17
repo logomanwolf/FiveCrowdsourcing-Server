@@ -125,6 +125,24 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 			return false;
 		}
 	}
-}
+
+	@Override
+	public Integer insertARunner(Runner runner) {
+		// TODO Auto-generated method stub
+		 String sql="insert into runner(phone,password) values(?,?);";
+		   
+		   try (Connection conn = dataSource.getConnection();
+					PreparedStatement pstmt = conn.prepareStatement(sql)) {
+				pstmt.setString(1, runner.getPassword());
+				pstmt.setString(2, runner.getPassword());
+				Integer rs = pstmt.executeUpdate();
+				return rs;
+			} catch (SQLException se) {
+				se.printStackTrace();
+				return 0;
+			}
+		}
+	}
+
 
 

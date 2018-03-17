@@ -17,6 +17,8 @@ public interface IMerchantDao {
     public int updateMerchantById(int id,Merchant role);
     public boolean checkMerchant(String name);
     public Integer insertValidatedMerchants(List<Merchant> validatedMerchants);
+    //商户入住的第一步，插入商户
+    public Integer insertAMerchant(Merchant merchant);
     public Integer deleteMerchantsfromTemp(List<Merchant> validatedMerchants);
     
 }

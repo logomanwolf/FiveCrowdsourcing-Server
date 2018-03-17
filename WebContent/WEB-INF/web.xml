@@ -72,6 +72,20 @@
     <servlet-name>FinishedTasks</servlet-name>
     <servlet-class>com.pay.FinishedTasks</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>MerchantRegister</servlet-name>
+    <servlet-class>com.merchant.MerchantRegister</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>runnerRegister</servlet-name>
+    <servlet-class>com.runner.runnerRegister</servlet-class>
+  </servlet>
+
+
   <servlet-mapping>
     <servlet-name>validateAMerchantServlet</servlet-name>
     <url-pattern>/merchant_profile.do</url-pattern>
@@ -123,6 +137,14 @@
   <servlet-mapping>
     <servlet-name>FinishedTasks</servlet-name>
     <url-pattern>/finished.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>MerchantRegister</servlet-name>
+    <url-pattern>/merchantRegister.do</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>runnerRegister</servlet-name>
+    <url-pattern>/runnerRegister.do</url-pattern>
   </servlet-mapping>
   <resource-env-ref>
     <description>DataSource
