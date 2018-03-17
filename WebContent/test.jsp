@@ -25,5 +25,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
    <a href="merchantRegister.do">注册商户</a> <br>
    <a href="runnerRegister.do">注册跑腿人</a> <br>
+   <a href="AddDelOrderServlet">返回未完成订单</a> <br>
   </body>
 </html>
