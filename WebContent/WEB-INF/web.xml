@@ -84,8 +84,6 @@
     <servlet-name>runnerRegister</servlet-name>
     <servlet-class>com.runner.runnerRegister</servlet-class>
   </servlet>
-
-
   <servlet-mapping>
     <servlet-name>validateAMerchantServlet</servlet-name>
     <url-pattern>/merchant_profile.do</url-pattern>

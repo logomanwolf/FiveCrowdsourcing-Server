@@ -51,20 +51,20 @@ public class MerchantRegister extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		// String phone = request.getParameter("phone");
 		// String password=request.getParameter("password");
-		String phone = "123456";
-		String password = "123456";
+		String phone = request.getParameter("phone");
+		String password = request.getParameter("password");
 		Merchant merchant = new Merchant();
 		merchant.setPhone(phone);
 		merchant.setPassword(password);
 		MerchantDao merchantDao = new MerchantDao();
 		Integer result = merchantDao.insertAMerchant(merchant);
 		// 表示成功与否
-		boolean success = false;
+		String message = null;
 		if (result > 0)
-			success = true;
-		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("success", success);
-		response.getWriter().append(jsonObject.toString());
+			message = "success";
+		else 
+			message="false";
+		response.getWriter().append(message);
 
 	}
 

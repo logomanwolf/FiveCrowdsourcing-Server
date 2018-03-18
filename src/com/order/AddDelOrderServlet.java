@@ -22,6 +22,8 @@ import com.dao.OrderDao;
 import com.entity.Deliveryorder;
 import com.entity.Merchant;
 
+import net.sf.json.JSONArray;
+
 /**
  * Servlet implementation class EditOrder
  */
@@ -125,11 +127,13 @@ public class AddDelOrderServlet extends HttpServlet {
 		 deliveryorderNew.setEstimatedtotalprice(estimatedtotalprice);
 		 deliveryorderNew.setDistance(estimateddistance);
 		 deliveryorderNew.setOrdertime(ordertime);
+		 deliveryorderNew.setCuslat(cuslat);
+		 deliveryorderNew.setCuslog(cuslng);
 		 // deliveryorderNew.setStatus(1);
 		 deliveryorderNew.setStatus(2);
 		 String message = null;
 		 try {
-		 //orderdao.insertDeliveryorder(deliveryorderNew);
+		 orderdao.insertDeliveryorder(deliveryorderNew);
 		 result = "success";
 		 } catch (Exception e) {
 		 result = "failed";
@@ -151,8 +155,8 @@ public class AddDelOrderServlet extends HttpServlet {
 
 		List<Deliveryorder> deliveryorders = new ArrayList<>();
 		//OrderDao orderdao = new OrderDao();
-		// deliveryorders = orderdao.getAllInactiveDelOrder(merchantid);
-		deliveryorders = orderdao.getAllInactiveDelOrder(1L);
+		 deliveryorders = orderdao.getAllInactiveDelOrder(merchantid);
+//		deliveryorders = orderdao.getAllInactiveDelOrder(1L);
 		//String result;
 		if (deliveryorders == null)
 			result = "failed";
@@ -160,8 +164,10 @@ public class AddDelOrderServlet extends HttpServlet {
 			result = "failed";
 		else
 			result = "success";
+		JSONArray jsonArray = JSONArray.fromObject(deliveryorders);
 		String delOrdersStr = JSON.toJSONString(deliveryorders);
-		response.getWriter().append(delOrdersStr);
+		System.out.println(jsonArray.toString());
+		response.getWriter().append(jsonArray.toString());
 
 	}
 

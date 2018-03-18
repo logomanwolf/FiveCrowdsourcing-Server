@@ -44,6 +44,8 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 						.getString("foodBusLicensePhoto"));
 				merchant.setIdcardphoto(rs.getString("idCardPhoto"));
 				merchant.setMargin(rs.getLong("margin"));
+				merchant.setLatitude(rs.getDouble("latitude"));
+				merchant.setLongitude(rs.getDouble("longitude"));
 			}
 			return merchant;
 		} catch (SQLException se) {
@@ -336,7 +338,7 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 	   
 	   try (Connection conn = dataSource.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, merchant.getPassword());
+			pstmt.setString(1, merchant.getPhone());
 			pstmt.setString(2, merchant.getPassword());
 			Integer rs = pstmt.executeUpdate();
 			return rs;
