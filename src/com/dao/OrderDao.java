@@ -214,6 +214,40 @@ public class OrderDao extends BaseDao {
 						return null;
 					}
 				}
+				
+				// 获得所有完成的订单
+				@SuppressWarnings("null")
+				public List<Deliveryorder> getAllCompletedOrder(Long merchantid) {
+					String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and status='5';";
+					List<Deliveryorder> list = new ArrayList<Deliveryorder>();
+					Deliveryorder deliveryorder = new Deliveryorder();
+					try (Connection conn = dataSource.getConnection();
+							PreparedStatement pstmt = conn.prepareStatement(sql);) {
+						pstmt.setLong(1, merchantid);
+						ResultSet rs = pstmt.executeQuery();
+						while (rs.next()) {
+							deliveryorder.setDelorderid(rs.getLong("delOrderId"));
+							deliveryorder.setMerchantid(rs.getLong("merchantId"));
+							deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
+							deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
+							deliveryorder.setEstimatedtotalprice(rs
+									.getDouble("estimatedTotalPrice"));
+							deliveryorder.setOrdertime(rs.getString("orderTime"));
+							deliveryorder.setCusName(rs.getString("cusname"));
+							deliveryorder.setCusPhone(rs.getString("cusphone"));
+							deliveryorder.setCusAddress(rs.getString("cusaddress"));
+							deliveryorder.setThings(rs.getString("things"));
+							deliveryorder.setRunnerid(rs.getLong("runnerId"));
+							deliveryorder.setCuslat(rs.getDouble("cusLat"));
+							deliveryorder.setCuslog(rs.getDouble("cusLog"));
+							list.add(deliveryorder);
+						}
+						return list;
+					} catch (SQLException se) {
+						se.printStackTrace();
+						return null;
+					}
+				}			
 	public Long getDelmethodid(Long merchantid) {
 		String sql = "select delMethodId from fivecrowdsourcing.typeofgoods where tofgId = "
 				+ "(select tofgId from fivecrowdsourcing.merchant where merchantId = "
