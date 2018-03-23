@@ -295,6 +295,8 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 		String query = "";
 		ArrayList<String> params = new ArrayList<>();
 		for (Merchant merchant : validatedMerchants) {
+			if(merchant==null)
+			System.out.println("merchant==null");
 			params.add(merchant.getTofgid().toString());
 			params.add(merchant.getName());
 			params.add(merchant.getIdcardnumber());

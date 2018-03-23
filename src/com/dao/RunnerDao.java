@@ -96,10 +96,13 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 			params.add(runner.getPhotoofidcardinhand());
 			params.add(runner.getPhotoofidcardoppo());
 			params.add(runner.getPhotoofidcardposi());
-			params.add(runner.getMargin().toString());
 			params.add(runner.getPhotoofhealcert());
+			if(runner.getMargin()!=null)
+			params.add(runner.getMargin().toString());
+			else
+			params.add("null");	
 			query = query
-					+ " INSERT INTO validatedrunner(phone,name,idCardNumber,photoOfIdCartInhand,photoOfIdCardOppo,photoOfIdCardPosi,photoOfHealCert,margin) VALUES(?,?,?,?,?,?,?,?,?);";
+					+ " INSERT INTO validatedrunner(phone,name,password,idCardNumber,photoOfIdCartInhand,photoOfIdCardOppo,photoOfIdCardPosi,photoOfHealCert,margin) VALUES(?,?,?,?,?,?,?,?,?);";
 			// +" delete from runner where runnerId=?;";
 		}
 

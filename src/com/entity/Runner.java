@@ -1,6 +1,8 @@
 package com.entity;
 
-public class Runner {
+import java.io.Serializable;
+
+public class Runner implements Serializable{
   private Long runnerid;//跑腿人id
   private String phone;//电话
   private String name;//姓名

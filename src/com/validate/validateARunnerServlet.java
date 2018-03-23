@@ -48,7 +48,7 @@ public class validateARunnerServlet extends HttpServlet {
 				}
 			}
 			session.setAttribute("runner", runner);
-			response.sendRedirect("jsp/runner/profile.jsp");
+			response.sendRedirect("/FiveCrowdsourcing-Server/jsp/runner/profile.jsp");
 		}
 	}
 

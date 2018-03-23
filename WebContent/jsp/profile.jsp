@@ -362,7 +362,7 @@
 			</div>
 			<!-- /.sidebar-shortcuts -->
 
-			<ul class="nav nav-list">
+				<ul class="nav nav-list">
 
 
 				<li class="active open"><a href="#" class="dropdown-toggle"> <i
@@ -373,15 +373,15 @@
 					<ul class="submenu">
 
 
-						<li class=""><a href="typography.html"> <i
+						<li class=""><a href="/FiveCrowdsourcing-Server/validate.do"> <i
 								class="menu-icon fa fa-caret-right"></i> 商户审核
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="elements.html"> <i
+						<li class=""><a href="/FiveCrowdsourcing-Server/runner/validaterunner.do"> <i
 								class="menu-icon fa fa-caret-right"></i> 跑腿人审核
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="buttons.html"> <i
+						<li class=""><a href="#"> <i
 								class="menu-icon fa fa-caret-right"></i> 个体审核
 						</a> <b class="arrow"></b></li>
 
@@ -552,21 +552,14 @@
 										<ul class="nav nav-tabs padding-18">
 											<li class="active"><a data-toggle="tab" href="#home">
 													<i class="green ace-icon fa fa-user bigger-120"></i>
-													Profile
+													基本资料
 											</a></li>
 
-											<li><a data-toggle="tab" href="#feed"> <i
-													class="orange ace-icon fa fa-rss bigger-120"></i> Activity
-													Feed
-											</a></li>
-
-											<li><a data-toggle="tab" href="#friends"> <i
-													class="blue ace-icon fa fa-users bigger-120"></i> Friends
-											</a></li>
+											
 
 											<li><a data-toggle="tab" href="#pictures"> <i
 													class="pink ace-icon fa fa-picture-o bigger-120"></i>
-													Pictures
+													其他证明
 											</a></li>
 										</ul>
 
@@ -694,127 +687,7 @@
 
 												<div class="space-20"></div>
 
-												<div class="row">
-													<div class="col-xs-12 col-sm-6">
-														<div class="widget-box transparent">
-															<div class="widget-header widget-header-small">
-																<h4 class="widget-title smaller">
-																	<i class="ace-icon fa fa-check-square-o bigger-110"></i>
-																	Little About Me
-																</h4>
-															</div>
 
-															<div class="widget-body">
-																<div class="widget-main">
-																	<p>My job is mostly lorem ipsuming and dolor sit
-																		ameting as long as consectetur adipiscing elit.</p>
-																	<p>Sometimes quisque commodo massa gets in the way
-																		and sed ipsum porttitor facilisis.</p>
-																	<p>The best thing about my job is that vestibulum
-																		id ligula porta felis euismod and nullam quis risus
-																		eget urna mollis ornare.</p>
-																	<p>Thanks for visiting my profile.</p>
-																</div>
-															</div>
-														</div>
-													</div>
-
-													<div class="col-xs-12 col-sm-6">
-														<div class="widget-box transparent">
-															<div
-																class="widget-header widget-header-small header-color-blue2">
-																<h4 class="widget-title smaller">
-																	<i class="ace-icon fa fa-lightbulb-o bigger-120"></i>
-																	My Skills
-																</h4>
-															</div>
-
-															<div class="widget-body">
-																<div class="widget-main padding-16">
-																	<div class="clearfix">
-																		<div class="grid3 center">
-																			<!-- #section:plugins/charts.easypiechart -->
-																			<div class="easy-pie-chart percentage"
-																				data-percent="45" data-color="#CA5952">
-																				<span class="percent">45</span>%
-																			</div>
-
-																			<!-- /section:plugins/charts.easypiechart -->
-																			<div class="space-2"></div>
-																			Graphic Design
-																		</div>
-
-																		<div class="grid3 center">
-																			<div class="center easy-pie-chart percentage"
-																				data-percent="90" data-color="#59A84B">
-																				<span class="percent">90</span>%
-																			</div>
-
-																			<div class="space-2"></div>
-																			HTML5 & CSS3
-																		</div>
-
-																		<div class="grid3 center">
-																			<div class="center easy-pie-chart percentage"
-																				data-percent="80" data-color="#9585BF">
-																				<span class="percent">80</span>%
-																			</div>
-
-																			<div class="space-2"></div>
-																			Javascript/jQuery
-																		</div>
-																	</div>
-
-																	<div class="hr hr-16"></div>
-
-																	<!-- #section:pages/profile.skill-progress -->
-																	<div class="profile-skills">
-																		<div class="progress">
-																			<div class="progress-bar" style="width:80%">
-																				<span class="pull-left">HTML5 & CSS3</span> <span
-																					class="pull-right">80%</span>
-																			</div>
-																		</div>
-
-																		<div class="progress">
-																			<div class="progress-bar progress-bar-success"
-																				style="width:72%">
-																				<span class="pull-left">Javascript & jQuery</span> <span
-																					class="pull-right">72%</span>
-																			</div>
-																		</div>
-
-																		<div class="progress">
-																			<div class="progress-bar progress-bar-purple"
-																				style="width:70%">
-																				<span class="pull-left">PHP & MySQL</span> <span
-																					class="pull-right">70%</span>
-																			</div>
-																		</div>
-
-																		<div class="progress">
-																			<div class="progress-bar progress-bar-warning"
-																				style="width:50%">
-																				<span class="pull-left">Wordpress</span> <span
-																					class="pull-right">50%</span>
-																			</div>
-																		</div>
-
-																		<div class="progress">
-																			<div class="progress-bar progress-bar-danger"
-																				style="width:38%">
-																				<span class="pull-left">Photoshop</span> <span
-																					class="pull-right">38%</span>
-																			</div>
-																		</div>
-																	</div>
-
-																	<!-- /section:pages/profile.skill-progress -->
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
 											</div>
 											<!-- /#home -->
 

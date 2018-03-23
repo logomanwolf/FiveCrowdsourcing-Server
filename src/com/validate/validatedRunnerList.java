@@ -58,7 +58,7 @@ public class validatedRunnerList extends HttpServlet {
 			validatedRunners.add(runner);
 			session.setAttribute("validatedRunners", validatedRunners);
 		}
-		response.sendRedirect("jsp/runner/profile.jsp");
+		response.sendRedirect("/FiveCrowdsourcing-Server/jsp/runner/profile.jsp");
 	}
 
 	/**

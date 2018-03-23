@@ -14,43 +14,43 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 <!-- bootstrap & fontawesome -->
-<link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
-<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="../../assets/css/font-awesome.min.css" />
 
 <!-- page specific plugin styles -->
-<link rel="stylesheet" href="../assets/css/jquery-ui.custom.min.css" />
-<link rel="stylesheet" href="../assets/css/jquery.gritter.css" />
-<link rel="stylesheet" href="../assets/css/select2.css" />
-<link rel="stylesheet" href="../assets/css/datepicker.css" />
-<link rel="stylesheet" href="../assets/css/bootstrap-editable.css" />
+<link rel="stylesheet" href="../../assets/css/jquery-ui.custom.min.css" />
+<link rel="stylesheet" href="../../assets/css/jquery.gritter.css" />
+<link rel="stylesheet" href="../../assets/css/select2.css" />
+<link rel="stylesheet" href="../../assets/css/datepicker.css" />
+<link rel="stylesheet" href="../../assets/css/bootstrap-editable.css" />
 
 <!-- text fonts -->
-<link rel="stylesheet" href="../assets/css/ace-fonts.css" />
+<link rel="stylesheet" href="../../assets/css/ace-fonts.css" />
 
 <!-- ace styles -->
-<link rel="stylesheet" href="../assets/css/ace.min.css"
+<link rel="stylesheet" href="../../assets/css/ace.min.css"
 	id="main-ace-style" />
 
 <!--[if lte IE 9]>
-			<link rel="stylesheet" href="../assets/css/ace-part2.min.css" />
+			<link rel="stylesheet" href="../../assets/css/ace-part2.min.css" />
 		<![endif]-->
-<link rel="stylesheet" href="../assets/css/ace-skins.min.css" />
-<link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
+<link rel="stylesheet" href="../../assets/css/ace-skins.min.css" />
+<link rel="stylesheet" href="../../assets/css/ace-rtl.min.css" />
 
 <!--[if lte IE 9]>
-		  <link rel="stylesheet" href="../assets/css/ace-ie.min.css" />
+		  <link rel="stylesheet" href="../../assets/css/ace-ie.min.css" />
 		<![endif]-->
 
 <!-- inline styles related to this page -->
 
 <!-- ace settings handler -->
-<script src="../assets/js/ace-extra.min.js"></script>
+<script src="../../assets/js/ace-extra.min.js"></script>
 
 <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
 <!--[if lte IE 8]>
-		<script src="../assets/js/html5shiv.min.js"></script>
-		<script src="../assets/js/respond.min.js"></script>
+		<script src="../../assets/js/html5shiv.min.js"></script>
+		<script src="../../assets/js/respond.min.js"></script>
 		<![endif]-->
 </head>
 
@@ -217,7 +217,7 @@
 							<li class="dropdown-content">
 								<ul class="dropdown-menu dropdown-navbar">
 									<li><a href="#"> <img
-											src="../assets/avatars/avatar.png" class="msg-photo"
+											src="../../assets/avatars/avatar.png" class="msg-photo"
 											alt="Alex's Avatar" /> <span class="msg-body"> <span
 												class="msg-title"> <span class="blue">Alex:</span>
 													Ciao sociis natoque penatibus et auctor ...
@@ -229,7 +229,7 @@
 									</a></li>
 
 									<li><a href="#"> <img
-											src="../assets/avatars/avatar3.png" class="msg-photo"
+											src="../../assets/avatars/avatar3.png" class="msg-photo"
 											alt="Susan's Avatar" /> <span class="msg-body"> <span
 												class="msg-title"> <span class="blue">Susan:</span>
 													Vestibulum id ligula porta felis euismod ...
@@ -241,7 +241,7 @@
 									</a></li>
 
 									<li><a href="#"> <img
-											src="../assets/avatars/avatar4.png" class="msg-photo"
+											src="../../assets/avatars/avatar4.png" class="msg-photo"
 											alt="Bob's Avatar" /> <span class="msg-body"> <span
 												class="msg-title"> <span class="blue">Bob:</span>
 													Nullam quis risus eget urna mollis ornare ...
@@ -252,7 +252,7 @@
 									</a></li>
 
 									<li><a href="#"> <img
-											src="../assets/avatars/avatar2.png" class="msg-photo"
+											src="../../assets/avatars/avatar2.png" class="msg-photo"
 											alt="Kate's Avatar" /> <span class="msg-body"> <span
 												class="msg-title"> <span class="blue">Kate:</span>
 													Ciao sociis natoque eget urna mollis ornare ...
@@ -263,7 +263,7 @@
 									</a></li>
 
 									<li><a href="#"> <img
-											src="../assets/avatars/avatar5.png" class="msg-photo"
+											src="../../assets/avatars/avatar5.png" class="msg-photo"
 											alt="Fred's Avatar" /> <span class="msg-body"> <span
 												class="msg-title"> <span class="blue">Fred:</span>
 													Vestibulum id penatibus et auctor ...
@@ -283,7 +283,7 @@
 					<!-- #section:basics/navbar.user_menu -->
 					<li class="light-blue"><a data-toggle="dropdown" href="#"
 						class="dropdown-toggle"> <img class="nav-user-photo"
-							src="../assets/avatars/user.jpg" alt="Jason's Photo" /> <span
+							src="../../assets/avatars/user.jpg" alt="Jason's Photo" /> <span
 							class="user-info"> <small>Welcome,</small> Jason
 						</span> <i class="ace-icon fa fa-caret-down"></i>
 					</a>
@@ -362,213 +362,71 @@
 			</div>
 			<!-- /.sidebar-shortcuts -->
 
-			<ul class="nav nav-list">
-				<li class=""><a href="index.html"> <i
-						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-							Dashboard </span>
-				</a> <b class="arrow"></b></li>
+	<ul class="nav nav-list">
 
-				<li class=""><a href="#" class="dropdown-toggle"> <i
+
+				<li class="active open"><a href="#" class="dropdown-toggle"> <i
 						class="menu-icon fa fa-desktop"></i> <span class="menu-text">
-							UI &amp; Elements </span> <b class="arrow fa fa-angle-down"></b>
+							人工审核 </span> <b class="arrow fa fa-angle-down"></b>
 				</a> <b class="arrow"></b>
 
 					<ul class="submenu">
-						<li class=""><a href="#" class="dropdown-toggle"> <i
-								class="menu-icon fa fa-caret-right"></i> Layouts <b
-								class="arrow fa fa-angle-down"></b>
-						</a> <b class="arrow"></b>
 
-							<ul class="submenu">
-								<li class=""><a href="top-menu.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Top Menu
-								</a> <b class="arrow"></b></li>
 
-								<li class=""><a href="mobile-menu-1.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Default Mobile Menu
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="mobile-menu-2.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Mobile Menu 2
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="mobile-menu-3.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Mobile Menu 3
-								</a> <b class="arrow"></b></li>
-							</ul></li>
-
-						<li class=""><a href="typography.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Typography
+						<li class=""><a href="/FiveCrowdsourcing-Server/validate.do"> <i
+								class="menu-icon fa fa-caret-right"></i> 商户审核
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="elements.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Elements
+						<li class=""><a href="/FiveCrowdsourcing-Server/runner/validaterunner.do"> <i
+								class="menu-icon fa fa-caret-right"></i> 跑腿人审核
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="buttons.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Buttons &amp; Icons
+						<li class=""><a href="#"> <i
+								class="menu-icon fa fa-caret-right"></i> 个体审核
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="treeview.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Treeview
-						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="jquery-ui.html"> <i
-								class="menu-icon fa fa-caret-right"></i> jQuery UI
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="nestable-list.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Nestable Lists
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="#" class="dropdown-toggle"> <i
-								class="menu-icon fa fa-caret-right"></i> Three Level Menu <b
-								class="arrow fa fa-angle-down"></b>
-						</a> <b class="arrow"></b>
-
-							<ul class="submenu">
-								<li class=""><a href="#"> <i
-										class="menu-icon fa fa-leaf green"></i> Item #1
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="#" class="dropdown-toggle"> <i
-										class="menu-icon fa fa-pencil orange"></i> 4th level <b
-										class="arrow fa fa-angle-down"></b>
-								</a> <b class="arrow"></b>
-
-									<ul class="submenu">
-										<li class=""><a href="#"> <i
-												class="menu-icon fa fa-plus purple"></i> Add Product
-										</a> <b class="arrow"></b></li>
-
-										<li class=""><a href="#"> <i
-												class="menu-icon fa fa-eye pink"></i> View Products
-										</a> <b class="arrow"></b></li>
-									</ul></li>
-							</ul></li>
 					</ul></li>
 
-				<li class=""><a href="#" class="dropdown-toggle"> <i
-						class="menu-icon fa fa-list"></i> <span class="menu-text">
-							Tables </span> <b class="arrow fa fa-angle-down"></b>
+				<li class=""><a href="#" class="dropdown-toggle">
+						<i class="menu-icon fa fa-list"></i> <span class="menu-text">
+							账户管理</span> <b class="arrow fa fa-angle-down"></b>
 				</a> <b class="arrow"></b>
 
 					<ul class="submenu">
 						<li class=""><a href="tables.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Simple &amp; Dynamic
+								class="menu-icon fa fa-caret-right"></i> 商户管理
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="jqgrid.html"> <i
-								class="menu-icon fa fa-caret-right"></i> jqGrid plugin
+								class="menu-icon fa fa-caret-right"></i> 跑腿人管理
 						</a> <b class="arrow"></b></li>
 					</ul></li>
 
 				<li class=""><a href="#" class="dropdown-toggle"> <i
 						class="menu-icon fa fa-pencil-square-o"></i> <span
-						class="menu-text"> Forms </span> <b class="arrow fa fa-angle-down"></b>
+						class="menu-text">帮助 </span> <b class="arrow fa fa-angle-down"></b>
 				</a> <b class="arrow"></b>
 
 					<ul class="submenu">
 						<li class=""><a href="form-elements.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Form Elements
+								class="menu-icon fa fa-caret-right"></i> 加价表查询
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="form-wizard.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Wizard &amp; Validation
+								class="menu-icon fa fa-caret-right"></i> 天气查询
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="wysiwyg.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Wysiwyg &amp; Markdown
+								class="menu-icon fa fa-caret-right"></i> 信用分奖励
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="dropzone.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Dropzone File Upload
-						</a> <b class="arrow"></b></li>
 					</ul></li>
 
 				<li class=""><a href="widgets.html"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
-							Widgets </span>
+							关于 </span>
 				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="calendar.html"> <i
-						class="menu-icon fa fa-calendar"></i> <span class="menu-text">
-							Calendar <!-- #section:basics/sidebar.layout.badge --> <span
-							class="badge badge-transparent tooltip-error"
-							title="2 Important Events"> <i
-								class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-						</span> <!-- /section:basics/sidebar.layout.badge -->
-					</span>
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="gallery.html"> <i
-						class="menu-icon fa fa-picture-o"></i> <span class="menu-text">
-							Gallery </span>
-				</a> <b class="arrow"></b></li>
-
-				<li class="active open"><a href="#" class="dropdown-toggle">
-						<i class="menu-icon fa fa-tag"></i> <span class="menu-text">
-							More Pages </span> <b class="arrow fa fa-angle-down"></b>
-				</a> <b class="arrow"></b>
-
-					<ul class="submenu">
-						<li class="active"><a href="profile.html"> <i
-								class="menu-icon fa fa-caret-right"></i> User Profile
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="inbox.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Inbox
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="pricing.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Pricing Tables
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="invoice.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Invoice
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="timeline.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Timeline
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="email.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Email Templates
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="login.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Login &amp; Register
-						</a> <b class="arrow"></b></li>
-					</ul></li>
-
-				<li class=""><a href="#" class="dropdown-toggle"> <i
-						class="menu-icon fa fa-file-o"></i> <span class="menu-text">
-							Other Pages <!-- #section:basics/sidebar.layout.badge --> <span
-							class="badge badge-primary">5</span> <!-- /section:basics/sidebar.layout.badge -->
-					</span> <b class="arrow fa fa-angle-down"></b>
-				</a> <b class="arrow"></b>
-
-					<ul class="submenu">
-						<li class=""><a href="faq.html"> <i
-								class="menu-icon fa fa-caret-right"></i> FAQ
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="error-404.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Error 404
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="error-500.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Error 500
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="grid.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Grid
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="blank.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Blank Page
-						</a> <b class="arrow"></b></li>
-					</ul></li>
 			</ul>
 			<!-- /.nav-list -->
 
@@ -695,7 +553,7 @@
 				<!-- /section:settings.box -->
 				<div class="page-content-area">
 					<div class="page-header">
-						<h1>User Profile Page</h1>
+						<h1>跑腿人信息</h1>
 					</div>
 					<!-- /.page-header -->
 
@@ -703,14 +561,7 @@
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
 							<div class="clearfix">
-								<div class="pull-left alert alert-success no-margin">
-									<button type="button" class="close" data-dismiss="alert">
-										<i class="ace-icon fa fa-times"></i>
-									</button>
-
-									<i class="ace-icon fa fa-umbrella bigger-120 blue"></i> Click
-									on the image below or on profile fields to edit them ...
-								</div>
+								
 
 								<div class="pull-right">
 									<span class="green middle bolder">Choose profile: &nbsp;</span>
@@ -738,7 +589,7 @@
 											<!-- #section:pages/profile.picture -->
 											<span class="profile-picture"> <img id="avatar"
 												class="editable img-responsive" alt="Alex's Avatar"
-												src="../idCardPic/1.jpg" />
+												src="../../idCardPic/1.jpg" />
 											</span>
 
 											<!-- /section:pages/profile.picture -->
@@ -931,7 +782,7 @@
 														<div class="profile-activity clearfix">
 															<div>
 																<img class="pull-left" alt="Alex Doe's avatar"
-																	src="../assets/avatars/avatar5.png" /> <a class="user"
+																	src="../../assets/avatars/avatar5.png" /> <a class="user"
 																	href="#"> Alex Doe </a> changed his profile photo. <a
 																	href="#">Take a look</a>
 
@@ -953,7 +804,7 @@
 														<div class="profile-activity clearfix">
 															<div>
 																<img class="pull-left" alt="Susan Smith's avatar"
-																	src="../assets/avatars/avatar1.png" /> <a class="user"
+																	src="../../assets/avatars/avatar1.png" /> <a class="user"
 																	href="#"> Susan Smith </a> is now friends with Alex
 																Doe.
 																<div class="time">
@@ -1017,7 +868,7 @@
 														<div class="profile-activity clearfix">
 															<div>
 																<img class="pull-left" alt="David Palms's avatar"
-																	src="../assets/avatars/avatar4.png" /> <a class="user"
+																	src="../../assets/avatars/avatar4.png" /> <a class="user"
 																	href="#"> David Palms </a> left a comment on Alex's
 																wall.
 																<div class="time">
@@ -1060,7 +911,7 @@
 														<div class="profile-activity clearfix">
 															<div>
 																<img class="pull-left" alt="Alex Doe's avatar"
-																	src="../assets/avatars/avatar5.png" /> <a class="user"
+																	src="../../assets/avatars/avatar5.png" /> <a class="user"
 																	href="#"> Alex Doe </a> upgraded his skills.
 																<div class="time">
 																	<i class="ace-icon fa fa-clock-o bigger-110"></i> 12
@@ -1168,14 +1019,7 @@
 													基本资料
 											</a></li>
 
-											<li><a data-toggle="tab" href="#feed"> <i
-													class="orange ace-icon fa fa-rss bigger-120"></i> Activity
-													Feed
-											</a></li>
-
-											<li><a data-toggle="tab" href="#friends"> <i
-													class="blue ace-icon fa fa-users bigger-120"></i> Friends
-											</a></li>
+											
 
 											<li><a data-toggle="tab" href="#pictures"> <i
 													class="pink ace-icon fa fa-picture-o bigger-120"></i>
@@ -1189,7 +1033,7 @@
 													<div class="col-xs-12 col-sm-6 center">
 														<div class="profile-picture">
 															<img class="editable img-responsive" alt="Alex's Avatar"
-																width="500px" id="avatar2" src="../idCardPic/1.jpg" />
+																width="500px" id="avatar2" src="../../idCardPic/1.jpg" />
 														</div>
 
 														<div class="space space-4"></div>
@@ -1204,7 +1048,7 @@
 															class="bigger-110">重新审核</span> 
 
 														</a> <%}else{%>
-														<a href="/FiveCrowdsourcing-Server/addValidated.do"
+														<a href="/FiveCrowdsourcing-Server/runner/addrunnervalidated.do"
 															class="btn btn-sm btn-block btn-success"> <i
 															class="ace-icon fa fa-plus-circle bigger-120"></i><span
 															class="bigger-110">审核通过</span>
@@ -1213,7 +1057,7 @@
 															}}else{
 														%>
 
-														<a href="/FiveCrowdsourcing-Server/addValidated.do"
+														<a href="/FiveCrowdsourcing-Server/runner/addrunnervalidated.do"
 															class="btn btn-sm btn-block btn-success"> <i
 															class="ace-icon fa fa-plus-circle bigger-120"></i><span
 															class="bigger-110">审核通过</span>
@@ -1286,127 +1130,7 @@
 
 												<div class="space-20"></div>
 
-												<div class="row">
-													<div class="col-xs-12 col-sm-6">
-														<div class="widget-box transparent">
-															<div class="widget-header widget-header-small">
-																<h4 class="widget-title smaller">
-																	<i class="ace-icon fa fa-check-square-o bigger-110"></i>
-																	Little About Me
-																</h4>
-															</div>
-
-															<div class="widget-body">
-																<div class="widget-main">
-																	<p>My job is mostly lorem ipsuming and dolor sit
-																		ameting as long as consectetur adipiscing elit.</p>
-																	<p>Sometimes quisque commodo massa gets in the way
-																		and sed ipsum porttitor facilisis.</p>
-																	<p>The best thing about my job is that vestibulum
-																		id ligula porta felis euismod and nullam quis risus
-																		eget urna mollis ornare.</p>
-																	<p>Thanks for visiting my profile.</p>
-																</div>
-															</div>
-														</div>
-													</div>
-
-													<div class="col-xs-12 col-sm-6">
-														<div class="widget-box transparent">
-															<div
-																class="widget-header widget-header-small header-color-blue2">
-																<h4 class="widget-title smaller">
-																	<i class="ace-icon fa fa-lightbulb-o bigger-120"></i>
-																	My Skills
-																</h4>
-															</div>
-
-															<div class="widget-body">
-																<div class="widget-main padding-16">
-																	<div class="clearfix">
-																		<div class="grid3 center">
-																			<!-- #section:plugins/charts.easypiechart -->
-																			<div class="easy-pie-chart percentage"
-																				data-percent="45" data-color="#CA5952">
-																				<span class="percent">45</span>%
-																			</div>
-
-																			<!-- /section:plugins/charts.easypiechart -->
-																			<div class="space-2"></div>
-																			Graphic Design
-																		</div>
-
-																		<div class="grid3 center">
-																			<div class="center easy-pie-chart percentage"
-																				data-percent="90" data-color="#59A84B">
-																				<span class="percent">90</span>%
-																			</div>
-
-																			<div class="space-2"></div>
-																			HTML5 & CSS3
-																		</div>
-
-																		<div class="grid3 center">
-																			<div class="center easy-pie-chart percentage"
-																				data-percent="80" data-color="#9585BF">
-																				<span class="percent">80</span>%
-																			</div>
-
-																			<div class="space-2"></div>
-																			Javascript/jQuery
-																		</div>
-																	</div>
-
-																	<div class="hr hr-16"></div>
-
-																	<!-- #section:pages/profile.skill-progress -->
-																	<div class="profile-skills">
-																		<div class="progress">
-																			<div class="progress-bar" style="width:80%">
-																				<span class="pull-left">HTML5 & CSS3</span> <span
-																					class="pull-right">80%</span>
-																			</div>
-																		</div>
-
-																		<div class="progress">
-																			<div class="progress-bar progress-bar-success"
-																				style="width:72%">
-																				<span class="pull-left">Javascript & jQuery</span> <span
-																					class="pull-right">72%</span>
-																			</div>
-																		</div>
-
-																		<div class="progress">
-																			<div class="progress-bar progress-bar-purple"
-																				style="width:70%">
-																				<span class="pull-left">PHP & MySQL</span> <span
-																					class="pull-right">70%</span>
-																			</div>
-																		</div>
-
-																		<div class="progress">
-																			<div class="progress-bar progress-bar-warning"
-																				style="width:50%">
-																				<span class="pull-left">Wordpress</span> <span
-																					class="pull-right">50%</span>
-																			</div>
-																		</div>
-
-																		<div class="progress">
-																			<div class="progress-bar progress-bar-danger"
-																				style="width:38%">
-																				<span class="pull-left">Photoshop</span> <span
-																					class="pull-right">38%</span>
-																			</div>
-																		</div>
-																	</div>
-
-																	<!-- /section:pages/profile.skill-progress -->
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
+												
 											</div>
 											<!-- /#home -->
 
@@ -1416,7 +1140,7 @@
 														<div class="profile-activity clearfix">
 															<div>
 																<img class="pull-left" alt="Alex Doe's avatar"
-																	src="../assets/avatars/avatar5.png" /> <a class="user"
+																	src="../../assets/avatars/avatar5.png" /> <a class="user"
 																	href="#"> Alex Doe </a> changed his profile photo. <a
 																	href="#">Take a look</a>
 
@@ -1438,7 +1162,7 @@
 														<div class="profile-activity clearfix">
 															<div>
 																<img class="pull-left" alt="Susan Smith's avatar"
-																	src="../assets/avatars/avatar1.png" /> <a class="user"
+																	src="../../assets/avatars/avatar1.png" /> <a class="user"
 																	href="#"> Susan Smith </a> is now friends with Alex
 																Doe.
 																<div class="time">
@@ -1502,7 +1226,7 @@
 														<div class="profile-activity clearfix">
 															<div>
 																<img class="pull-left" alt="David Palms's avatar"
-																	src="../assets/avatars/avatar4.png" /> <a class="user"
+																	src="../../assets/avatars/avatar4.png" /> <a class="user"
 																	href="#"> David Palms </a> left a comment on Alex's
 																wall.
 																<div class="time">
@@ -1548,7 +1272,7 @@
 														<div class="profile-activity clearfix">
 															<div>
 																<img class="pull-left" alt="Alex Doe's avatar"
-																	src="../assets/avatars/avatar5.png" /> <a class="user"
+																	src="../../assets/avatars/avatar5.png" /> <a class="user"
 																	href="#"> Alex Doe </a> upgraded his skills.
 																<div class="time">
 																	<i class="ace-icon fa fa-clock-o bigger-110"></i> 12
@@ -1649,7 +1373,7 @@
 														<div class="inline pos-rel">
 															<div class="user">
 																<a href="#"> <img
-																	src="../assets/avatars/avatar4.png"
+																	src="../../assets/avatars/avatar4.png"
 																	alt="Bob Doe's avatar" />
 																</a>
 															</div>
@@ -1694,7 +1418,7 @@
 														<div class="inline pos-rel">
 															<div class="user">
 																<a href="#"> <img
-																	src="../assets/avatars/avatar1.png"
+																	src="../../assets/avatars/avatar1.png"
 																	alt="Rose Doe's avatar" />
 																</a>
 															</div>
@@ -1738,7 +1462,7 @@
 													<div class="itemdiv memberdiv">
 														<div class="inline pos-rel">
 															<div class="user">
-																<a href="#"> <img src="../assets/avatars/avatar.png"
+																<a href="#"> <img src="../../assets/avatars/avatar.png"
 																	alt="Jim Doe's avatar" />
 																</a>
 															</div>
@@ -1783,7 +1507,7 @@
 														<div class="inline pos-rel">
 															<div class="user">
 																<a href="#"> <img
-																	src="../assets/avatars/avatar5.png"
+																	src="../../assets/avatars/avatar5.png"
 																	alt="Alex Doe's avatar" />
 																</a>
 															</div>
@@ -1828,7 +1552,7 @@
 														<div class="inline pos-rel">
 															<div class="user">
 																<a href="#"> <img
-																	src="../assets/avatars/avatar2.png"
+																	src="../../assets/avatars/avatar2.png"
 																	alt="Phil Doe's avatar" />
 																</a>
 															</div>
@@ -1873,7 +1597,7 @@
 														<div class="inline pos-rel">
 															<div class="user">
 																<a href="#"> <img
-																	src="../assets/avatars/avatar3.png"
+																	src="../../assets/avatars/avatar3.png"
 																	alt="Susan Doe's avatar" />
 																</a>
 															</div>
@@ -1918,7 +1642,7 @@
 														<div class="inline pos-rel">
 															<div class="user">
 																<a href="#"> <img
-																	src="../assets/avatars/avatar1.png"
+																	src="../../assets/avatars/avatar1.png"
 																	alt="Jennifer Doe's avatar" />
 																</a>
 															</div>
@@ -1964,7 +1688,7 @@
 														<div class="inline pos-rel">
 															<div class="user">
 																<a href="#"> <img
-																	src="../assets/avatars/avatar3.png"
+																	src="../../assets/avatars/avatar3.png"
 																	alt="Alexa Doe's avatar" />
 																</a>
 															</div>
@@ -2021,7 +1745,7 @@
 											<div id="pictures" class="tab-pane">
 												<ul class="ace-thumbnails">
 													<li><a href="#" data-rel="colorbox"> <img
-															alt="150x150" src="../assets/images/gallery/thumb-1.jpg" />
+															alt="150x150" src="../../assets/images/gallery/thumb-1.jpg" />
 															<div class="text">
 																<div class="inner">Sample Caption on Hover</div>
 															</div>
@@ -2036,7 +1760,7 @@
 														</div></li>
 
 													<li><a href="#" data-rel="colorbox"> <img
-															alt="150x150" src="../assets/images/gallery/thumb-2.jpg" />
+															alt="150x150" src="../../assets/images/gallery/thumb-2.jpg" />
 															<div class="text">
 																<div class="inner">Sample Caption on Hover</div>
 															</div>
@@ -2051,7 +1775,7 @@
 														</div></li>
 
 													<li><a href="#" data-rel="colorbox"> <img
-															alt="150x150" src="../assets/images/gallery/thumb-3.jpg" />
+															alt="150x150" src="../../assets/images/gallery/thumb-3.jpg" />
 															<div class="text">
 																<div class="inner">Sample Caption on Hover</div>
 															</div>
@@ -2066,7 +1790,7 @@
 														</div></li>
 
 													<li><a href="#" data-rel="colorbox"> <img
-															alt="150x150" src="../assets/images/gallery/thumb-4.jpg" />
+															alt="150x150" src="../../assets/images/gallery/thumb-4.jpg" />
 															<div class="text">
 																<div class="inner">Sample Caption on Hover</div>
 															</div>
@@ -2081,7 +1805,7 @@
 														</div></li>
 
 													<li><a href="#" data-rel="colorbox"> <img
-															alt="150x150" src="../assets/images/gallery/thumb-5.jpg" />
+															alt="150x150" src="../../assets/images/gallery/thumb-5.jpg" />
 															<div class="text">
 																<div class="inner">Sample Caption on Hover</div>
 															</div>
@@ -2096,7 +1820,7 @@
 														</div></li>
 
 													<li><a href="#" data-rel="colorbox"> <img
-															alt="150x150" src="../assets/images/gallery/thumb-6.jpg" />
+															alt="150x150" src="../../assets/images/gallery/thumb-6.jpg" />
 															<div class="text">
 																<div class="inner">Sample Caption on Hover</div>
 															</div>
@@ -2111,7 +1835,7 @@
 														</div></li>
 
 													<li><a href="#" data-rel="colorbox"> <img
-															alt="150x150" src="../assets/images/gallery/thumb-1.jpg" />
+															alt="150x150" src="../../assets/images/gallery/thumb-1.jpg" />
 															<div class="text">
 																<div class="inner">Sample Caption on Hover</div>
 															</div>
@@ -2126,7 +1850,7 @@
 														</div></li>
 
 													<li><a href="#" data-rel="colorbox"> <img
-															alt="150x150" src="../assets/images/gallery/thumb-2.jpg" />
+															alt="150x150" src="../../assets/images/gallery/thumb-2.jpg" />
 															<div class="text">
 																<div class="inner">Sample Caption on Hover</div>
 															</div>
@@ -2465,7 +2189,7 @@
 	<!--[if !IE]> -->
 	<script type="text/javascript">
 		window.jQuery
-				|| document.write("<script src='../assets/js/jquery.min.js'>"
+				|| document.write("<script src='../../assets/js/jquery.min.js'>"
 						+ "<"+"/script>");
 	</script>
 
@@ -2473,39 +2197,39 @@
 
 	<!--[if IE]>
 <script type="text/javascript">
- window.jQuery || document.write("<script src='../assets/js/jquery1x.min.js'>"+"<"+"/script>");
+ window.jQuery || document.write("<script src='../../assets/js/jquery1x.min.js'>"+"<"+"/script>");
 </script>
 <![endif]-->
 	<script type="text/javascript">
 		if ('ontouchstart' in document.documentElement)
 			document
-					.write("<script src='../assets/js/jquery.mobile.custom.min.js'>"
+					.write("<script src='../../assets/js/jquery.mobile.custom.min.js'>"
 							+ "<"+"/script>");
 	</script>
-	<script src="../assets/js/bootstrap.min.js"></script>
+	<script src="../../assets/js/bootstrap.min.js"></script>
 
 	<!-- page specific plugin scripts -->
 
 	<!--[if lte IE 8]>
-		  <script src="../assets/js/excanvas.min.js"></script>
+		  <script src="../../assets/js/excanvas.min.js"></script>
 		<![endif]-->
-	<script src="../assets/js/jquery-ui.custom.min.js"></script>
-	<script src="../assets/js/jquery.ui.touch-punch.min.js"></script>
-	<script src="../assets/js/jquery.gritter.min.js"></script>
-	<script src="../assets/js/bootbox.min.js"></script>
-	<script src="../assets/js/jquery.easypiechart.min.js"></script>
-	<script src="../assets/js/date-time/bootstrap-datepicker.min.js"></script>
-	<script src="../assets/js/jquery.hotkeys.min.js"></script>
-	<script src="../assets/js/bootstrap-wysiwyg.min.js"></script>
-	<script src="../assets/js/select2.min.js"></script>
-	<script src="../assets/js/fuelux/fuelux.spinner.min.js"></script>
-	<script src="../assets/js/x-editable/bootstrap-editable.min.js"></script>
-	<script src="../assets/js/x-editable/ace-editable.min.js"></script>
-	<script src="../assets/js/jquery.maskedinput.min.js"></script>
+	<script src="../../assets/js/jquery-ui.custom.min.js"></script>
+	<script src="../../assets/js/jquery.ui.touch-punch.min.js"></script>
+	<script src="../../assets/js/jquery.gritter.min.js"></script>
+	<script src="../../assets/js/bootbox.min.js"></script>
+	<script src="../../assets/js/jquery.easypiechart.min.js"></script>
+	<script src="../../assets/js/date-time/bootstrap-datepicker.min.js"></script>
+	<script src="../../assets/js/jquery.hotkeys.min.js"></script>
+	<script src="../../assets/js/bootstrap-wysiwyg.min.js"></script>
+	<script src="../../assets/js/select2.min.js"></script>
+	<script src="../../assets/js/fuelux/fuelux.spinner.min.js"></script>
+	<script src="../../assets/js/x-editable/bootstrap-editable.min.js"></script>
+	<script src="../../assets/js/x-editable/ace-editable.min.js"></script>
+	<script src="../../assets/js/jquery.maskedinput.min.js"></script>
 
 	<!-- ace scripts -->
-	<script src="../assets/js/ace-elements.min.js"></script>
-	<script src="../assets/js/ace.min.js"></script>
+	<script src="../../assets/js/ace-elements.min.js"></script>
+	<script src="../../assets/js/ace.min.js"></script>
 
 	<!-- inline scripts related to this page -->
 	<script type="text/javascript">
@@ -3006,18 +2730,18 @@
 	</script>
 
 	<!-- the following scripts are used in demo only for onpage help and you don't need them -->
-	<link rel="stylesheet" href="../assets/css/ace.onpage-help.css" />
-	<link rel="stylesheet" href="../docs/assets/js/themes/sunburst.css" />
+	<link rel="stylesheet" href="../../assets/css/ace.onpage-help.css" />
+	<link rel="stylesheet" href="../../docs/assets/js/themes/sunburst.css" />
 
 	<script type="text/javascript">
 		ace.vars['base'] = '..';
 	</script>
-	<script src="../assets/js/ace/elements.onpage-help.js"></script>
-	<script src="../assets/js/ace/ace.onpage-help.js"></script>
-	<script src="../docs/assets/js/rainbow.js"></script>
-	<script src="../docs/assets/js/language/generic.js"></script>
-	<script src="../docs/assets/js/language/html.js"></script>
-	<script src="../docs/assets/js/language/css.js"></script>
-	<script src="../docs/assets/js/language/javascript.js"></script>
+	<script src="../../assets/js/ace/elements.onpage-help.js"></script>
+	<script src="../../assets/js/ace/ace.onpage-help.js"></script>
+	<script src="../../docs/assets/js/rainbow.js"></script>
+	<script src="../../docs/assets/js/language/generic.js"></script>
+	<script src="../../docs/assets/js/language/html.js"></script>
+	<script src="../../docs/assets/js/language/css.js"></script>
+	<script src="../../docs/assets/js/language/javascript.js"></script>
 </body>
 </html>

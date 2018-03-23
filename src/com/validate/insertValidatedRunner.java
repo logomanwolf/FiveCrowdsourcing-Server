@@ -30,7 +30,7 @@ public class insertValidatedRunner extends HttpServlet {
 
 		HttpSession session=request.getSession();
         if(session.getAttribute("validatedRunners")==null){
-      	  response.sendRedirect("runner/validaterunner.do");
+      	  response.sendRedirect("/FiveCrowdsourcing-Server/runner/validaterunner.do");
         }
         else{
       	  RunnerDao runnerDao=new RunnerDao();
@@ -40,7 +40,7 @@ public class insertValidatedRunner extends HttpServlet {
       	  session.removeAttribute("validatedRunners");
       	  session.removeAttribute("runners");
       	  session.removeAttribute("runner");
-      	  response.sendRedirect("runner/validaterunner.do");
+      	  response.sendRedirect("/FiveCrowdsourcing-Server/runner/validaterunner.do");
         }
 	}
 

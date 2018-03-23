@@ -358,212 +358,71 @@
 			<!-- /.sidebar-shortcuts -->
 
 			<ul class="nav nav-list">
-				<li class=""><a href="index.html"> <i
-						class="menu-icon fa fa-tachometer"></i> <span class="menu-text">
-							Dashboard </span>
-				</a> <b class="arrow"></b></li>
 
-				<li class=""><a href="#" class="dropdown-toggle"> <i
-						class="menu-icon fa fa-desktop"></i> <span class="menu-text">
-							UI &amp; Elements </span> <b class="arrow fa fa-angle-down"></b>
-				</a> <b class="arrow"></b>
-
-					<ul class="submenu">
-						<li class=""><a href="#" class="dropdown-toggle"> <i
-								class="menu-icon fa fa-caret-right"></i> Layouts <b
-								class="arrow fa fa-angle-down"></b>
-						</a> <b class="arrow"></b>
-
-							<ul class="submenu">
-								<li class=""><a href="top-menu.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Top Menu
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="mobile-menu-1.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Default Mobile Menu
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="mobile-menu-2.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Mobile Menu 2
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="mobile-menu-3.html"> <i
-										class="menu-icon fa fa-caret-right"></i> Mobile Menu 3
-								</a> <b class="arrow"></b></li>
-							</ul></li>
-
-						<li class=""><a href="typography.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Typography
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="elements.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Elements
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="buttons.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Buttons &amp; Icons
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="treeview.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Treeview
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="jquery-ui.html"> <i
-								class="menu-icon fa fa-caret-right"></i> jQuery UI
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="nestable-list.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Nestable Lists
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="#" class="dropdown-toggle"> <i
-								class="menu-icon fa fa-caret-right"></i> Three Level Menu <b
-								class="arrow fa fa-angle-down"></b>
-						</a> <b class="arrow"></b>
-
-							<ul class="submenu">
-								<li class=""><a href="#"> <i
-										class="menu-icon fa fa-leaf green"></i> Item #1
-								</a> <b class="arrow"></b></li>
-
-								<li class=""><a href="#" class="dropdown-toggle"> <i
-										class="menu-icon fa fa-pencil orange"></i> 4th level <b
-										class="arrow fa fa-angle-down"></b>
-								</a> <b class="arrow"></b>
-
-									<ul class="submenu">
-										<li class=""><a href="#"> <i
-												class="menu-icon fa fa-plus purple"></i> Add Product
-										</a> <b class="arrow"></b></li>
-
-										<li class=""><a href="#"> <i
-												class="menu-icon fa fa-eye pink"></i> View Products
-										</a> <b class="arrow"></b></li>
-									</ul></li>
-							</ul></li>
-					</ul></li>
 
 				<li class="active open"><a href="#" class="dropdown-toggle">
-						<i class="menu-icon fa fa-list"></i> <span class="menu-text">
-							Tables </span> <b class="arrow fa fa-angle-down"></b>
+						<i class="menu-icon fa fa-desktop"></i> <span class="menu-text">
+							人工审核 </span> <b class="arrow fa fa-angle-down"></b>
 				</a> <b class="arrow"></b>
 
 					<ul class="submenu">
-						<li class="active"><a href="tables.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Simple &amp; Dynamic
+
+
+						<li class=""><a href="/FiveCrowdsourcing-Server/validate.do">
+								<i class="menu-icon fa fa-caret-right"></i> 商户审核
+						</a> <b class="arrow"></b></li>
+
+						<li class=""><a
+							href="/FiveCrowdsourcing-Server/runner/validaterunner.do"> <i
+								class="menu-icon fa fa-caret-right"></i> 跑腿人审核
+						</a> <b class="arrow"></b></li>
+
+						<li class=""><a href="#"> <i
+								class="menu-icon fa fa-caret-right"></i> 个体审核
+						</a> <b class="arrow"></b></li>
+
+
+					</ul></li>
+
+				<li class=""><a href="#" class="dropdown-toggle"> <i
+						class="menu-icon fa fa-list"></i> <span class="menu-text">
+							账户管理</span> <b class="arrow fa fa-angle-down"></b>
+				</a> <b class="arrow"></b>
+
+					<ul class="submenu">
+						<li class=""><a href="tables.html"> <i
+								class="menu-icon fa fa-caret-right"></i> 商户管理
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="jqgrid.html"> <i
-								class="menu-icon fa fa-caret-right"></i> jqGrid plugin
+								class="menu-icon fa fa-caret-right"></i> 跑腿人管理
 						</a> <b class="arrow"></b></li>
 					</ul></li>
 
 				<li class=""><a href="#" class="dropdown-toggle"> <i
 						class="menu-icon fa fa-pencil-square-o"></i> <span
-						class="menu-text"> Forms </span> <b class="arrow fa fa-angle-down"></b>
+						class="menu-text">帮助 </span> <b class="arrow fa fa-angle-down"></b>
 				</a> <b class="arrow"></b>
 
 					<ul class="submenu">
 						<li class=""><a href="form-elements.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Form Elements
+								class="menu-icon fa fa-caret-right"></i> 加价表查询
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="form-wizard.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Wizard &amp; Validation
+								class="menu-icon fa fa-caret-right"></i> 天气查询
 						</a> <b class="arrow"></b></li>
 
 						<li class=""><a href="wysiwyg.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Wysiwyg &amp; Markdown
+								class="menu-icon fa fa-caret-right"></i> 信用分奖励
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="dropzone.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Dropzone File Upload
-						</a> <b class="arrow"></b></li>
 					</ul></li>
 
 				<li class=""><a href="widgets.html"> <i
 						class="menu-icon fa fa-list-alt"></i> <span class="menu-text">
-							Widgets </span>
+							关于 </span>
 				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="calendar.html"> <i
-						class="menu-icon fa fa-calendar"></i> <span class="menu-text">
-							Calendar <!-- #section:basics/sidebar.layout.badge --> <span
-							class="badge badge-transparent tooltip-error"
-							title="2 Important Events"> <i
-								class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-						</span> <!-- /section:basics/sidebar.layout.badge -->
-					</span>
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="gallery.html"> <i
-						class="menu-icon fa fa-picture-o"></i> <span class="menu-text">
-							Gallery </span>
-				</a> <b class="arrow"></b></li>
-
-				<li class=""><a href="#" class="dropdown-toggle"> <i
-						class="menu-icon fa fa-tag"></i> <span class="menu-text">
-							More Pages </span> <b class="arrow fa fa-angle-down"></b>
-				</a> <b class="arrow"></b>
-
-					<ul class="submenu">
-						<li class=""><a href="profile.html"> <i
-								class="menu-icon fa fa-caret-right"></i> User Profile
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="inbox.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Inbox
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="pricing.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Pricing Tables
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="invoice.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Invoice
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="timeline.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Timeline
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="email.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Email Templates
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="login.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Login &amp; Register
-						</a> <b class="arrow"></b></li>
-					</ul></li>
-
-				<li class=""><a href="#" class="dropdown-toggle"> <i
-						class="menu-icon fa fa-file-o"></i> <span class="menu-text">
-							Other Pages <!-- #section:basics/sidebar.layout.badge --> <span
-							class="badge badge-primary">5</span> <!-- /section:basics/sidebar.layout.badge -->
-					</span> <b class="arrow fa fa-angle-down"></b>
-				</a> <b class="arrow"></b>
-
-					<ul class="submenu">
-						<li class=""><a href="faq.html"> <i
-								class="menu-icon fa fa-caret-right"></i> FAQ
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="error-404.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Error 404
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="error-500.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Error 500
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="grid.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Grid
-						</a> <b class="arrow"></b></li>
-
-						<li class=""><a href="blank.html"> <i
-								class="menu-icon fa fa-caret-right"></i> Blank Page
-						</a> <b class="arrow"></b></li>
-					</ul></li>
 			</ul>
 			<!-- /.nav-list -->
 
@@ -704,8 +563,7 @@
 							<div class="row">
 								<div class="col-xs-12">
 									<h3 class="header smaller lighter blue">待审核跑腿人</h3>
-									<div class="table-header">Results for "Latest Registered
-										Domains"</div>
+
 
 									<!-- <div class="table-responsive"> -->
 
@@ -734,20 +592,20 @@
 											<tbody>
 												<%
 													List<Runner> runners=(List<Runner>)session.getAttribute("runners");
-																																									Iterator it=runners.iterator();
-																					long runnerId;
-																				  String idCardNumber;
-																					String runnerName;
-																					String phone;
-																					String money="已提交";
-																					while(it.hasNext()){
-																								Runner runner=(Runner)it.next();
-																								phone=runner.getPhone();
-																								runnerName=runner.getName();
-																								idCardNumber=runner.getIdcardnumber();
-																								runnerId=runner.getRunnerid();
-																								if(runner.getMargin().equals(0))
-																									money="未提交";
+																																																			Iterator it=runners.iterator();
+																															long runnerId;
+																														  String idCardNumber;
+																															String runnerName;
+																															String phone;
+																															String money="已提交";
+																															while(it.hasNext()){
+																																		Runner runner=(Runner)it.next();
+																																		phone=runner.getPhone();
+																																		runnerName=runner.getName();
+																																		idCardNumber=runner.getIdcardnumber();
+																																		runnerId=runner.getRunnerid();
+																																		if(runner.getMargin().equals(0))
+																																			money="未提交";
 												%>
 
 												<tr>
@@ -755,23 +613,23 @@
 															<input type="checkbox" class="ace" /> <span class="lbl"></span>
 													</label></td>
 
-													<td><a href="#"><%=runnerId %></a></td>
-													<td><%=runnerName %></td>
-													<td class="hidden-480"><%=idCardNumber %></td>
-													<td><%=phone %></td>
+													<td><a href="#"><%=runnerId%></a></td>
+													<td><%=runnerName%></td>
+													<td class="hidden-480"><%=idCardNumber%></td>
+													<td><%=phone%></td>
 
 													<td class="hidden-480"><span
-														class="label label-sm label-warning"><%=money %></span></td>
+														class="label label-sm label-warning"><%=money%></span></td>
 
 													<td>
 														<div class="hidden-sm hidden-xs action-buttons">
-															<a class="blue" href="/FiveCrowdsourcing-Server/runner/runner_profile.do?runnerId=<%=runnerId%>" target="_blank"> <i
-																class="ace-icon fa fa-search-plus bigger-130"></i>
-															</a> <a class="green" href="/FiveCrowdsourcing-Server/runner/runner.do"> <i
-																class="ace-icon fa fa-pencil bigger-130"></i>
-															</a> <a class="red" href="#"> <i
-																class="ace-icon fa fa-trash-o bigger-130"></i>
-															</a>
+															
+															<a class="blue"
+															href="/FiveCrowdsourcing-Server/runner/runner_profile.do?runnerId=<%=runnerId%>"
+															target="_blank">&nbsp; <i
+															class="ace-icon fa fa-search-plus bigger-130"></i>
+															&nbsp;详细信息
+														</a> 
 														</div>
 
 														<div class="hidden-md hidden-lg">
@@ -813,8 +671,12 @@
 												<%
 													}
 												%>
-								</tbody>
+											</tbody>
 										</table>
+										<p style="padding-top:10px; ">
+											<button class="btn btn-info" id="bootbox-confirm"
+												onclick="window.location.href='/FiveCrowdsourcing-Server/runner/runner.do'">保存</button>
+										</p>
 									</div>
 								</div>
 							</div>
@@ -916,7 +778,7 @@
 						</div>
 						<!-- /.col -->
 					</div>
-					
+
 					<!-- /.row -->
 				</div>
 				<!-- /.page-content-area -->
@@ -925,7 +787,7 @@
 		</div>
 		<!-- /.main-content -->
 
-		
+
 
 		<a href="#" id="btn-scroll-up"
 			class="btn-scroll-up btn btn-sm btn-inverse"> <i
@@ -939,8 +801,9 @@
 	<!--[if !IE]> -->
 	<script type="text/javascript">
 		window.jQuery
-				|| document.write("<script src='../../assets/js/jquery.min.js'>"
-						+ "<"+"/script>");
+				|| document
+						.write("<script src='../../assets/js/jquery.min.js'>"
+								+ "<"+"/script>");
 	</script>
 
 	<!-- <![endif]-->
