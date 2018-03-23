@@ -113,7 +113,8 @@ public class AddDelOrderServlet extends HttpServlet {
 		 double estimatedtotalprice = EstimateUtils.getEstimatedPrice(
 		 estimateddistance, ordertime,
 		 orderdao.getDelmethodid(merchantid));
-		
+		System.out.println(estimateddistance);
+		System.out.println(estimatedtotalprice);
 		 // 转换成配送单对象并保存到数据库
 		 Deliveryorder deliveryorderNew = new Deliveryorder();
 		 deliveryorderNew.setMerchantid(merchantid);

@@ -22,8 +22,7 @@ public class OrderDao extends BaseDao {
 	public int insertDeliveryorder(Deliveryorder deliveryorder) {
 		String sql = "insert into fivecrowdsourcing.deliveryorder(merchantId,delMethodId,estimatedTime,estimatedTotalPrice,distance,orderTime,"
 				+ "cusName,cusPhone,cusAddress,things,status,cusLat,cusLog) values (?,?,?,?,?,?,?,?,?,?,?,?,?);";
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setLong(1, deliveryorder.getMerchantid());
 			pstmt.setLong(2, deliveryorder.getDelmethodid());
 			pstmt.setLong(3, deliveryorder.getEstimatedtime());
@@ -49,8 +48,7 @@ public class OrderDao extends BaseDao {
 	public long getDeliveryorderId(Deliveryorder deliveryorder) {
 		String sql = "select delOrderId form fivecrowdsourcing.deliveryorder where merchantId=? and "
 				+ "delMethodId=? and estimatedTime=? and estimatedTotalPrice=? amd orderTime=?)";
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setLong(1, deliveryorder.getMerchantid());
 			pstmt.setLong(2, deliveryorder.getDelmethodid());
 			pstmt.setLong(3, deliveryorder.getEstimatedtime());
@@ -67,6 +65,111 @@ public class OrderDao extends BaseDao {
 		}
 	}
 
+	// 跑腿人获取待取货订单
+	@SuppressWarnings("null")
+	public List<Deliveryorder> getAllPendingOrder(Long runnerid) {
+		String sql = "select delOrderId,estimatedTime,estimatedTotalPrice,orderTime,cusname,cusphone,cusaddress,things"
+				+ ",delMethodId,cusLat,cusLog,storeName,address"
+				+ " from fivecrowdsourcing.deliveryorder,fivecrowdsourcing.merchant"
+				+ " where runnerId = ? and status='3' and deliveryorder.merchantId=merchant.merchantId;";
+		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
+		Deliveryorder deliveryorder = new Deliveryorder();
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setLong(1, runnerid);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				deliveryorder.setDelorderid(rs.getLong("delOrderId"));
+				deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
+				deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
+				deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedTotalPrice"));
+				deliveryorder.setOrdertime(rs.getString("orderTime"));
+				deliveryorder.setCusName(rs.getString("cusname"));
+				deliveryorder.setCusPhone(rs.getString("cusphone"));
+				deliveryorder.setCusAddress(rs.getString("cusaddress"));
+				deliveryorder.setThings(rs.getString("things"));
+				deliveryorder.setCuslat(rs.getDouble("cusLat"));
+				deliveryorder.setCuslog(rs.getDouble("cusLog"));
+				deliveryorder.setStoreAddress(rs.getString("address"));
+				deliveryorder.setStoreName(rs.getString("storeName"));
+				list.add(deliveryorder);
+			}
+			return list;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			return null;
+		}
+	}
+
+	// 跑腿人获取配送中订单
+	@SuppressWarnings("null")
+	public List<Deliveryorder> getAllRunnerSendingOrder(Long runnerid) {
+		String sql = "select delOrderId,estimatedTime,estimatedTotalPrice,orderTime,cusname,cusphone,cusaddress,things"
+				+ ",delMethodId,cusLat,cusLog,storeName,address"
+				+ " from fivecrowdsourcing.deliveryorder,fivecrowdsourcing.merchant"
+				+ " where runnerId = ? and status='4' and deliveryorder.merchantId=merchant.merchantId;";
+		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
+		Deliveryorder deliveryorder = new Deliveryorder();
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setLong(1, runnerid);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				deliveryorder.setDelorderid(rs.getLong("delOrderId"));
+				deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
+				deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
+				deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedTotalPrice"));
+				deliveryorder.setOrdertime(rs.getString("orderTime"));
+				deliveryorder.setCusName(rs.getString("cusname"));
+				deliveryorder.setCusPhone(rs.getString("cusphone"));
+				deliveryorder.setCusAddress(rs.getString("cusaddress"));
+				deliveryorder.setThings(rs.getString("things"));
+				deliveryorder.setCuslat(rs.getDouble("cusLat"));
+				deliveryorder.setCuslog(rs.getDouble("cusLog"));
+				deliveryorder.setStoreAddress(rs.getString("address"));
+				deliveryorder.setStoreName(rs.getString("storeName"));
+				list.add(deliveryorder);
+			}
+			return list;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			return null;
+		}
+	}
+
+	// 跑腿人获取已完成订单
+	@SuppressWarnings("null")
+	public List<Deliveryorder> getAllRunnerCompletedOrder(Long runnerid) {
+		String sql = "select delOrderId,estimatedTime,estimatedTotalPrice,orderTime,cusname,cusphone,cusaddress,things"
+				+ ",delMethodId,cusLat,cusLog,storeName,address"
+				+ " from fivecrowdsourcing.deliveryorder,fivecrowdsourcing.merchant"
+				+ " where runnerId = ? and status='5' and deliveryorder.merchantId=merchant.merchantId;";
+		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
+		Deliveryorder deliveryorder = new Deliveryorder();
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setLong(1, runnerid);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				deliveryorder.setDelorderid(rs.getLong("delOrderId"));
+				deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
+				deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
+				deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedTotalPrice"));
+				deliveryorder.setOrdertime(rs.getString("orderTime"));
+				deliveryorder.setCusName(rs.getString("cusname"));
+				deliveryorder.setCusPhone(rs.getString("cusphone"));
+				deliveryorder.setCusAddress(rs.getString("cusaddress"));
+				deliveryorder.setThings(rs.getString("things"));
+				deliveryorder.setCuslat(rs.getDouble("cusLat"));
+				deliveryorder.setCuslog(rs.getDouble("cusLog"));
+				deliveryorder.setStoreAddress(rs.getString("address"));
+				deliveryorder.setStoreName(rs.getString("storeName"));
+				list.add(deliveryorder);
+			}
+			return list;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			return null;
+		}
+	}
+
 	// 获得附近商店的配送单
 	@SuppressWarnings("null")
 	public List<Deliveryorder> getNearByDelOrder(double lat1, double lng1) {
@@ -78,8 +181,7 @@ public class OrderDao extends BaseDao {
 
 		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
 		Deliveryorder deliveryorder = new Deliveryorder();
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			ResultSet rs = pstmt.executeQuery();
 			PreparedStatement pstmt2 = conn.prepareStatement(sql2);
 			while (rs.next()) {
@@ -90,16 +192,14 @@ public class OrderDao extends BaseDao {
 					lng2 = rs2.getDouble("longitude");
 				}
 				// 接口参数
-				String param = "output=json&origins=" + lat1 + "," + lng1
-						+ "&destinations=" + lat2 + "," + lng2
+				String param = "output=json&origins=" + lat1 + "," + lng1 + "&destinations=" + lat2 + "," + lng2
 						+ "&ak=Gsj9D1Ih7RV00jypSLk8osnircS4NRPA";
 				if (EstimateUtils.getEstimatedDistance(url, param) <= 3000) {
 					deliveryorder.setDelorderid(rs.getLong("delOrderId"));
 					deliveryorder.setMerchantid(rs.getLong("merchantId"));
 					deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
 					deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
-					deliveryorder.setEstimatedtotalprice(rs
-							.getDouble("estimatedTotalPrice"));
+					deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedTotalPrice"));
 					deliveryorder.setOrdertime(rs.getString("orderTime"));
 					deliveryorder.setCusName(rs.getString("cusname"));
 					deliveryorder.setCusPhone(rs.getString("cusphone"));
@@ -121,8 +221,7 @@ public class OrderDao extends BaseDao {
 		String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and status='2';";
 		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
 		Deliveryorder deliveryorder = new Deliveryorder();
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql);) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
 			pstmt.setLong(1, merchantid);
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
@@ -130,8 +229,7 @@ public class OrderDao extends BaseDao {
 				deliveryorder.setMerchantid(rs.getLong("merchantId"));
 				deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
 				deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
-				deliveryorder.setEstimatedtotalprice(rs
-						.getDouble("estimatedTotalPrice"));
+				deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedTotalPrice"));
 				deliveryorder.setOrdertime(rs.getString("orderTime"));
 				deliveryorder.setCusName(rs.getString("cusname"));
 				deliveryorder.setCusPhone(rs.getString("cusphone"));
@@ -147,114 +245,108 @@ public class OrderDao extends BaseDao {
 			return null;
 		}
 	}
+
 	// 获得所有未取货的订单
-		@SuppressWarnings("null")
-		public List<Deliveryorder> getAllInactiveGood(Long merchantid) {
-			String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and status='3';";
-			List<Deliveryorder> list = new ArrayList<Deliveryorder>();
-			Deliveryorder deliveryorder = new Deliveryorder();
-			try (Connection conn = dataSource.getConnection();
-					PreparedStatement pstmt = conn.prepareStatement(sql);) {
-				pstmt.setLong(1, merchantid);
-				ResultSet rs = pstmt.executeQuery();
-				while (rs.next()) {
-					deliveryorder.setDelorderid(rs.getLong("delOrderId"));
-					deliveryorder.setMerchantid(rs.getLong("merchantId"));
-					deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
-					deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
-					deliveryorder.setEstimatedtotalprice(rs
-							.getDouble("estimatedTotalPrice"));
-					deliveryorder.setOrdertime(rs.getString("orderTime"));
-					deliveryorder.setCusName(rs.getString("cusname"));
-					deliveryorder.setCusPhone(rs.getString("cusphone"));
-					deliveryorder.setCusAddress(rs.getString("cusaddress"));
-					deliveryorder.setThings(rs.getString("things"));
-					deliveryorder.setRunnerid(rs.getLong("runnerId"));
-					deliveryorder.setCuslat(rs.getDouble("cusLat"));
-					deliveryorder.setCuslog(rs.getDouble("cusLog"));
-					list.add(deliveryorder);
-				}
-				return list;
-			} catch (SQLException se) {
-				se.printStackTrace();
-				return null;
+	@SuppressWarnings("null")
+	public List<Deliveryorder> getAllInactiveGood(Long merchantid) {
+		String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and status='3';";
+		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
+		Deliveryorder deliveryorder = new Deliveryorder();
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setLong(1, merchantid);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				deliveryorder.setDelorderid(rs.getLong("delOrderId"));
+				deliveryorder.setMerchantid(rs.getLong("merchantId"));
+				deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
+				deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
+				deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedTotalPrice"));
+				deliveryorder.setOrdertime(rs.getString("orderTime"));
+				deliveryorder.setCusName(rs.getString("cusname"));
+				deliveryorder.setCusPhone(rs.getString("cusphone"));
+				deliveryorder.setCusAddress(rs.getString("cusaddress"));
+				deliveryorder.setThings(rs.getString("things"));
+				deliveryorder.setRunnerid(rs.getLong("runnerId"));
+				deliveryorder.setCuslat(rs.getDouble("cusLat"));
+				deliveryorder.setCuslog(rs.getDouble("cusLog"));
+				list.add(deliveryorder);
 			}
+			return list;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			return null;
 		}
-		
-		// 获得所有配送中的订单
-				@SuppressWarnings("null")
-				public List<Deliveryorder> getAllSendingOrder(Long merchantid) {
-					String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and status='4';";
-					List<Deliveryorder> list = new ArrayList<Deliveryorder>();
-					Deliveryorder deliveryorder = new Deliveryorder();
-					try (Connection conn = dataSource.getConnection();
-							PreparedStatement pstmt = conn.prepareStatement(sql);) {
-						pstmt.setLong(1, merchantid);
-						ResultSet rs = pstmt.executeQuery();
-						while (rs.next()) {
-							deliveryorder.setDelorderid(rs.getLong("delOrderId"));
-							deliveryorder.setMerchantid(rs.getLong("merchantId"));
-							deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
-							deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
-							deliveryorder.setEstimatedtotalprice(rs
-									.getDouble("estimatedTotalPrice"));
-							deliveryorder.setOrdertime(rs.getString("orderTime"));
-							deliveryorder.setCusName(rs.getString("cusname"));
-							deliveryorder.setCusPhone(rs.getString("cusphone"));
-							deliveryorder.setCusAddress(rs.getString("cusaddress"));
-							deliveryorder.setThings(rs.getString("things"));
-							deliveryorder.setRunnerid(rs.getLong("runnerId"));
-							deliveryorder.setCuslat(rs.getDouble("cusLat"));
-							deliveryorder.setCuslog(rs.getDouble("cusLog"));
-							list.add(deliveryorder);
-						}
-						return list;
-					} catch (SQLException se) {
-						se.printStackTrace();
-						return null;
-					}
-				}
-				
-				// 获得所有完成的订单
-				@SuppressWarnings("null")
-				public List<Deliveryorder> getAllCompletedOrder(Long merchantid) {
-					String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and status='5';";
-					List<Deliveryorder> list = new ArrayList<Deliveryorder>();
-					Deliveryorder deliveryorder = new Deliveryorder();
-					try (Connection conn = dataSource.getConnection();
-							PreparedStatement pstmt = conn.prepareStatement(sql);) {
-						pstmt.setLong(1, merchantid);
-						ResultSet rs = pstmt.executeQuery();
-						while (rs.next()) {
-							deliveryorder.setDelorderid(rs.getLong("delOrderId"));
-							deliveryorder.setMerchantid(rs.getLong("merchantId"));
-							deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
-							deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
-							deliveryorder.setEstimatedtotalprice(rs
-									.getDouble("estimatedTotalPrice"));
-							deliveryorder.setOrdertime(rs.getString("orderTime"));
-							deliveryorder.setCusName(rs.getString("cusname"));
-							deliveryorder.setCusPhone(rs.getString("cusphone"));
-							deliveryorder.setCusAddress(rs.getString("cusaddress"));
-							deliveryorder.setThings(rs.getString("things"));
-							deliveryorder.setRunnerid(rs.getLong("runnerId"));
-							deliveryorder.setCuslat(rs.getDouble("cusLat"));
-							deliveryorder.setCuslog(rs.getDouble("cusLog"));
-							list.add(deliveryorder);
-						}
-						return list;
-					} catch (SQLException se) {
-						se.printStackTrace();
-						return null;
-					}
-				}			
+	}
+
+	// 获得所有配送中的订单
+	@SuppressWarnings("null")
+	public List<Deliveryorder> getAllSendingOrder(Long merchantid) {
+		String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and status='4';";
+		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
+		Deliveryorder deliveryorder = new Deliveryorder();
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setLong(1, merchantid);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				deliveryorder.setDelorderid(rs.getLong("delOrderId"));
+				deliveryorder.setMerchantid(rs.getLong("merchantId"));
+				deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
+				deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
+				deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedTotalPrice"));
+				deliveryorder.setOrdertime(rs.getString("orderTime"));
+				deliveryorder.setCusName(rs.getString("cusname"));
+				deliveryorder.setCusPhone(rs.getString("cusphone"));
+				deliveryorder.setCusAddress(rs.getString("cusaddress"));
+				deliveryorder.setThings(rs.getString("things"));
+				deliveryorder.setRunnerid(rs.getLong("runnerId"));
+				deliveryorder.setCuslat(rs.getDouble("cusLat"));
+				deliveryorder.setCuslog(rs.getDouble("cusLog"));
+				list.add(deliveryorder);
+			}
+			return list;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			return null;
+		}
+	}
+
+	// 获得所有完成的订单
+	@SuppressWarnings("null")
+	public List<Deliveryorder> getAllCompletedOrder(Long merchantid) {
+		String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and status='5';";
+		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
+		Deliveryorder deliveryorder = new Deliveryorder();
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
+			pstmt.setLong(1, merchantid);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				deliveryorder.setDelorderid(rs.getLong("delOrderId"));
+				deliveryorder.setMerchantid(rs.getLong("merchantId"));
+				deliveryorder.setDelmethodid(rs.getLong("delMethodId"));
+				deliveryorder.setEstimatedtime(rs.getLong("estimatedTime"));
+				deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedTotalPrice"));
+				deliveryorder.setOrdertime(rs.getString("orderTime"));
+				deliveryorder.setCusName(rs.getString("cusname"));
+				deliveryorder.setCusPhone(rs.getString("cusphone"));
+				deliveryorder.setCusAddress(rs.getString("cusaddress"));
+				deliveryorder.setThings(rs.getString("things"));
+				deliveryorder.setRunnerid(rs.getLong("runnerId"));
+				deliveryorder.setCuslat(rs.getDouble("cusLat"));
+				deliveryorder.setCuslog(rs.getDouble("cusLog"));
+				list.add(deliveryorder);
+			}
+			return list;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			return null;
+		}
+	}
+
 	public Long getDelmethodid(Long merchantid) {
 		String sql = "select delMethodId from fivecrowdsourcing.typeofgoods where tofgId = "
-				+ "(select tofgId from fivecrowdsourcing.merchant where merchantId = "
-				+ merchantid + ")";
+				+ "(select tofgId from fivecrowdsourcing.merchant where merchantId = " + merchantid + ")";
 		long result = 0;
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				result = rs.getLong("delMethodId");
@@ -266,16 +358,12 @@ public class OrderDao extends BaseDao {
 			return (long) -1;
 		}
 	}
-	
-	
 
 	@SuppressWarnings("null")
 	public Double[] getMerchantLocation(Long merchantid) {
-		String sql = "select * from fivecrowdsourcing.merchant where merchantId = "
-				+ merchantid;
+		String sql = "select * from fivecrowdsourcing.merchant where merchantId = " + merchantid;
 		Double[] location = new Double[2];
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				location[0] = rs.getDouble("latitude");
@@ -306,8 +394,7 @@ public class OrderDao extends BaseDao {
 				deliveryorder.setCusName(rs.getString("cusName"));
 				deliveryorder.setCusAddress(rs.getString("cusAddress"));
 				deliveryorder.setCusPhone(rs.getString("cusPhone"));
-				deliveryorder.setEstimatedtotalprice(rs
-						.getDouble("estimatedtotalprice"));
+				deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedtotalprice"));
 				deliveryorder.setStatus(rs.getInt("status"));
 				deliveryorder.setIntegral(rs.getInt("integral"));
 				deliveryorder.setThings(rs.getString("things"));
@@ -354,8 +441,7 @@ public class OrderDao extends BaseDao {
 				deliveryorder.setCusName(rs.getString("cusName"));
 				deliveryorder.setCusAddress(rs.getString("cusAddress"));
 				deliveryorder.setCusPhone(rs.getString("cusPhone"));
-				deliveryorder.setEstimatedtotalprice(rs
-						.getDouble("estimatedtotalprice"));
+				deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedtotalprice"));
 				deliveryorder.setDistance(rs.getInt("distance"));
 				deliveryorder.setStatus(rs.getInt("status"));
 				deliveryorder.setIntegral(rs.getInt("integral"));

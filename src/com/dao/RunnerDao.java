@@ -12,6 +12,45 @@ import com.entity.Runner;
 
 public class RunnerDao extends BaseDao implements IRunnerDao {
 
+	// ºÏ≤È≈‹Õ»»À√‹¬Î
+	public Runner checkRunner(String phone, String password) {
+		String sql = "SELECT * FROM fivecrowdsourcing.runner where phone=? AND password=?;";
+		Runner runner = null;
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, phone);
+			pstmt.setString(2, password);
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				runner = new Runner();
+				runner.setRunnerid(rs.getLong("runnerId"));
+				// runner.setTofgid(rs.getLong("tofgId"));
+				runner.setPhone(rs.getString("phone"));
+				runner.setName(rs.getString("name"));
+				runner.setPassword(rs.getString("password"));
+				runner.setIdcardnumber(rs.getString("idCardNumber"));
+				// runner.setAddress(rs.getString("address"));
+				runner.setPhotoofidcardinhand(rs.getString("photoOfIdCardInhand"));
+				runner.setPhotoofidcardoppo(rs.getString("photoOfIdCardOppo"));
+				runner.setPhotoofidcardposi(rs.getString("photoOfIdCardPosi"));
+				runner.setPhotoofhealcert(rs.getString("photoOfHealCert"));
+				runner.setBalance(rs.getDouble("balance"));
+				runner.setIntegral(rs.getInt("integral"));
+				runner.setMargin(rs.getLong("margin"));
+
+				// runner.setStorename(rs.getString("storeName"));
+
+				// runner.setBuslicensephoto(rs.getString("busLicensePhoto"));
+				// runner.setFoodbuslicensephoto(rs
+				// .getString("foodBusLicensePhoto"));
+				// runner.setIdcardphoto(rs.getString("idCardPhoto"));
+
+			}
+			return runner;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			return runner;
+		}
+	}
 
 	@Override
 	public List<Runner> findRunners() {
@@ -28,7 +67,7 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 				runner.setPassword(rs.getString("password"));
 				runner.setIdcardnumber(rs.getString("idCardNumber"));
 				runner.setPhone(rs.getString("phone"));
-				runner.setPhotoofidcartinhand(rs.getString("photoofidcartinhand"));
+				runner.setPhotoofidcardinhand(rs.getString("photoofidcartinhand"));
 				runner.setPhotoofidcardposi(rs.getString("photoofidcardposi"));
 				runner.setPhotoofidcardoppo(rs.getString("photoofidcardoppo"));
 				runner.setPhotoofhealcert(rs.getString("photoofhealcert"));
@@ -47,25 +86,25 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 	public Integer insertValidatedRunners(List<Runner> validatedRunners) {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
-				String query = "";
-				ArrayList<String> params = new ArrayList<>();
-				for (Runner runner : validatedRunners) {
-					params.add(runner.getPhone());
-					params.add(runner.getName());
-					params.add(runner.getPassword());
-					params.add(runner.getIdcardnumber());
-					params.add(runner.getPhotoofidcartinhand());
-					params.add(runner.getPhotoofidcardoppo());
-					params.add(runner.getPhotoofidcardposi());
-					params.add(runner.getMargin().toString());
-					params.add(runner.getPhotoofhealcert());
-					query = query
-							+ " INSERT INTO validatedrunner(phone,name,idCardNumber,photoOfIdCartInhand,photoOfIdCardOppo,photoOfIdCardPosi,photoOfHealCert,margin) VALUES(?,?,?,?,?,?,?,?,?);";
-					// +" delete from runner where runnerId=?;";
-				}
+		String query = "";
+		ArrayList<String> params = new ArrayList<>();
+		for (Runner runner : validatedRunners) {
+			params.add(runner.getPhone());
+			params.add(runner.getName());
+			params.add(runner.getPassword());
+			params.add(runner.getIdcardnumber());
+			params.add(runner.getPhotoofidcardinhand());
+			params.add(runner.getPhotoofidcardoppo());
+			params.add(runner.getPhotoofidcardposi());
+			params.add(runner.getMargin().toString());
+			params.add(runner.getPhotoofhealcert());
+			query = query
+					+ " INSERT INTO validatedrunner(phone,name,idCardNumber,photoOfIdCartInhand,photoOfIdCardOppo,photoOfIdCardPosi,photoOfHealCert,margin) VALUES(?,?,?,?,?,?,?,?,?);";
+			// +" delete from runner where runnerId=?;";
+		}
 
-				int rs = this.executeUpdate(query, params);
-				return rs;
+		int rs = this.executeUpdate(query, params);
+		return rs;
 	}
 
 	@Override
@@ -82,9 +121,9 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 		int rs = this.executeUpdate(query, params);
 		return rs;
 	}
-	
+
 	public Runner getRunnerById(Long runnerid) {
-		String query = "select * from runner where runnerId = "+runnerid;
+		String query = "select * from runner where runnerId = " + runnerid;
 		ResultSet rs = this.executeQuery(query, null);
 		Runner runner = new Runner();
 		try {
@@ -95,7 +134,7 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 				runner.setPassword(rs.getString("password"));
 				runner.setIdcardnumber(rs.getString("idCardNumber"));
 				runner.setPhone(rs.getString("phone"));
-				runner.setPhotoofidcartinhand(rs.getString("photoofidcartinhand"));
+				runner.setPhotoofidcardinhand(rs.getString("photoofidcartinhand"));
 				runner.setPhotoofidcardposi(rs.getString("photoofidcardposi"));
 				runner.setPhotoofidcardoppo(rs.getString("photoofidcardoppo"));
 				runner.setPhotoofhealcert(rs.getString("photoofhealcert"));
@@ -108,12 +147,12 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 		}
 		return runner;
 	}
+
 	public boolean updateRunner(Runner runner) {
 		// TODO Auto-generated method stub
 		String sql = "UPDATE `fivecrowdsourcing`.`validatedrunner` SET `balance`=?, "
 				+ "`integral`=? WHERE `runnerId`=?;";
-		try (Connection conn = dataSource.getConnection();
-				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setDouble(1, runner.getBalance());
 			pstmt.setInt(2, runner.getIntegral());
 			pstmt.setLong(3, runner.getRunnerid());
@@ -129,20 +168,16 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 	@Override
 	public Integer insertARunner(Runner runner) {
 		// TODO Auto-generated method stub
-		 String sql="insert into runner(phone,password) values(?,?);";
-		   
-		   try (Connection conn = dataSource.getConnection();
-					PreparedStatement pstmt = conn.prepareStatement(sql)) {
-				pstmt.setString(1, runner.getPassword());
-				pstmt.setString(2, runner.getPassword());
-				Integer rs = pstmt.executeUpdate();
-				return rs;
-			} catch (SQLException se) {
-				se.printStackTrace();
-				return 0;
-			}
+		String sql = "insert into runner(phone,password) values(?,?);";
+
+		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, runner.getPassword());
+			pstmt.setString(2, runner.getPassword());
+			Integer rs = pstmt.executeUpdate();
+			return rs;
+		} catch (SQLException se) {
+			se.printStackTrace();
+			return 0;
 		}
 	}
-
-
-
+}

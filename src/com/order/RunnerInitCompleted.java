@@ -7,14 +7,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.json.JSONObject;
 
 import com.alibaba.fastjson.JSON;
 import com.dao.OrderDao;
@@ -24,16 +21,16 @@ import com.entity.Runner;
 import net.sf.json.JSONArray;
 
 /**
- * Servlet implementation class SendDelOrderServlet
+ * Servlet implementation class RunnerInitCompleted
  */
-@WebServlet("/SendDelOrderServlet")
-public class SendDelOrderServlet extends HttpServlet {
+@WebServlet("/RunnerInitCompleted")
+public class RunnerInitCompleted extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SendDelOrderServlet() {
+    public RunnerInitCompleted() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,13 +40,14 @@ public class SendDelOrderServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doPost(request,response);
+		doPost(request, response);
 	}
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		/**
 		 * 防止乱码
 		 */
@@ -73,39 +71,20 @@ public class SendDelOrderServlet extends HttpServlet {
 		 System.out.println(sb.toString());
 		 String runnerJson = sb.toString();
 		 Runner runner = JSON.parseObject(runnerJson,
-				 Runner.class);
-		 System.out.println(runner.getRunnerid());
-		//模拟APP发送过来的经纬度信息
-		OrderDao orderdao = new OrderDao();
-		Long runnerid = (long) 1;
-		double lat1 = runner.getLaititude();
-		double lng1 = runner.getLongtitude();
-		
-//		lat1 = Double.parseDouble(request.getParameter("lat1"));
-//		 lng1 = Double.parseDouble(request.getParameter("lng1"));
-		try
-		{
-		//更新跑腿人位置
-		Double[] location = new Double[2];
-		location[0] = lat1;location[1] = lng1;
-		ServletContext application = request.getServletContext();
-		application.setAttribute(runnerid.toString(), location);
-		
-		List<Deliveryorder> delOrderList = new ArrayList<Deliveryorder>();
-		
-		delOrderList = orderdao.getNearByDelOrder(lat1, lng1);
-	
-		//转换成JSON格式，写给APP。
-	
-		JSONArray jsonArray = JSONArray.fromObject(delOrderList);
-		System.out.println(jsonArray.toString());
-		//System.out.println(((Double[])application.getAttribute("1"))[0]);
-		response.getWriter().append(jsonArray.toString());
-		}catch(Exception e)
-		{
-			
-		}
-		
+				 Runner.class);		 
+		 OrderDao orderdao=new OrderDao();
+		 List<Deliveryorder> deliveryorders = new ArrayList<>();
+		 deliveryorders = orderdao.getAllRunnerCompletedOrder(runner.getRunnerid()); 
+		 if (deliveryorders == null)
+				result = "failed";
+			else if (deliveryorders.size() == 0)
+				result = "failed";
+			else
+				result = "success";
+		 JSONArray jsonArray = JSONArray.fromObject(deliveryorders);
+			//String delOrdersStr = JSON.toJSONString(deliveryorders);
+			System.out.println(jsonArray.toString());
+			response.getWriter().append(jsonArray.toString());
 	}
 
 }

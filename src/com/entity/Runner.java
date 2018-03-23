@@ -6,13 +6,15 @@ public class Runner {
   private String name;//姓名
   private String password;//密码
   private String idcardnumber;//身份证号
-  private String photoofidcartinhand;//手持身份证照存储地址
+  private String photoofidcardinhand;//手持身份证照存储地址
   private String photoofidcardoppo;//身份证反面照存储地址
   private String photoofidcardposi;//身份证正面照存储地址
   private String photoofhealcert;//健康证照片存储地址
   private Double balance;//余额
   private int integral;//积分
   private Long margin;//保证金提交状态：1：提交；2：未提交
+  private Double laititude;
+  private Double longtitude;
 
   public Long getRunnerid() {
     return runnerid;
@@ -46,15 +48,16 @@ public class Runner {
     this.idcardnumber = idcardnumber;
   }
 
-  public String getPhotoofidcartinhand() {
-    return photoofidcartinhand;
-  }
 
-  public void setPhotoofidcartinhand(String photoofidcartinhand) {
-    this.photoofidcartinhand = photoofidcartinhand;
-  }
+  public String getPhotoofidcardinhand() {
+	return photoofidcardinhand;
+}
 
-  public String getPhotoofidcardoppo() {
+public void setPhotoofidcardinhand(String photoofidcardinhand) {
+	this.photoofidcardinhand = photoofidcardinhand;
+}
+
+public String getPhotoofidcardoppo() {
     return photoofidcardoppo;
   }
 
@@ -109,4 +112,21 @@ public Long getMargin() {
   public void setPassword(String password) {
 	  this.password = password;
   }
+
+public Double getLaititude() {
+	return laititude;
+}
+
+public void setLaititude(Double laititude) {
+	this.laititude = laititude;
+}
+
+public Double getLongtitude() {
+	return longtitude;
+}
+
+public void setLongtitude(Double longtitude) {
+	this.longtitude = longtitude;
+}
+  
 }

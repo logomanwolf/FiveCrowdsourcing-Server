@@ -22,6 +22,8 @@ public class Deliveryorder {
   private int status;//状态：1：新建；2：待抢单；3：待取单；4：配送中；5：配送完成
   private double cuslat;//客户纬度
   private double cuslog;//客户经度
+  private String storeName;//商店名
+  private String storeAddress;//商店地址
 
   public Long getDelorderid() {
     return delorderid;
@@ -190,5 +192,20 @@ public double getCuslog() {
 public void setCuslog(double cuslog) {
 	this.cuslog = cuslog;
 }
-  
+
+public String getStoreName() {
+	return storeName;
+}
+
+public void setStoreName(String storeName) {
+	this.storeName = storeName;
+}
+
+public String getStoreAddress() {
+	return storeAddress;
+}
+
+public void setStoreAddress(String storeAddress) {
+	this.storeAddress = storeAddress;
+}
 }
