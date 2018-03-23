@@ -308,15 +308,15 @@
 					<ul class="submenu">
 
 
-						<li class=""><a href="typography.html"> <i
+						<li class=""><a href="/FiveCrowdsourcing-Server/validate.do"> <i
 								class="menu-icon fa fa-caret-right"></i> 商户审核
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="elements.html"> <i
+						<li class=""><a href="/FiveCrowdsourcing-Server/runner/validaterunner.do"> <i
 								class="menu-icon fa fa-caret-right"></i> 跑腿人审核
 						</a> <b class="arrow"></b></li>
 
-						<li class=""><a href="buttons.html"> <i
+						<li class=""><a href="#"> <i
 								class="menu-icon fa fa-caret-right"></i> 个体审核
 						</a> <b class="arrow"></b></li>
 
