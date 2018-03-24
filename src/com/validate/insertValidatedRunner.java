@@ -36,7 +36,6 @@ public class insertValidatedRunner extends HttpServlet {
       	  RunnerDao runnerDao=new RunnerDao();
       	  ArrayList<Runner> validatedRunners=(ArrayList<Runner>)session.getAttribute("validatedRunners");
       	  runnerDao.insertValidatedRunners(validatedRunners);
-      	  runnerDao.deleteRunnersfromTemp(validatedRunners);
       	  session.removeAttribute("validatedRunners");
       	  session.removeAttribute("runners");
       	  session.removeAttribute("runner");

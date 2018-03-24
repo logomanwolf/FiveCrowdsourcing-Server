@@ -18,6 +18,7 @@ public class Merchant implements Serializable{
   private Double longitude;//¾­¶È
   private Double latitude;//Î³¶È
   private Double balance;//Óà¶î
+  private String status;//ÉóºË×´Ì¬:0:ĞÂ×¢²á 1£º´ıÉóºË 2£ºÉóºËÍ¨¹ı 
   public Long getMerchantid() {
     return merchantid;
   }
@@ -137,5 +138,12 @@ public Double getBalance() {
 public void setBalance(Double balance) {
 	this.balance = balance;
 }
-  
+
+public String getStatus() {
+	return status;
+}
+
+public void setStatus(String status) {
+	this.status = status;
+}
 }

@@ -46,10 +46,10 @@ public class runnerRegister extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		// String phone = request.getParameter("phone");
-		// String password=request.getParameter("password");
-		String phone = "123456";
-		String password = "123456";
+		 String phone = request.getParameter("phone");
+		 String password=request.getParameter("password");
+		//String phone = "123456";
+		//String password = "123456";
 		Runner runner = new Runner();
 		runner.setPhone(phone);
 		runner.setPassword(password);

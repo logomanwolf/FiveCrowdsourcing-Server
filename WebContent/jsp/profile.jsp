@@ -569,7 +569,7 @@
 													<div class="col-xs-12 col-sm-6 center">
 														<div class="profile-picture">
 															<img class="editable img-responsive" alt="Alex's Avatar"
-																width="500px" id="avatar2" src="../idCardPic/1.jpg" />
+																width="500px" id="avatar2" src="${merchant.idcardphoto}" />
 														</div>
 
 														<div class="space space-4"></div>

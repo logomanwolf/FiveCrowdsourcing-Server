@@ -54,14 +54,15 @@ public class LoginServlet extends HttpServlet {
 		MerchantDao merchantDao = new MerchantDao();
 		try {
 			Merchant merchant = merchantDao.checkMerchant(phone, password);
-			// 判断密码是否正确
+			// 判断是否为未入驻商户
 			if (merchant != null) {
 				result = "success";
 				// 数据转换
 				jsonObject = new JSONObject(merchant);
 				jsonObject.put("result", result);
 				System.out.println(jsonObject);
-			} else {
+			}
+			else {
 				// 数据转换
 				result = "false";
 				jsonObject = new JSONObject();

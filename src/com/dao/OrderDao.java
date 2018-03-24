@@ -71,7 +71,7 @@ public class OrderDao extends BaseDao {
 		String sql = "select delOrderId,estimatedTime,estimatedTotalPrice,orderTime,cusname,cusphone,cusaddress,things"
 				+ ",delMethodId,cusLat,cusLog,storeName,address"
 				+ " from fivecrowdsourcing.deliveryorder,fivecrowdsourcing.merchant"
-				+ " where runnerId = ? and status='3' and deliveryorder.merchantId=merchant.merchantId;";
+				+ " where runnerId = ? and deliveryorder.status='3' and deliveryorder.merchantId=merchant.merchantId;";
 		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
 		Deliveryorder deliveryorder = new Deliveryorder();
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -106,7 +106,7 @@ public class OrderDao extends BaseDao {
 		String sql = "select delOrderId,estimatedTime,estimatedTotalPrice,orderTime,cusname,cusphone,cusaddress,things"
 				+ ",delMethodId,cusLat,cusLog,storeName,address"
 				+ " from fivecrowdsourcing.deliveryorder,fivecrowdsourcing.merchant"
-				+ " where runnerId = ? and status='4' and deliveryorder.merchantId=merchant.merchantId;";
+				+ " where runnerId = ? and deliveryorder.status='4' and deliveryorder.merchantId=merchant.merchantId;";
 		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
 		Deliveryorder deliveryorder = new Deliveryorder();
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -141,7 +141,7 @@ public class OrderDao extends BaseDao {
 		String sql = "select delOrderId,estimatedTime,estimatedTotalPrice,orderTime,cusname,cusphone,cusaddress,things"
 				+ ",delMethodId,cusLat,cusLog,storeName,address"
 				+ " from fivecrowdsourcing.deliveryorder,fivecrowdsourcing.merchant"
-				+ " where runnerId = ? and status='5' and deliveryorder.merchantId=merchant.merchantId;";
+				+ " where runnerId = ? and deliveryorder.status='5' and deliveryorder.merchantId=merchant.merchantId;";
 		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
 		Deliveryorder deliveryorder = new Deliveryorder();
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -173,7 +173,7 @@ public class OrderDao extends BaseDao {
 	// 获得附近商店的配送单
 	@SuppressWarnings("null")
 	public List<Deliveryorder> getNearByDelOrder(double lat1, double lng1) {
-		String sql = "SELECT * FROM fivecrowdsourcing.deliveryorder;";
+		String sql = "SELECT * FROM fivecrowdsourcing.deliveryorder where deliveryorder.status='2';";
 		String sql2 = "select * from fivecrowdsourcing.merchant where merchantId = ?;";
 		double lat2 = 0, lng2 = 0;
 
@@ -218,7 +218,7 @@ public class OrderDao extends BaseDao {
 	// 获得所有未接受的订单
 	@SuppressWarnings("null")
 	public List<Deliveryorder> getAllInactiveDelOrder(Long merchantid) {
-		String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and status='2';";
+		String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and deliveryorder.status='2';";
 		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
 		Deliveryorder deliveryorder = new Deliveryorder();
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -249,7 +249,7 @@ public class OrderDao extends BaseDao {
 	// 获得所有未取货的订单
 	@SuppressWarnings("null")
 	public List<Deliveryorder> getAllInactiveGood(Long merchantid) {
-		String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and status='3';";
+		String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and deliveryorder.status='3';";
 		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
 		Deliveryorder deliveryorder = new Deliveryorder();
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -281,7 +281,7 @@ public class OrderDao extends BaseDao {
 	// 获得所有配送中的订单
 	@SuppressWarnings("null")
 	public List<Deliveryorder> getAllSendingOrder(Long merchantid) {
-		String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and status='4';";
+		String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and deliveryorder.status='4';";
 		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
 		Deliveryorder deliveryorder = new Deliveryorder();
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {
@@ -313,7 +313,7 @@ public class OrderDao extends BaseDao {
 	// 获得所有完成的订单
 	@SuppressWarnings("null")
 	public List<Deliveryorder> getAllCompletedOrder(Long merchantid) {
-		String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and status='5';";
+		String sql = "select * from fivecrowdsourcing.deliveryorder where merchantId = ? and deliveryorder.status='5';";
 		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
 		Deliveryorder deliveryorder = new Deliveryorder();
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);) {

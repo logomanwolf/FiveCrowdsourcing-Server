@@ -20,7 +20,7 @@ import com.mysql.jdbc.Statement;
 
 public class MerchantDao extends BaseDao implements IMerchantDao {
 
-	// 检查商户密码
+	// 检查未入驻商户密码
 	public Merchant checkMerchant(String phone, String password) {
 		String sql = "SELECT * FROM fivecrowdsourcing.merchant where phone=? AND password=?;";
 		Merchant merchant = null;
@@ -46,6 +46,7 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 				merchant.setMargin(rs.getLong("margin"));
 				merchant.setLatitude(rs.getDouble("latitude"));
 				merchant.setLongitude(rs.getDouble("longitude"));
+				merchant.setStatus(rs.getString("status"));
 			}
 			return merchant;
 		} catch (SQLException se) {
@@ -64,7 +65,7 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 		String sql = "UPDATE `fivecrowdsourcing`.`merchant` SET `tofgId`=?, "
 				+ "`name`=?, `idCardNumber`=?, `idCardPhoto`=?, "
 				+ "`storeName`=?, `phone`=?, `address`=?, "
-				+ "`busLicensePhoto`=?, `foodBusLicensePhoto`=?, `longitude`=?, "
+				+ "`busLicensePhoto`=?, `foodBusLicensePhoto`=?, `longitude`=?, `status`=1, "
 				+ "`latitude`=? WHERE `merchantId`=?;";
 		try (Connection conn = dataSource.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -110,7 +111,7 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * 查找未审核的商户，形成服务器的列表
 	 * 
 	 * @see com.dao.IMerchantDao#findMerchants()
 	 */
@@ -118,7 +119,7 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 	public List<Merchant> findMerchants() {
 		// TODO Auto-generated method stub
 		List<Merchant> result = new ArrayList<Merchant>();
-		String query = "select * from merchant";
+		String query = "select * from merchant where status='1';";
 		ResultSet rs = this.executeQuery(query, null);
 		try {
 			while (rs.next()) {
@@ -137,6 +138,7 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 						.getString("foodBusLicensePhoto"));
 				merchant.setIdcardphoto(rs.getString("idCardPhoto"));
 				merchant.setMargin(rs.getLong("margin"));
+				merchant.setStatus(rs.getString("status"));
 				result.add(merchant);
 			}
 		} catch (SQLException e) {
@@ -175,6 +177,7 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 						.getString("foodBusLicensePhoto"));
 				merchant.setIdcardphoto(rs.getString("idCardPhoto"));
 				merchant.setMargin(rs.getLong("margin"));
+				merchant.setStatus(rs.getString("status"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -289,54 +292,29 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 		return typeofgoods;
 	}
 
+	//商户审核通过，状态改为2
 	@Override
 	public Integer insertValidatedMerchants(List<Merchant> validatedMerchants) {
 		// TODO Auto-generated method stub
-		String query = "";
 		ArrayList<String> params = new ArrayList<>();
+		String query="";
+		System.out.println(validatedMerchants.size());
 		for (Merchant merchant : validatedMerchants) {
-			if(merchant==null)
-			System.out.println("merchant==null");
-			params.add(merchant.getTofgid().toString());
-			params.add(merchant.getName());
-			params.add(merchant.getIdcardnumber());
-			params.add(merchant.getIdcardphoto());
-			params.add(merchant.getPassword());
-			params.add(merchant.getStorename());
-			params.add(merchant.getPhone());
-			params.add(merchant.getAddress());
-			params.add(merchant.getBuslicensephoto());
-			params.add(merchant.getFoodbuslicensephoto());
-			params.add(merchant.getMargin().toString());
-			params.add(null);
-			params.add(null);
-			query = query
-					+ " INSERT INTO validatedmerchant(tofgId,name,idCardNumber,idCardPhoto,password,storeName,"
-					+ " phone,address,busLicensePhoto,foodBusLicensePhoto,margin,longitude,latitude) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);";
-		}
-
-		int rs = this.executeUpdate(query, params);
-		return rs;
-	}
-
-	@Override
-	public Integer deleteMerchantsfromTemp(List<Merchant> validatedMerchants) {
-		// TODO Auto-generated method stub
-		String query = "";
-		ArrayList<String> params = new ArrayList<>();
-		for (Merchant merchant : validatedMerchants) {
+			System.out.println(merchant.getName());
 			params.add(merchant.getMerchantid().toString());
-			query = query + "  delete from merchant where merchantId=?;";
+			query = query
+					+ "UPDATE `fivecrowdsourcing`.`merchant` SET `status`='2' WHERE `merchantId`=?;\n";
 		}
-
+        System.out.println(query);
 		int rs = this.executeUpdate(query, params);
 		return rs;
 	}
+
 
 	@Override
 	public Integer insertAMerchant(Merchant merchant) {
 		// TODO Auto-generated method stub
-	   String sql="insert into merchant(phone,password) values(?,?);";
+	   String sql="insert into merchant(phone,password,status) values(?,?,0);";
 	   
 	   try (Connection conn = dataSource.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -350,4 +328,20 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 		}
 	}
 
+	public String getMerchantStatus(long merchantId) {
+		// TODO Auto-generated method stub
+		String status=null;
+		 String sql="select status from merchant where merchantId=?";
+		   try (Connection conn = dataSource.getConnection();
+					PreparedStatement pstmt = conn.prepareStatement(sql)) {
+				pstmt.setLong(1, merchantId);
+				ResultSet rs = pstmt.executeQuery();
+				while(rs.next()){
+					status=rs.getString("status");
+				}			
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+		return status;
+ }
 }

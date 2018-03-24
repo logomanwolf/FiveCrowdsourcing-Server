@@ -36,6 +36,7 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 				runner.setBalance(rs.getDouble("balance"));
 				runner.setIntegral(rs.getInt("integral"));
 				runner.setMargin(rs.getLong("margin"));
+				runner.setStatus(rs.getString("status"));
 
 				// runner.setStorename(rs.getString("storeName"));
 
@@ -56,7 +57,7 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 	public List<Runner> findRunners() {
 		// TODO Auto-generated method stub
 		List<Runner> result = new ArrayList<Runner>();
-		String query = "select * from runner";
+		String query = "select * from runner where status='1'";
 		ResultSet rs = this.executeQuery(query, null);
 		try {
 			while (rs.next()) {
@@ -72,6 +73,7 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 				runner.setPhotoofidcardoppo(rs.getString("photoofidcardoppo"));
 				runner.setPhotoofhealcert(rs.getString("photoofhealcert"));
 				runner.setMargin(rs.getLong("margin"));
+				runner.setStatus(rs.getString("status"));
 				result.add(runner);
 			}
 		} catch (SQLException e) {
@@ -88,37 +90,10 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 		// TODO Auto-generated method stub
 		String query = "";
 		ArrayList<String> params = new ArrayList<>();
-		for (Runner runner : validatedRunners) {
-			params.add(runner.getPhone());
-			params.add(runner.getName());
-			params.add(runner.getPassword());
-			params.add(runner.getIdcardnumber());
-			params.add(runner.getPhotoofidcardinhand());
-			params.add(runner.getPhotoofidcardoppo());
-			params.add(runner.getPhotoofidcardposi());
-			params.add(runner.getPhotoofhealcert());
-			if(runner.getMargin()!=null)
-			params.add(runner.getMargin().toString());
-			else
-			params.add("null");	
-			query = query
-					+ " INSERT INTO validatedrunner(phone,name,password,idCardNumber,photoOfIdCartInhand,photoOfIdCardOppo,photoOfIdCardPosi,photoOfHealCert,margin) VALUES(?,?,?,?,?,?,?,?,?);";
-			// +" delete from runner where runnerId=?;";
-		}
-
-		int rs = this.executeUpdate(query, params);
-		return rs;
-	}
-
-	@Override
-	public Integer deleteRunnersfromTemp(List<Runner> validatedRunners) {
-		// TODO Auto-generated method stub
-		// TODO 从暂时的列表里删除runner信息
-		String query = "";
-		ArrayList<String> params = new ArrayList<>();
-		for (Runner runner : validatedRunners) {
+		for (Runner runner : validatedRunners) {			
 			params.add(runner.getRunnerid().toString());
-			query = query + "  delete from runner where runnerId=?;";
+			query = query
+					+ "UPDATE `fivecrowdsourcing`.`runner` SET `status`='2' WHERE `runnerId`=?;\n";
 		}
 
 		int rs = this.executeUpdate(query, params);
@@ -174,7 +149,7 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 		String sql = "insert into runner(phone,password) values(?,?);";
 
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, runner.getPassword());
+			pstmt.setString(1, runner.getPhone());
 			pstmt.setString(2, runner.getPassword());
 			Integer rs = pstmt.executeUpdate();
 			return rs;

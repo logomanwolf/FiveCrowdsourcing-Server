@@ -50,7 +50,6 @@ public class insertValidatedMerchants extends HttpServlet {
         	  MerchantDao merchantDao=new MerchantDao();
         	  ArrayList<Merchant> validatedMerchants=(ArrayList<Merchant>)session.getAttribute("validatedMerchants");
         	  merchantDao.insertValidatedMerchants(validatedMerchants);
-        	  merchantDao.deleteMerchantsfromTemp(validatedMerchants);
         	  session.removeAttribute("validatedMerchants");
         	  session.removeAttribute("merchants");
         	  session.removeAttribute("merchant");
