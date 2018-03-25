@@ -56,12 +56,11 @@ public class runnerRegister extends HttpServlet {
 		RunnerDao runnerDao = new RunnerDao();
 		Integer result = runnerDao.insertARunner(runner);
 		// 表示成功与否
-		boolean success = false;
+		String success = null ;
 		if (result > 0)
-			success = true;
+			success ="success";
 		JSONObject jsonObject = new JSONObject();
-		jsonObject.put("success", success);
-		response.getWriter().append(jsonObject.toString());
+		response.getWriter().append(success);
 	}
 
 	/**

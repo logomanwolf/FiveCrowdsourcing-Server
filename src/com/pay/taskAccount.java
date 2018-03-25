@@ -2,6 +2,7 @@ package com.pay;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -83,8 +84,13 @@ public class taskAccount extends HttpServlet {
 		runner.setBalance(runner.getBalance()+realPay);
 		runner.setIntegral(runner.getIntegral()+10);
 		//在这里讲相应order的状态变为5，并且将runner的相应的余额和积分改变
-		if (orderDao.updateOrder(deliveryorder) == 0  || runnerDao.updateRunner(runner) )
-			success = false;
+		try {
+			if (orderDao.updateOrder(deliveryorder) == 0  || runnerDao.updateRunner(runner) )
+				success = false;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("success", success);
 		jsonObject.put("deliveryorder", deliveryorder);

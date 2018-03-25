@@ -294,7 +294,7 @@ public class MerchantDao extends BaseDao implements IMerchantDao {
 
 	//商户审核通过，状态改为2
 	@Override
-	public Integer insertValidatedMerchants(List<Merchant> validatedMerchants) {
+	public Integer insertValidatedMerchants(List<Merchant> validatedMerchants) throws SQLException {
 		// TODO Auto-generated method stub
 		ArrayList<String> params = new ArrayList<>();
 		String query="";

@@ -56,7 +56,7 @@ public class BaseDao {
 	}
 
 	// 执行写操作方法
-	public int executeUpdate(String query, List<String> params) {
+	public int executeUpdate(String query, List<String> params) throws SQLException {
 		int result = 0;
 		
 		try {
@@ -75,7 +75,7 @@ public class BaseDao {
 			e.printStackTrace();
 		} finally {
 			// 6、释放资源
-			this.close();
+			conn.close();
 		}
 		return result;
 	}

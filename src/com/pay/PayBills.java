@@ -2,6 +2,7 @@ package com.pay;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -60,8 +61,13 @@ public class PayBills extends HttpServlet {
 		Merchant merchant=merchantDao.findValidatedMerchantById(deliveryorder.getMerchantid());
 		/**这里有错误，需要进行修改**/		
 		merchant.setBalance(merchant.getBalance()+deliveryorder.getEstimatedtotalprice());
-		if(orderDao.updateOrderAfterPay(deliveryorder)==0 || !merchantDao.updateMerchantBalance(merchant))
-			success=false;
+		try {
+			if(orderDao.updateOrderAfterPay(deliveryorder)==0 || !merchantDao.updateMerchantBalance(merchant))
+				success=false;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		JSONObject jsonObject = new JSONObject();
 		jsonObject.put("success", success);
 		response.getWriter().append(jsonObject.toString());

@@ -1,4 +1,5 @@
 package com.dao;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.entity.Merchant;
@@ -16,7 +17,7 @@ public interface IMerchantDao {
     public int delMerchantById(int id);
     public int updateMerchantById(int id,Merchant role);
     public boolean checkMerchant(String name);
-    public Integer insertValidatedMerchants(List<Merchant> validatedMerchants);
+    public Integer insertValidatedMerchants(List<Merchant> validatedMerchants) throws SQLException;
     //商户入住的第一步，插入商户
     public Integer insertAMerchant(Merchant merchant);
     

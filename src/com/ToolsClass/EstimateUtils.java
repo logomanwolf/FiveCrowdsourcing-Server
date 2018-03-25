@@ -70,17 +70,17 @@ public class EstimateUtils {
 		}
 		
 		if(estimateddistance<=2000)
-			price += 8;
+			price += 0;
 		else if(estimateddistance<=10000)
-			price = price + 8 + 2*(estimateddistance-2000)/1000;
+			price = price + 2*(estimateddistance-2000)/1000;
 		else 
-			price = price + 8 + 16 + 6*(estimateddistance-10000)/5000;
+			price = price +  16 + 6*(estimateddistance-10000)/5000;
 		
 		double time = Double.parseDouble(ordertime.substring(11, 13));
 		if(time<=6)
-			price += 8;
-		else if(time>=22)
 			price += 4;
+		else if(time>=22)
+			price += 0;
 		
 		return price;
 	}

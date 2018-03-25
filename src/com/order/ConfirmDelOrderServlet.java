@@ -1,6 +1,8 @@
 package com.order;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,7 +41,13 @@ public class ConfirmDelOrderServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		Long delorderid = (long) 6;
 		OrderDao orderdao = new OrderDao();
-		int ans = orderdao.updateOrderStatus(delorderid);
+		int ans = 0;
+		try {
+			ans = orderdao.updateOrderStatus(delorderid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String result = "";
 		if(ans!=0)
 			result = "success";

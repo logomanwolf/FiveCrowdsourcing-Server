@@ -102,7 +102,7 @@ public class AddDelOrderServlet extends HttpServlet {
 		// 获得商户经纬度
 		 String url = "http://api.map.baidu.com/routematrix/v2/riding";// 骑行接口
 		 // 接口参数
-		 String param = "output=json&origins=" + cuslat + "," + cuslng
+		 String param = "coord_type=gcj02&output=json&origins=" + cuslat + "," + cuslng
 		 + "&destinations=" + location[0] + "," + location[1]
 		 + "&ak=Gsj9D1Ih7RV00jypSLk8osnircS4NRPA";
 		 Long estimatedtime = (long)

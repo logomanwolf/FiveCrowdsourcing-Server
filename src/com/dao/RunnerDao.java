@@ -23,13 +23,11 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 			while (rs.next()) {
 				runner = new Runner();
 				runner.setRunnerid(rs.getLong("runnerId"));
-				// runner.setTofgid(rs.getLong("tofgId"));
 				runner.setPhone(rs.getString("phone"));
 				runner.setName(rs.getString("name"));
 				runner.setPassword(rs.getString("password"));
 				runner.setIdcardnumber(rs.getString("idCardNumber"));
-				// runner.setAddress(rs.getString("address"));
-				runner.setPhotoofidcardinhand(rs.getString("photoOfIdCardInhand"));
+				runner.setPhotoofidcardinhand(rs.getString("photoOfIdCartInhand"));
 				runner.setPhotoofidcardoppo(rs.getString("photoOfIdCardOppo"));
 				runner.setPhotoofidcardposi(rs.getString("photoOfIdCardPosi"));
 				runner.setPhotoofhealcert(rs.getString("photoOfHealCert"));
@@ -37,14 +35,6 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 				runner.setIntegral(rs.getInt("integral"));
 				runner.setMargin(rs.getLong("margin"));
 				runner.setStatus(rs.getString("status"));
-
-				// runner.setStorename(rs.getString("storeName"));
-
-				// runner.setBuslicensephoto(rs.getString("busLicensePhoto"));
-				// runner.setFoodbuslicensephoto(rs
-				// .getString("foodBusLicensePhoto"));
-				// runner.setIdcardphoto(rs.getString("idCardPhoto"));
-
 			}
 			return runner;
 		} catch (SQLException se) {
@@ -85,7 +75,7 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 	}
 
 	@Override
-	public Integer insertValidatedRunners(List<Runner> validatedRunners) {
+	public Integer insertValidatedRunners(List<Runner> validatedRunners) throws SQLException {
 		// TODO Auto-generated method stub
 		// TODO Auto-generated method stub
 		String query = "";
@@ -128,12 +118,18 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 
 	public boolean updateRunner(Runner runner) {
 		// TODO Auto-generated method stub
-		String sql = "UPDATE `fivecrowdsourcing`.`validatedrunner` SET `balance`=?, "
-				+ "`integral`=? WHERE `runnerId`=?;";
+		String sql = "UPDATE `fivecrowdsourcing`.`runner` SET `phone`=?, "
+				+ "`name`=?, `idCardNumber`=?, `photoOfIdCardOppo`=?, "
+				+ "`photoOfIdCardPosi`=?, `photoOfHealCert`=?,"
+				+ " `status`='1' WHERE `runnerId`=?;";
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setDouble(1, runner.getBalance());
-			pstmt.setInt(2, runner.getIntegral());
-			pstmt.setLong(3, runner.getRunnerid());
+			pstmt.setString(1, runner.getPhone());
+			pstmt.setString(2, runner.getName());
+			pstmt.setString(3, runner.getIdcardnumber());
+			pstmt.setString(4, runner.getPhotoofidcardoppo());
+			pstmt.setString(5, runner.getPhotoofidcardposi());
+			pstmt.setString(6, runner.getPhotoofhealcert());
+			pstmt.setLong(7, runner.getRunnerid());
 			pstmt.executeUpdate();
 			return true;
 		} catch (SQLException e) {
@@ -146,7 +142,7 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 	@Override
 	public Integer insertARunner(Runner runner) {
 		// TODO Auto-generated method stub
-		String sql = "insert into runner(phone,password) values(?,?);";
+		String sql = "insert into runner(phone,password,status,balance,integral) values(?,?,0,0,100);";
 
 		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			pstmt.setString(1, runner.getPhone());
@@ -158,4 +154,22 @@ public class RunnerDao extends BaseDao implements IRunnerDao {
 			return 0;
 		}
 	}
+
+	
+	public String getRunnerStatus(long runnerId) {
+		// TODO Auto-generated method stub
+		String status=null;
+		 String sql="select status from Runner where runnerId=?";
+		   try (Connection conn = dataSource.getConnection();
+					PreparedStatement pstmt = conn.prepareStatement(sql)) {
+				pstmt.setLong(1, runnerId);
+				ResultSet rs = pstmt.executeQuery();
+				while(rs.next()){
+					status=rs.getString("status");
+				}			
+			} catch (SQLException se) {
+				se.printStackTrace();
+			}
+		return status;
+ }
 }

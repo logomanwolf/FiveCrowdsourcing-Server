@@ -172,16 +172,17 @@ public class OrderDao extends BaseDao {
 
 	// 获得附近商店的配送单
 	@SuppressWarnings("null")
-	public List<Deliveryorder> getNearByDelOrder(double lat1, double lng1) {
+	public List<Deliveryorder> getNearByDelOrder(double lat1, double lng1) throws SQLException {
 		String sql = "SELECT * FROM fivecrowdsourcing.deliveryorder where deliveryorder.status='2';";
 		String sql2 = "select * from fivecrowdsourcing.merchant where merchantId = ?;";
 		double lat2 = 0, lng2 = 0;
-
+		Connection conn = null;
 		String url = "http://api.map.baidu.com/routematrix/v2/riding";// 骑行接口
 
 		List<Deliveryorder> list = new ArrayList<Deliveryorder>();
 		Deliveryorder deliveryorder = new Deliveryorder();
-		try (Connection conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+		try {
+			conn = dataSource.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			PreparedStatement pstmt2 = conn.prepareStatement(sql2);
 			while (rs.next()) {
@@ -190,6 +191,8 @@ public class OrderDao extends BaseDao {
 				while (rs2.next()) {
 					lat2 = rs2.getDouble("latitude");
 					lng2 = rs2.getDouble("longitude");
+					deliveryorder.setStoreName(rs2.getString("storeName"));
+					deliveryorder.setStoreAddress(rs2.getString("address"));
 				}
 				// 接口参数
 				String param = "output=json&origins=" + lat1 + "," + lng1 + "&destinations=" + lat2 + "," + lng2
@@ -212,6 +215,8 @@ public class OrderDao extends BaseDao {
 		} catch (SQLException se) {
 			se.printStackTrace();
 			return null;
+		}finally {
+			conn.close();
 		}
 	}
 
@@ -410,7 +415,7 @@ public class OrderDao extends BaseDao {
 	}
 
 	// 用于更新订单信息(配送到达时)
-	public Integer updateOrder(Deliveryorder deliveryorder) {
+	public Integer updateOrder(Deliveryorder deliveryorder) throws SQLException {
 		String query = "UPDATE deliveryorder SET deliveryorder.outTime = ?, deliveryorder.extraPrice = ?,deliveryorder.status=? WHERE deliveryorder.merchantId =?";
 		ArrayList<String> params = new ArrayList<>();
 		params.add(deliveryorder.getOuttime());
@@ -421,7 +426,7 @@ public class OrderDao extends BaseDao {
 		return rs;
 	}
 
-	// 查询相应状态的订单
+	// 查询相应状态的订单(根据商家)
 	public List<Deliveryorder> getOrdersByStatus(Integer status, Long merchantid) {
 		String query = "SELECT * FROM fivecrowdsourcing.deliveryorder where merchantId=? and status=?;";
 		ArrayList<String> params = new ArrayList<>();
@@ -460,8 +465,48 @@ public class OrderDao extends BaseDao {
 
 	}
 
+	// 查询相应状态的订单(根据跑腿人)
+		public List<Deliveryorder> getOrdersByStatusRunner(Integer status, Long runnerid) {
+			String query = "SELECT * FROM fivecrowdsourcing.deliveryorder where runnerId=? and status=?;";
+			ArrayList<String> params = new ArrayList<>();
+			params.add(runnerid.toString());
+			params.add(status.toString());
+			ResultSet rs = this.executeQuery(query, params);
+			List<Deliveryorder> deliveryorders = new ArrayList<>();
+			try {
+				while (rs.next()) {
+					Deliveryorder deliveryorder = new Deliveryorder();
+					deliveryorder.setDelorderid(rs.getLong("delOrderId"));
+					deliveryorder.setEstimatedtime(rs.getLong("estimatedtime"));
+					deliveryorder.setMerchantid(rs.getLong("merchantid"));
+					deliveryorder.setRunnerid(rs.getLong("runnerid"));
+					deliveryorder.setDelmethodid(rs.getLong("delmethodid"));
+					deliveryorder.setIntime(rs.getString("intime"));
+					deliveryorder.setCusName(rs.getString("cusName"));
+					deliveryorder.setCusAddress(rs.getString("cusAddress"));
+					deliveryorder.setCusPhone(rs.getString("cusPhone"));
+					deliveryorder.setEstimatedtotalprice(rs.getDouble("estimatedtotalprice"));
+					deliveryorder.setDistance(rs.getInt("distance"));
+					deliveryorder.setStatus(rs.getInt("status"));
+					deliveryorder.setIntegral(rs.getInt("integral"));
+					deliveryorder.setThings(rs.getString("things"));
+					deliveryorder.setTrueweight(rs.getDouble("trueweight"));
+					deliveryorder.setOuttime(rs.getString("outtime"));
+					deliveryorder.setExtraprice(rs.getDouble("extraprice"));
+					deliveryorders.add(deliveryorder);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				this.close();
+			}
+			return deliveryorders;
+
+		}
+	
+	
 	// 用于更新订单信息(付款成功时)
-	public Integer updateOrderAfterPay(Deliveryorder deliveryorder) {
+	public Integer updateOrderAfterPay(Deliveryorder deliveryorder) throws SQLException {
 		String query = "UPDATE deliveryorder SET deliveryorder.status=? WHERE deliveryorder.merchantId =?";
 		ArrayList<String> params = new ArrayList<>();
 		params.add(((Integer) deliveryorder.getStatus()).toString());
@@ -471,7 +516,7 @@ public class OrderDao extends BaseDao {
 	}
 
 	// 用于更新订单信息(商家确认订单后)
-	public Integer updateOrderStatus(Long delorderid) {
+	public Integer updateOrderStatus(Long delorderid) throws SQLException {
 		String query = "UPDATE deliveryorder SET deliveryorder.status=2 WHERE deliveryorder.delOrderId =?";
 		ArrayList<String> params = new ArrayList<>();
 		params.add(delorderid.toString());
@@ -502,7 +547,24 @@ public class OrderDao extends BaseDao {
 		} catch (SQLException e) {
 			// TODO 自动生成的 catch 块
 			e.printStackTrace();
+		}finally {
+			
 		}
 		return 0;
+	}
+	
+	// 用于更新订单信息(跑腿人取货后)
+	public void updateOrderAfterGoodGetted(Long delorderid, Long runnerid) {
+		String sql = "UPDATE `fivecrowdsourcing`.`deliveryorder` SET `status`=4 "
+				+ "WHERE `delOrderId`=?;";
+		try (Connection conn = dataSource.getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setLong(1,delorderid);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		
+		}
 	}
 }
