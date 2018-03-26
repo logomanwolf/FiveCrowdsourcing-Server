@@ -2,6 +2,7 @@ package com.validate;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -49,7 +50,12 @@ public class insertValidatedMerchants extends HttpServlet {
           else{
         	  MerchantDao merchantDao=new MerchantDao();
         	  ArrayList<Merchant> validatedMerchants=(ArrayList<Merchant>)session.getAttribute("validatedMerchants");
-        	  merchantDao.insertValidatedMerchants(validatedMerchants);
+        	  try {
+				merchantDao.insertValidatedMerchants(validatedMerchants);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
         	  session.removeAttribute("validatedMerchants");
         	  session.removeAttribute("merchants");
         	  session.removeAttribute("merchant");

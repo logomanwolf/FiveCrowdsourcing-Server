@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,8 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.alibaba.fastjson.JSON;
 import com.dao.OrderDao;
+import com.dao.RunnerDao;
 import com.entity.Deliveryorder;
 import com.entity.Merchant;
+import com.entity.Runner;
 
 import net.sf.json.JSONArray;
 
@@ -83,7 +86,24 @@ public class DispalySendingOrder extends HttpServlet {
 			else if (deliveryorders.size() == 0)
 				result = "failed";
 			else
+			{
+				//订单中增加跑腿人信息
+				for(Deliveryorder order:deliveryorders)
+				{
+					ServletContext application = request.getServletContext();
+					Double[] location = new Double[2];					
+					location=(Double[]) application.getAttribute(order.getRunnerid().toString());
+					order.setRunlat(location[0]);
+					order.setRunlon(location[1]);
+					//获得跑腿人信息
+					RunnerDao runnerdao=new RunnerDao();
+				    Runner runner=runnerdao.getRunnerById(order.getRunnerid());
+				    order.setRunName(runner.getName());
+				    order.setRunPhone(runner.getPhone());
+				}
 				result = "success";
+			}
+				
 			JSONArray jsonArray = JSONArray.fromObject(deliveryorders);
 			//String delOrdersStr = JSON.toJSONString(deliveryorders);
 			System.out.println(jsonArray.toString());

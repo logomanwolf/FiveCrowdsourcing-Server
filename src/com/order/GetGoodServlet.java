@@ -56,7 +56,7 @@ public class GetGoodServlet extends HttpServlet {
 		OrderDao orderdao = new OrderDao();
 	    orderdao.updateOrderAfterGoodGetted(Long.parseLong(delorderid),Long.parseLong(runnerid));
 		List<Deliveryorder> delOrderList = new ArrayList<Deliveryorder>();
-		delOrderList = orderdao.getOrdersByStatusRunner(4,Long.parseLong(runnerid));
+		delOrderList = orderdao.getOrdersByStatusRunner(3,Long.parseLong(runnerid));
 		//转换成JSON格式，写给APP	
 		JSONArray jsonArray = JSONArray.fromObject(delOrderList);
 		response.getWriter().append(jsonArray.toString());

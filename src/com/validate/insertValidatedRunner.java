@@ -2,6 +2,7 @@ package com.validate;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -35,7 +36,12 @@ public class insertValidatedRunner extends HttpServlet {
         else{
       	  RunnerDao runnerDao=new RunnerDao();
       	  ArrayList<Runner> validatedRunners=(ArrayList<Runner>)session.getAttribute("validatedRunners");
-      	  runnerDao.insertValidatedRunners(validatedRunners);
+      	  try {
+			runnerDao.insertValidatedRunners(validatedRunners);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
       	  session.removeAttribute("validatedRunners");
       	  session.removeAttribute("runners");
       	  session.removeAttribute("runner");
