@@ -77,7 +77,7 @@ public class SendDelOrderServlet extends HttpServlet {
 		 System.out.println(runner.getRunnerid());
 		//模拟APP发送过来的经纬度信息
 		OrderDao orderdao = new OrderDao();
-		Long runnerid = (long) 1;
+//		Long runnerid = (long) 1;
 		double lat1 = runner.getLaititude();
 		double lng1 = runner.getLongtitude();
 		
@@ -89,7 +89,7 @@ public class SendDelOrderServlet extends HttpServlet {
 		Double[] location = new Double[2];
 		location[0] = lat1;location[1] = lng1;
 		ServletContext application = request.getServletContext();
-		application.setAttribute(runnerid.toString(), location);
+		application.setAttribute(runner.getRunnerid().toString(), location);
 		
 		List<Deliveryorder> delOrderList = new ArrayList<Deliveryorder>();
 		
